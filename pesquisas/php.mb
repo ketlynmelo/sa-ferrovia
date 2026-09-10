@@ -1,0 +1,38 @@
+Pesquisa – PDO
+
+PDO, sigla para PHP Data Objects, é uma extensão do PHP utilizada para realizar a conexão entre uma aplicação PHP e um banco de dados.
+Seu principal objetivo é fornecer uma interface padronizada para acessar diferentes sistemas de gerenciamento de banco de dados. Dessa forma, o desenvolvedor pode utilizar uma estrutura semelhante de código mesmo trabalhando com diferentes bancos compatíveis, utilizando os respectivos drivers.
+O PDO é utilizado para permitir que aplicações desenvolvidas em PHP se comuniquem com bancos de dados.
+
+Por meio dele, é possível realizar operações como:
+. Inserir dados;
+. Consultar informações;
+. Atualizar registros;
+. Excluir dados;
+. Executar comandos SQL;
+. Utilizar instruções preparadas, conhecidas como Prepared Statements.
+
+O PDO facilita a organização do código e oferece uma forma padronizada de trabalhar com bancos de dados.
+Para realizar uma conexão utilizando PDO, é necessário informar os dados do banco, como:
+. Servidor;
+. Nome do banco de dados;
+. Usuário;
+. Senha.
+
+Além disso, é possível utilizar um bloco try/catch para identificar possíveis erros durante a conexão.
+Entre as principais características do PDO está sua capacidade de trabalhar com diferentes bancos de dados por meio de drivers específicos. Isso proporciona uma maior portabilidade para a aplicação, pois o desenvolvedor pode utilizar uma interface semelhante mesmo quando trabalha com diferentes sistemas de banco de dados. O PDO também trabalha com programação orientada a objetos, permite o tratamento de erros por exceções e possui suporte a Prepared Statements, conhecidos em português como instruções preparadas. Outra característica importante é a possibilidade de utilizar parâmetros nomeados ou posicionais durante a execução de comandos SQL.
+Quando comparado ao MySQLi, existem algumas diferenças importantes. O MySQLi é uma extensão desenvolvida especificamente para trabalhar com bancos de dados MySQL, enquanto o PDO possui suporte para diferentes sistemas de banco de dados. Os dois possuem suporte a Prepared Statements e podem ser utilizados de forma segura para executar comandos SQL. Entretanto, o PDO apresenta uma maior portabilidade, enquanto o MySQLi pode ser uma escolha mais específica e direta para projetos que utilizam exclusivamente o MySQL. Outra diferença é que o MySQLi permite a utilização dos estilos orientado a objetos e procedural, enquanto o PDO trabalha principalmente utilizando programação orientada a objetos.
+Entre as vantagens do PDO está a possibilidade de desenvolver aplicações mais portáveis e padronizadas. Caso um projeto necessite trabalhar com outro sistema de banco de dados no futuro, o PDO pode facilitar parte desse processo, pois sua estrutura de conexão e manipulação segue uma interface semelhante. Além disso, o suporte a Prepared Statements e a possibilidade de utilizar parâmetros nomeados tornam o código mais organizado e seguro. O tratamento de erros utilizando exceções também facilita a identificação de problemas durante a execução da aplicação.
+Apesar dessas vantagens, o PDO também possui algumas limitações. Para desenvolvedores iniciantes, sua utilização pode parecer mais complexa quando comparada a formas mais simples de conexão. Além disso, apesar de permitir trabalhar com diferentes bancos de dados, uma troca de banco não significa que toda a aplicação funcionará automaticamente, pois algumas consultas SQL e funcionalidades podem variar entre os diferentes sistemas. Outra característica é que o PDO não possui um estilo procedural como o MySQLi.
+Um dos recursos mais importantes disponíveis no PDO são os Prepared Statements. As instruções preparadas consistem em preparar uma consulta SQL antes de inserir os valores utilizados nela. Em vez de adicionar diretamente os dados fornecidos pelo usuário dentro de uma consulta, são utilizados parâmetros que recebem esses valores separadamente. Esse processo é importante principalmente para aumentar a segurança da aplicação.
+Os Prepared Statements ajudam a evitar ataques conhecidos como SQL Injection. Esse tipo de ataque pode acontecer quando dados inseridos pelo usuário são utilizados incorretamente na construção de uma consulta SQL, permitindo que comandos maliciosos sejam interpretados pelo banco de dados. Ao utilizar instruções preparadas, os valores são enviados separadamente da estrutura da consulta, reduzindo esse risco. Além da questão de segurança, os Prepared Statements também podem facilitar a reutilização de uma mesma consulta com diferentes valores.
+O PDO pode ser uma boa escolha em situações em que o projeto necessita de maior portabilidade ou quando existe a possibilidade de trabalhar com diferentes sistemas de banco de dados. Também é uma alternativa interessante para aplicações que utilizam frequentemente Prepared Statements, tratamento de erros por exceções e programação orientada a objetos. Entretanto, para projetos que utilizam exclusivamente o MySQL, tanto o PDO quanto o MySQLi podem ser boas opções, dependendo da organização e das necessidades da aplicação.
+No projeto SA-FERRORAMA, a atividade proposta solicita que a conexão principal com o banco de dados seja desenvolvida utilizando MySQLi. Mesmo assim, a pesquisa sobre PDO é importante para conhecer uma alternativa utilizada no PHP para realizar conexões e manipular bancos de dados. O conhecimento das duas tecnologias permite que a equipe compreenda diferentes formas de estabelecer a comunicação entre a aplicação e o banco de dados e possa escolher a alternativa mais adequada para cada situação.
+Portanto, o PDO é uma ferramenta importante no desenvolvimento de aplicações PHP que trabalham com bancos de dados. Sua capacidade de oferecer uma interface padronizada, trabalhar com diferentes bancos por meio de drivers, utilizar tratamento de erros e oferecer suporte a Prepared Statements são algumas de suas principais vantagens. Dessa forma, o PDO representa uma alternativa eficiente ao MySQLi e pode ser uma boa escolha para aplicações que necessitam de maior flexibilidade e portabilidade.
+
+Fontes utilizadas:
+
+PHP Documentation. PDO - PHP Data Objects. Disponível em: https://www.php.net/manual/pt_BR/book.pdo.php.
+PHP Documentation. PDO::prepare. Disponível em: https://www.php.net/manual/pt_BR/pdo.prepare.php.
+PHP Documentation. Prepared Statements. Disponível em: https://www.php.net/manual/pt_BR/pdo.prepared-statements.php.
+PHP Documentation. MySQLi. Disponível em: https://www.php.net/manual/pt_BR/book.mysqli.php.
