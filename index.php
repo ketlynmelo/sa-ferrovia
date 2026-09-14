@@ -1,4 +1,3 @@
-
 <html lang="en">
 
 <head>
@@ -13,9 +12,6 @@
 </head>
 
 <body id="login">
-<button onclick="location.href='public/usuario_page/usuario.php'">USUARIOS</button>
-<button onclick="location.href='public/monitoramento_page/monitoramento.php'">MONITORAMENTO</button>
-
   <main class="dividido">
 
     <div>
