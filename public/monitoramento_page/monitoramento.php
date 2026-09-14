@@ -7,7 +7,8 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="style/style.css">
+  <link rel="stylesheet" href="../../style/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 </head>
 
@@ -19,41 +20,41 @@
 
             <div class="text-center mb-5">
 
-                <img src="../assets/images/Simbolo.png" class="logo">
+                <img src="../../assets/images/Simbolo.png" class="logo">
 
             </div>
 
             <nav class="d-flex flex-column">
 
-                <a href="../public/home.html" class="menu-link">
+                <a href="../../public/home.html" class="menu-link">
 
                     <i class="bi bi-house-fill"></i>
                     <span>Início</span>
 
                 </a>
 
-                <a href="../public/monitoramento.html" class="menu-link active">
+                <a href="../../public/monitoramento.html" class="menu-link active">
 
                     <i class="bi bi-graph-up"></i>
                     <span>Monitoramento</span>
 
                 </a>
 
-                <a href="../public/relatorios.html" class="menu-link ">
+                <a href="../../public/relatorios.html" class="menu-link ">
 
                     <i class="bi bi-file-earmark-text"></i>
                     <span>Relatórios</span>
 
                 </a>
 
-                <a href="../public/usuario.html" class="menu-link">
+                <a href="../../public/usuario.html" class="menu-link">
 
                     <i class="bi bi-people"></i>
                     <span>Usuários</span>
 
                 </a>
 
-                <a href="../public/login.html" class="menu-link">
+                <a href="../../public/login.html" class="menu-link">
 
                     <i class="bi bi-box-arrow-right"></i>
                     <span>Sair</span>
@@ -74,7 +75,7 @@
                     <div class="user">
 
                         <span>
-                            <img src="../assets/images/usuário.png" class="img-fluid"> Administrador
+                            <img src="../../assets/images/usuário.png" class="img-fluid"> Administrador
                         </span>
 
                     </div>
@@ -111,13 +112,13 @@
 
             <div class="yo2">
                 <h4>Localização do Trem</h4>
-                <img src="../assets/images/monitoramento_1.png" alt="m1" style="width: 500px; height: 300px">
+                <img src="../../assets/images/monitoramento_1.png" alt="m1" style="width: 500px; height: 300px">
 
             </div>
 
             <div class="yo3">
         
-                <img src="../assets/images/grafico_1.png" alt="g1" style="width: 100%; height: 360px;">
+                <img src="  ../../assets/images/grafico_1.png" alt="g1" style="width: 100%; height: 360px;">
 
             </div>
 
