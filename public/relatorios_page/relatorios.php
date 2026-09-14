@@ -24,40 +24,30 @@
 
         <nav class="d-flex flex-column">
 
-            <a href="../../public/home.html" class="menu-link">
+            <a href="../home_page/home.php" class="menu-link">
+    <i class="bi bi-house-fill"></i>
+    <span>Início</span>
+</a>
 
-                <i class="bi bi-house-fill"></i>
-                <span>Início</span>
+<a href="../monitoramento_page/monitoramento.php" class="menu-link active">
+    <i class="bi bi-graph-up"></i>
+    <span>Monitoramento</span>
+</a>
 
-            </a>
+<a href="relatorios.php" class="menu-link">
+    <i class="bi bi-file-earmark-text"></i>
+    <span>Relatórios</span>
+</a>
 
-            <a href="../../public/monitoramento.html" class="menu-link">
+<a href="../usuario_page/usuario.php" class="menu-link">
+    <i class="bi bi-people"></i>
+    <span>Usuários</span>
+</a>
 
-                <i class="bi bi-graph-up"></i>
-                <span>Monitoramento</span>
-
-            </a>
-
-            <a href="../../public/relatorios.html" class="menu-link active">
-
-                <i class="bi bi-file-earmark-text"></i>
-                <span>Relatórios</span>
-
-            </a>
-
-            <a href="../../public/usuario.html" class="menu-link">
-
-                <i class="bi bi-people"></i>
-                <span>Usuários</span>
-
-            </a>
-
-            <a href="../../public/login.html" class="menu-link">
-
-                <i class="bi bi-box-arrow-right"></i>
-                <span>Sair</span>
-
-            </a>
+<a href="../../index.php" class="menu-link">
+    <i class="bi bi-box-arrow-right"></i>
+    <span>Sair</span>
+</a>
 
         </nav>
 
