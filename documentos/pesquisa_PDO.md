@@ -1,5 +1,6 @@
 PDO, sigla para PHP Data Objects, é uma extensão do PHP utilizada para realizar a conexão entre uma aplicação PHP e um banco de dados.
 Seu principal objetivo é fornecer uma interface padronizada para acessar diferentes sistemas de gerenciamento de banco de dados. Dessa forma, o desenvolvedor pode utilizar uma estrutura semelhante de código mesmo trabalhando com diferentes bancos compatíveis, utilizando os respectivos drivers.
+
 O PDO é utilizado para permitir que aplicações desenvolvidas em PHP se comuniquem com bancos de dados.
 Por meio dele, é possível realizar operações como:
 - Inserir dados;
@@ -7,6 +8,7 @@ Por meio dele, é possível realizar operações como:
 - Atualizar registros;
 - Excluir dados;
 - Executar comandos SQL;
+
 Utilizar instruções preparadas, conhecidas como Prepared Statements.
 O PDO facilita a organização do código e oferece uma forma padronizada de trabalhar com bancos de dados.
 Para realizar uma conexão utilizando PDO, é necessário informar os dados do banco, como:
