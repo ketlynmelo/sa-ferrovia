@@ -9,6 +9,8 @@
 
 </head>
 <button onclick="location.href='public/usuario_page/usuario.php'">USUARIOS</button>
+<button onclick="location.href='public/monitoramento_page/monitoramento.php'">MONITORAMENTO</button>
+
 <body id=login>
     <div class="container">
         <div class="row justify-content-center">
