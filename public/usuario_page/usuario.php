@@ -9,43 +9,50 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="../../style/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    
 </head>
  
 <body>
  
     <aside class="sidebar">
+ 
         <div class="text-center mb-5">
             <img src="../../assets/images/Simbolo.png" class="logo">
         </div>
+ 
         <nav class="d-flex flex-column">
-            <a href="../../public/home.html" class="menu-link">
+ 
+            <a href="../home_page/home.php" class="menu-link">
                 <i class="bi bi-house-fill"></i>
                 <span>Início</span>
             </a>
-            <a href="../../public/monitoramento.html" class="menu-link">
+ 
+            <a href="../monitoramento_page/monitoramento.php" class="menu-link">
                 <i class="bi bi-graph-up"></i>
                 <span>Monitoramento</span>
             </a>
-            <a href="../../public/relatorios.html" class="menu-link">
+ 
+            <a href="../relatorios_page/relatorios.php" class="menu-link">
                 <i class="bi bi-file-earmark-text"></i>
                 <span>Relatórios</span>
             </a>
-            <a href="../../public/usuario.html" class="menu-link active">
+ 
+            <a href="../usuario_page/usuario.php" class="menu-link active">
                 <i class="bi bi-people"></i>
                 <span>Usuários</span>
             </a>
-            <a href="../../public/login.html" class="menu-link">
+ 
+            <a href="../../index.php" class="menu-link">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sair</span>
             </a>
+ 
         </nav>
+ 
     </aside>
  
     <main class="main">
         <div class="container-fluid">
  
-            <!-- Header -->
             <div class="header">
                 <div></div>
                 <div class="user">
@@ -132,16 +139,14 @@
                             <th class="text-center">Ações</th>
                         </tr>
                     </thead>
-                    <tbody id="corpoTabela">
-                        <!-- preenchido via JS -->
-                    </tbody>
+                    <tbody id="corpoTabela"></tbody>
                 </table>
             </div>
  
         </div>
     </main>
  
-    <!-- ── Modal: Adicionar / Editar ── -->
+    <!-- Modal: Adicionar / Editar -->
     <div class="modal-overlay" id="modalForm">
         <div class="modal-box">
             <button class="modal-close" onclick="fecharModal('modalForm')">&times;</button>
@@ -180,13 +185,13 @@
                 </div>
                 <div class="d-flex justify-content-end gap-2">
                     <button type="button" class="btn btn-secondary" onclick="fecharModal('modalForm')">Cancelar</button>
-                    <button type="submit" class="btn-custom btn">Salvar</button>
+                    <button type="submit" class="btn btn-custom">Salvar</button>
                 </div>
             </form>
         </div>
     </div>
  
-    <!-- ── Modal: Visualizar ── -->
+    <!-- Modal: Visualizar -->
     <div class="modal-overlay" id="modalView">
         <div class="modal-box">
             <button class="modal-close" onclick="fecharModal('modalView')">&times;</button>
@@ -197,7 +202,7 @@
         </div>
     </div>
  
-    <!-- ── Modal: Confirmar exclusão ── -->
+    <!-- Modal: Confirmar exclusão -->
     <div class="modal-overlay" id="modalDelete">
         <div class="modal-box" style="max-width:380px; text-align:center;">
             <button class="modal-close" onclick="fecharModal('modalDelete')">&times;</button>
@@ -211,8 +216,11 @@
         </div>
     </div>
  
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../script/script_usuario.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <script src="../../script/script_usuario.js"></script>
+ 
 </body>
  
 </html>
