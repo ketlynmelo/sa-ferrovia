@@ -1,3 +1,24 @@
+<?php
+
+include '../../infra/conexao.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nome = $_POST["nome_sensor"];
+    $localizacao = $_POST["localização"];
+    $tipo = $_POST["tipo_dado"];
+    $trem = $_POST["Trem_id_Trem"];
+
+    $sql = "INSERT INTO sensor (nome_sensor, localização, tipo_dado, Trem_id_Trem) VALUES ('$nome', '$localizacao', '$tipo', '$trem')";
+    
+    if ($conn->query($sql) === TRUE) {
+        echo "Novo sensor cadastrado com sucesso!";
+    } else {
+        echo "Erro: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+?>
+
 <html lang="en">
 
 <head>
