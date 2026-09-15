@@ -1,3 +1,24 @@
+<?php
+
+include '../../infra/conexao.php';
+
+if (isset($_POST['cadastrar'])) {
+    $nome = $_POST['nome_trem'];
+    $modelo = $_POST['modelo'];
+    $carga = $_POST['carga'];
+    $velocidade = $_POST['velocidade'];
+    
+    $sql = "INSERT INTO trem (nome, modelo, carga, velocidade) VALUES ('$nome', '$modelo', '$carga', '$velocidade')";
+    
+    if ($conn->query($sql) === TRUE) {
+        echo "Novo trem cadastrado com sucesso!";
+    } else {
+        echo "Erro: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+?>
+
 <html lang="en">
 
 <head>
