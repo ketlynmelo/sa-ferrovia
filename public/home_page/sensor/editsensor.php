@@ -1,3 +1,28 @@
+<?php
+
+include '../../infra/conexao.php';
+
+$id = $_GET['id'];
+$sql = "SELECT * FROM sensor WHERE id = $id";
+$sensor_editantes = $conn->query($sql);
+$sensor = $sensor_editantes->fetch_assoc();
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nome = $_POST["nome_sensor"];
+    $localizacao = $_POST["localização"];
+    $tipo = $_POST["tipo_dado"];
+    $trem = $_POST["Trem_id_Trem"];
+
+    $sql = "UPDATE sensor SET nome='$nome', localização='$localizacao', tipo_dado='$tipo', Trem_id_Trem='$trem' WHERE id=$id";
+    if ($conn->query($sql) === TRUE) {
+        echo "Sensor atualizado com sucesso!";
+    } else {
+        echo "Erro: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+?>
+
 <html lang="en">
 
 <head>
