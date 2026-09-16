@@ -56,22 +56,16 @@
         </aside>
 
 
-        <main class="main">
-
-            <div class="container-fluid">
-
-                <div class="header">
-
-                    <div class="user">
-
-                        <span>
-                            <img src="../../assets/images/usuário.png" class="img-fluid"> Administrador
-                        </span>
-
-                    </div>
-
+         <main class="main">
+        <div class="container-fluid">
+ 
+            <div class="header">
+                <div></div>
+                <div class="user">
+                    <span>
+                        <img src="../../assets/images/usuário.png" class="img-fluid"> Administrador
+                    </span>
                 </div>
-
             </div>
 
 

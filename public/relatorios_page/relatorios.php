@@ -46,7 +46,6 @@
     <span>Sair</span>
 </a>
 
->>>>>>> 7fa06f2fa34aef54e97b854b2ece5aae6de48fcd
         </nav>
  
     </aside>
