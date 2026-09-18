@@ -70,15 +70,15 @@
 
             <hr>
 
-            <div class="actions-top">
+           <div class="actions-top">
 
-                <button class="btn btn-custom" data-bs-toggle="modal" data-bs-target="#sensorModal">
+                <a href="sensor/cadastrosensor.php" class="btn btn-custom">
                     Cadastrar Sensores
-                </button>
+                </a>
 
-                <button class="btn btn-custom" onclick="window.location.href='./trem/cadastrotrem.php'">
+                <a href="trem/cadastrotrem.php" class="btn btn-custom">
                     Cadastrar Trem
-                </button>
+                </a>
 
             </div>
 
