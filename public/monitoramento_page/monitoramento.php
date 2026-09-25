@@ -14,7 +14,49 @@
 
 <body>
 
-    
+    <aside class="sidebar">
+
+    <div class="text-center mb-5">
+
+        <img  src="../../assets/images/Simbolo.png"  class="logo"  alt="XRail" >
+
+    </div>
+
+
+    <nav class="d-flex flex-column">
+
+        <a href="../home_page/home.php"  class="menu-link">
+            <i class="bi bi-house-fill"></i>
+            <span>Início</span>
+        </a>
+
+
+        <a href="../monitoramento_page/monitoramento.php" class="menu-link"  >
+            <i class="bi bi-graph-up"></i>
+            <span>Monitoramento</span>
+        </a>
+
+
+        <a href="relatorios.php" class="menu-link active" >
+            <i class="bi bi-file-earmark-text"></i>
+            <span>Relatórios</span>
+        </a>
+
+
+        <a href="../usuario_page/usuario.php" class="menu-link" >
+         <i class="bi bi-people"></i>
+            <span>Usuários</span>
+        </a>
+
+
+        <a href="../../index.php"class="menu-link"  >
+            <i class="bi bi-box-arrow-right"></i>
+            <span>Sair</span>
+        </a>
+
+    </nav>
+
+</aside>
 
     
 
