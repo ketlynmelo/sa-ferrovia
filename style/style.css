@@ -313,6 +313,16 @@ form {
     padding: 40px;
     border-radius: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    
+}
+
+.form_registro {
+    width: 100%;
+    max-width: 900px; 
+    background:rgba(255, 255, 255, 0.781)!important;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 #permissao {
@@ -703,86 +713,129 @@ form {
     background-color: #1e2b6e;
 }
 
-.yo{
-padding: 5px;
-border: solid rgb(238, 238, 238) 5px;
-align-items: center;
-border-radius: 10px;
-margin-left: 100px;
-width: 400px;
-
-
-}
-.espaco{
-    margin-left: 160px;
+.filtros-relatorios {
+    background: #f8f8f8;
+    border: 2px solid #eeeeee;
+    border-radius: 8px;
+    padding: 14px 22px;
+    margin-bottom: 40px;
 }
 
-.container-yo{
-display: flex;
-
-
-}
-#letra{
-    font-size: 30px;
+.filtros-relatorios .form-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 5px;
 }
 
-.yo2{
-
-padding: 15px;
-border: solid rgb(238, 238, 238) 5px;
-align-items: center;
-border-radius: 10px;
-margin-left: 260px;
-width: 620px;
-position: absolute;
-top: 250px;
+.filtros-relatorios .form-select {
+    height: 36px;
+    border: 2px solid #e5e5e5;
+    border-radius: 5px;
+    background-color: white;
 }
 
-.yo3{
-
-padding: 5px;
-border: solid rgb(238, 238, 238) 5px;
-align-items: center;
-border-radius: 10px;
-margin-left: 1042px;
-width: 620px;
-position: absolute;
-top: 250px;
+.btn-filtrar {
+    height: 36px;
+    width: 100%;
+    background: #3855c5;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
 }
 
-.container-yo1{
-display: flex;
-position: absolute;
-padding: 15px;
-border: solid rgb(238, 238, 238) 5px;
-border-radius: 10px;
-top: 650px;
-margin-left: 260px;
-width: 1405px;
-height: 180px;
+.btn-filtrar:hover {
+    background: #2d3d7a;
+    color: white;
+}
+
+.titulo-relatorios {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 15px;
 
 }
 
-.yo4{
-position: absolute;
-top: 70px;
-margin-right: 500px;
-border: solid rgb(248, 209, 37) 5px;
-border-radius: 10px;
-height: 50px;
-padding: 10px;
-width: 660px;
-background-color: rgba(252, 224, 102, 0.87);
+.relatorio-table-box {
+    background: white;
+    border: 2px solid #eeeeee;
+    border-radius: 7px;
+    overflow: hidden;
 }
 
-.yo5{
-position: absolute;
-top: 70px;
-margin-left: 680px;
-border: solid rgb(211, 8, 8) 5px;
-border-radius: 10px;
-height: 50px;
-padding: 10px;
-width: 680px;
-background-color: rgba(228, 87, 69, 0.87);
+.relatorio-table {
+    margin-bottom: 0;
+}
+
+.relatorio-table thead th {
+    background: #f7f7f7;
+    color: #111;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 8px 15px;
+    border-bottom: 2px solid #e5e5e5;
+}
+
+.relatorio-table tbody td {
+    font-size: 16px;
+    padding: 8px 15px;
+    vertical-align: middle;
+    border-bottom: 2px solid #eeeeee;
+}
+
+.relatorio-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.relatorio-table tbody tr:hover {
+    background-color: #fafafa;
+}
+
+.btn-download-relatorio {
+    width: 28px;
+    height: 28px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    background: #6bd44c;
+    border: none;
+    border-radius: 6px;
+
+    color: white;
+
+    font-size: 15px;
+}
+
+.btn-download-relatorio:hover {
+    background: #55bd38;
+    color: white;
+}
+
+
+.btn-gerar-relatorio {
+    background: #3855c5;
+    border: none;
+    color: white;
+
+    min-width: 255px;
+    height: 37px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    border-radius: 7px;
+
+    font-weight: 600;
+}
+
+.btn-gerar-relatorio:hover {
+    background: #2d3d7a;
+    color: white;
 }

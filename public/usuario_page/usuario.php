@@ -1,58 +1,58 @@
 <html lang="pt-BR">
- 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XRail - Usuários</title>
- 
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="../../style/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
- 
+
 <body>
- 
+
     <aside class="sidebar">
- 
+
         <div class="text-center mb-5">
             <img src="../../assets/images/Simbolo.png" class="logo">
         </div>
- 
+
         <nav class="d-flex flex-column">
- 
+
             <a href="../home_page/home.php" class="menu-link">
                 <i class="bi bi-house-fill"></i>
                 <span>Início</span>
             </a>
- 
+
             <a href="../monitoramento_page/monitoramento.php" class="menu-link">
                 <i class="bi bi-graph-up"></i>
                 <span>Monitoramento</span>
             </a>
- 
+
             <a href="../relatorios_page/relatorios.php" class="menu-link">
                 <i class="bi bi-file-earmark-text"></i>
                 <span>Relatórios</span>
             </a>
- 
+
             <a href="../usuario_page/usuario.php" class="menu-link active">
                 <i class="bi bi-people"></i>
                 <span>Usuários</span>
             </a>
- 
+
             <a href="../../index.php" class="menu-link">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sair</span>
             </a>
- 
+
         </nav>
- 
+
     </aside>
- 
+
     <main class="main">
         <div class="container-fluid">
- 
+
             <div class="header">
                 <div></div>
                 <div class="user">
@@ -61,9 +61,9 @@
                     </span>
                 </div>
             </div>
- 
+
             <h2 class="page-title">Adicionar Usuário / Administrador</h2>
- 
+
             <!-- Stat cards -->
             <div class="d-flex flex-wrap gap-3 mb-4">
                 <div class="stat-card">
@@ -95,14 +95,14 @@
                     </div>
                 </div>
             </div>
- 
+
             <!-- Toolbar -->
             <div class="toolbar">
                 <div class="search-wrap">
                     <i class="bi bi-search"></i>
                     <input type="text" id="searchInput" placeholder="Buscar por nome ou e-mail">
                 </div>
- 
+
                 <div class="filter-group">
                     <label>Tipo de conta</label>
                     <select id="filterTipo">
@@ -111,7 +111,7 @@
                         <option value="Usuário">Usuário</option>
                     </select>
                 </div>
- 
+
                 <div class="filter-group">
                     <label>Status</label>
                     <select id="filterStatus">
@@ -120,12 +120,12 @@
                         <option value="Inativo">Inativo</option>
                     </select>
                 </div>
- 
+
                 <button class="btn-custom" style="height:42px; white-space:nowrap;" onclick="abrirModalAdicionar()">
                     + Adicionar funcionário
                 </button>
             </div>
- 
+
             <!-- Tabela -->
             <div class="users-table-box">
                 <table class="table mb-0" id="tabelaUsuarios">
@@ -142,10 +142,10 @@
                     <tbody id="corpoTabela"></tbody>
                 </table>
             </div>
- 
+
         </div>
     </main>
- 
+
     <!-- Modal: Adicionar / Editar -->
     <div class="modal-overlay" id="modalForm">
         <div class="modal-box">
@@ -190,7 +190,7 @@
             </form>
         </div>
     </div>
- 
+
     <!-- Modal: Visualizar -->
     <div class="modal-overlay" id="modalView">
         <div class="modal-box">
@@ -201,7 +201,7 @@
             </table>
         </div>
     </div>
- 
+
     <!-- Modal: Confirmar exclusão -->
     <div class="modal-overlay" id="modalDelete">
         <div class="modal-box" style="max-width:380px; text-align:center;">
@@ -215,12 +215,12 @@
             </div>
         </div>
     </div>
- 
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
     <script src="../../script/script_usuario.js"></script>
- 
+
 </body>
- 
+
 </html>

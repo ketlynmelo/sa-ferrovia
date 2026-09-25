@@ -6,134 +6,17 @@
     <title>XRail</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../style/style.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 </head>
 
 <body>
 
-    <body>
+    
 
-        <aside class="sidebar">
-
-            <div class="text-center mb-5">
-
-                <img src="../../assets/images/Simbolo.png" class="logo">
-
-            </div>
-
-            <nav class="d-flex flex-column">
-
-                <a href="../home_page/home.php" class="menu-link">
-    <i class="bi bi-house-fill"></i>
-    <span>Início</span>
-</a>
-
-<a href="monitoramento.php" class="menu-link active">
-    <i class="bi bi-graph-up"></i>
-    <span>Monitoramento</span>
-</a>
-
-<a href="../relatorios_page/relatorios.php" class="menu-link">
-    <i class="bi bi-file-earmark-text"></i>
-    <span>Relatórios</span>
-</a>
-
-<a href="../usuario_page/usuario.php" class="menu-link">
-    <i class="bi bi-people"></i>
-    <span>Usuários</span>
-</a>
-
-<a href="../../index.php" class="menu-link">
-    <i class="bi bi-box-arrow-right"></i>
-    <span>Sair</span>
-</a>
-
-            </nav>
-
-        </aside>
-
-
-        <main class="main">
-
-            <div class="container-fluid">
-
-                <div class="header">
-
-                    <div class="user">
-
-                        <span>
-                            <img src="../../assets/images/usuário.png" class="img-fluid"> Administrador
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-
-
-        </main>
-
-        <div class="container-yo">
-            <div class="espaco"></div>
-            <div class="yo">
-                <h4>Velocidade</h4>
-                <h5 id="letra">80Km/h</h5>
-            </div>
-
-            <div class="yo">
-                <h4>Localização</h4>
-                <h5 id="letra">Km 450 - Estação do Rio</h5>
-            </div>
-
-            <div class="yo">
-                <h4>Status Operacional</h4>
-                <h5 id="letra" style="color: green;">Normal</h5>
-            </div>
-
-        </div>
-
-        <div class="container-yo">
-
-            <div class="yo2">
-                <h4>Localização do Trem</h4>
-                <img src="../../assets/images/monitoramento_1.png" alt="m1" style="width: 500px; height: 300px">
-
-            </div>
-
-            <div class="yo3">
-        
-                <img src="  ../../assets/images/grafico_1.png" alt="g1" style="width: 100%; height: 360px;">
-
-            </div>
-
-
-        </div>
-
- <div class="container-yo1">
-
-<h4>Alertas recentes</h4>
-              
-
-            <div class="yo4">
-            
-                <h6>10:45 - Temperatura elevada no sensor 203</h6>
-            </div>
-
-            <div class="yo5">
-                <h6>09:45 - Falha detectada no sensor 204</h6>
-                
-
-            </div>
-
-
-        </div>
-
+    
 
 
     </body>

@@ -11,9 +11,6 @@
 
 </head>
 
-<button onclick="location.href='public/usuario_page/usuario.php'">USUARIOS</button>
-<button onclick="location.href='public/monitoramento_page/monitoramento.php'">MONITORAMENTO</button>
-
 <body id="login">
   <main class="dividido">
 
@@ -38,16 +35,16 @@
           <label for="usuario" id="branco" class="form-label">Usuário</label>
           <input type="text" class="form-control" id="usuario">
           <div id="erro-usuario" class="erro"></div>
-          </div>
-        
+        </div>
+
 
 
         <div class="col-md-12">
           <label for="senha" id="branco" class="form-label">Senha</label>
           <input type="password" class="form-control" id="senha" required>
           <div id="erro-senha" class="erro"></div>
-          </div>
-        
+        </div>
+
 
         <div id="mensagem"></div>
         <div class="toggle" id="toggle">
@@ -58,10 +55,10 @@
         <div class="col-12" style="text-align: center;">
           <button class="btn btn-primary" type="submit">Entrar</button>
         </div>
-        
+
       </form>
-     
-        
+
+
 
     </div>
 
