@@ -88,111 +88,22 @@
                     <h3>Sensores</h3>
                 </div>
 
-                <div class="table-responsive">
-
-                    <table class="table sensor-table">
-
-                        <thead>
-                            <tr>
-                                <th>ID do sensor</th>
-                                <th>Nome</th>
-                                <th>Tipo de Dado</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-
-                        <tbody id="tabelaSensores">
-
-                            <tr>
-                                <td>150</td>
-                                <td>Lazum</td>
-                                <td>Velocidade</td>
-                                <td>
-                                    <div class="action-buttons">
-                                        <button class="edit" onclick="window.location.href='./sensor/editsensor.php'">
-                                            <img src="../../assets/images/editbutton.png" id="editbutton">
-                                        </button>
-                                        <button class="delete"
-                                            onclick="window.location.href='./sensor/deletesensor.php'">
-                                            <img src="../../assets/images/lixeirabutton.png" id="deletebutton">
-                                        </button>
-                                        <button class="view"
-                                            onclick="window.location.href='../monitoramento_page/monitoramento.php'">
-                                            <img src="../../assets/images/visualizabutton.png" id="viewbutton">
-                                        </button>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>151</td>
-                                <td>Biriqui</td>
-                                <td>Temperatura</td>
-                                <td>
-                                    <div class="action-buttons">
-                                        <button class="edit"><img src="../../assets/images/editbutton.png"
-                                                id="editbutton"></button>
-                                        <button class="delete"><img src="../../assets/images/lixeirabutton.png"
-                                                id="deletebutton"></button>
-                                        <button class="view"><img src="../../assets/images/visualizabutton.png"
-                                                id="viewbutton"></button>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>152</td>
-                                <td>Raily</td>
-                                <td>Falha</td>
-                                <td>
-                                    <div class="action-buttons">
-                                        <button class="edit"><img src="../../assets/images/editbutton.png"
-                                                id="editbutton"></button>
-                                        <button class="delete"><img src="../../assets/images/lixeirabutton.png"
-                                                id="deletebutton"></button>
-                                        <button class="view"><img src="../../assets/images/visualizabutton.png"
-                                                id="viewbutton"></button>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>153</td>
-                                <td>BR 450 - Ponte Hercílio</td>
-                                <td>Vibração</td>
-                                <td>
-                                    <div class="action-buttons">
-                                        <button class="edit"><img src="../../assets/images/editbutton.png"
-                                                id="editbutton"></button>
-                                        <button class="delete"><img src="../../assets/images/lixeirabutton.png"
-                                                id="deletebutton"></button>
-                                        <button class="view"><img src="../../assets/images/visualizabutton.png"
-                                                id="viewbutton"></button>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <tr>
-                                <td>154</td>
-                                <td>BR 204 - Centro</td>
-                                <td>Velocidade</td>
-                                <td>
-                                    <div class="action-buttons">
-                                        <button class="edit"><img src="../../assets/images/editbutton.png"
-                                                id="editbutton"></button>
-                                        <button class="delete"><img src="../../assets/images/lixeirabutton.png"
-                                                id="deletebutton"></button>
-                                        <button class="view"><img src="../../assets/images/visualizabutton.png"
-                                                id="viewbutton"></button>
-                                    </div>
-                                </td>
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
+                    <div class="users-table-box">
+                        
+                        <table class="table mb-0" id="tabelaUsuarios">
+                             <thead>
+                                <tr>
+                                    <th>ID do sensor</th>
+                                    <th>Nome</th>
+                                    <th>Tipo de Dado</th>
+                                    <th class="text-center">Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody id="corpoTabela">
+                                
+                            </tbody>
+                        </table>
+                    </div>
 
             </div>
 
