@@ -69,11 +69,11 @@
 
   <h2>Monitoramento</h2>
 
-<form  method="GET" action="monitoramento.php" class="pesquisa-flex" >
+<form  method="GET" action="monitoramento.php" class=" barra d-flex mb-4 " style="margin-top: 20px; margin-left: 20px; left: 570px; position: absolute;">
 <input
 type="number"
 name="id"
-class="form-controlme-2"
+class="form-control me-2"
 placeholder="Digite o ID do trem"
 required
 >
