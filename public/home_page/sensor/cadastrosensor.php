@@ -1,6 +1,10 @@
 <?php
 
+<<<<<<< HEAD
+include ('../../infra/conexao.php');
+=======
 include "../../../infra/conexao.php";
+>>>>>>> affa0a76d020ef10542d9a749e3be292dbb2c291
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST["nome_sensor"];

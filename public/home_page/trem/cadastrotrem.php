@@ -1,6 +1,6 @@
 <?php
 
-include '../../infra/conexao.php';
+include ('../../../infra/conexao.php');
 
 if (isset($_POST['cadastrar'])) {
     $nome = $_POST['nome_trem'];
@@ -29,7 +29,7 @@ if (isset($_POST['cadastrar'])) {
    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../../style/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
  
