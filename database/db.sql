@@ -16,19 +16,9 @@ CREATE TABLE sensor (
     id_Sensor INT NOT NULL AUTO_INCREMENT,
     nome_sensor VARCHAR(45) NOT NULL,
     localização VARCHAR(45) NOT NULL,
-    tipo_dado VARCHAR(45) NOT NULL,
+    tipo_dado ENUM('Velocidade', 'Temperatura', 'Falha', 'Vibração') NOT NULL,
     Trem_id_Trem INT NOT NULL,   
 );
-
-
-
-CREATE TABLE dados_sensor (
-    id_dado INT NOT NULL AUTO_INCREMENT,
-    valor DECIMAL(10,2) NOT NULL,
-    data_hora DATETIME NOT NULL,
-    Sensor_id_Sensor INT NOT NULL,  
-);
-
 
 CREATE TABLE relatorio (
     id_Relatorio INT NOT NULL AUTO_INCREMENT,
@@ -50,10 +40,14 @@ CREATE TABLE rota (
 CREATE TABLE usuario (
     id_Usuario INT NOT NULL AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
+    cpf VARCHAR(14) NOT NULL,
+    data_nascimento DATE NOT NULL,
+    endereco VARCHAR(255) NOT NULL,
     email VARCHAR(100) NOT NULL,
-    senha VARCHAR(45) NOT NULL,
-    tipo_conta VARCHAR(45) NOT NULL,
-    status VARCHAR(45) NOT NULL,
-    ultimo_acesso VARCHAR(45) NOT NULL,
-    Perfil_id_Perfil INT NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    tipo_conta ENUM('Administrador', 'Usuário') NOT NULL,
+    status ENUM('Ativo', 'Inativo') NOT NULL,
+    ultimo_acesso DATETIME NULL,
+    PRIMARY KEY (id_Usuario),
+    UNIQUE (email)
 );
