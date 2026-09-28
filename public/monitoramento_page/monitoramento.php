@@ -1,3 +1,10 @@
+<?php
+
+
+
+?>
+
+
 <html lang="en">
 
 <head>
@@ -58,7 +65,35 @@
 
 </aside>
 
-    
+    <div class="container-pesquisa" >
+
+  <h2>Monitoramento</h2>
+
+<form  method="GET" action="monitoramento.php" class="pesquisa-flex" >
+<input
+type="number"
+name="id"
+class="form-controlme-2"
+placeholder="Digite o ID do trem"
+required
+>
+
+<button type="submit" class="btn btn-primary">
+    Pesquisar
+</button>
+
+
+
+</form>
+
+
+
+
+
+
+    </div>
+
+
 
 
     </body>
