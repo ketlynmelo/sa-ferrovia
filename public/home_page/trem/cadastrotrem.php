@@ -1,6 +1,6 @@
 <?php
 
-include ('../../../infra/conexao.php');
+include ('../../infra/conexao.php');
 
 if (isset($_POST['cadastrar'])) {
     $nome = $_POST['nome_trem'];
