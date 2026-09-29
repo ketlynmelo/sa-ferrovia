@@ -72,11 +72,11 @@
 
            <div class="actions-top">
 
-                <a href="sensor/cadastrosensor.php" class="btn btn-custom">
+                <a href="../sensor/cadastrosensor.php" class="btn btn-custom">
                     Cadastrar Sensores
                 </a>
 
-                <a href="trem/cadastrotrem.php" class="btn btn-custom">
+                <a href="../trem/cadastrotrem.php" class="btn btn-custom">
                     Cadastrar Trem
                 </a>
 

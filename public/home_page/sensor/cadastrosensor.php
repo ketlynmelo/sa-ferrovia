@@ -1,10 +1,6 @@
 <?php
 
-<<<<<<< HEAD
-include ('../../infra/conexao.php');
-=======
-include "../../../infra/conexao.php";
->>>>>>> affa0a76d020ef10542d9a749e3be292dbb2c291
+include ('../../../infra/conexao.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST["nome_sensor"];
@@ -23,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 ?>
 
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
@@ -32,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../../style/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
@@ -41,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <aside class="sidebar">
 
         <div class="text-center mb-5">
-            <img src="../../assets/images/Simbolo.png" class="logo">
+            <img src="../../../assets/images/Simbolo.png" class="logo">
         </div>
 
         <nav class="d-flex flex-column">
