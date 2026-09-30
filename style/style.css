@@ -306,16 +306,6 @@
 
 }
 
-form {
-    width: 100%;
-    max-width: 900px;
-    background: rgba(0, 0, 0, 0.781) !important;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    
-}
-
 .form_registro {
     width: 100%;
     max-width: 900px; 
@@ -845,3 +835,4 @@ width: 30px;
 
 
 }
+

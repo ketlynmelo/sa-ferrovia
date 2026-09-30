@@ -20,8 +20,18 @@ $totalUsuarios = $resultadoUsuarios->fetch_assoc()['total'];
 
 //ativos
 $sqlAtivos = "SELECT COUNT(*) AS total FROM usuario WHERE status = 'Ativo'";
+
 $resultadoAtivos = $conn->query($sqlAtivos);
-$totalAtivos = $resultadoAtivos->fetch_assoc()['total'];
+
+if (!$resultadoAtivos) {
+    die("Erro na consulta: " . $conn->error);
+}
+
+
+$dadosAtivos = $resultadoAtivos->fetch_assoc();
+
+$totalAtivos = $dadosAtivos['total'];
+
 
 //lista de usuários
 $sql = "SELECT * FROM usuario ORDER BY id_Usuario DESC";
@@ -31,6 +41,8 @@ $resultado = $conn->query($sql);
 if (!$resultado) {
     die("Erro ao buscar usuários: " . $conn->error);
 }
+
+
 
 ?>
 
@@ -57,7 +69,7 @@ if (!$resultado) {
 
 <body>
 
-    
+
     <aside class="sidebar">
 
         <div class="text-center mb-5">
@@ -96,12 +108,12 @@ if (!$resultado) {
     </aside>
 
 
-    
+
     <main class="main">
 
         <div class="container-fluid">
 
-           
+
             <div class="header">
 
                 <div></div>
@@ -125,10 +137,10 @@ if (!$resultado) {
             </h2>
 
 
-          
+
             <div class="d-flex flex-wrap gap-3 mb-4">
 
-                
+
                 <div class="stat-card">
 
                     <span class="stat-icon purple">
@@ -150,7 +162,7 @@ if (!$resultado) {
                 </div>
 
 
-                
+
                 <div class="stat-card">
 
                     <span class="stat-icon blue">
@@ -172,7 +184,7 @@ if (!$resultado) {
                 </div>
 
 
-                
+
                 <div class="stat-card">
 
                     <span class="stat-icon teal">
@@ -194,7 +206,7 @@ if (!$resultado) {
                 </div>
 
 
-               
+
                 <div class="stat-card">
 
                     <span class="stat-icon orange">
@@ -218,24 +230,20 @@ if (!$resultado) {
             </div>
 
 
-            
+
             <div class="toolbar">
 
-                
+
                 <form method="GET" class="search-wrap">
 
                     <i class="bi bi-search"></i>
 
-                    <input
-                        type="text"
-                        name="busca"
-                        placeholder="Buscar por nome ou e-mail"
-                        value="<?= htmlspecialchars($_GET['busca'] ?? '') ?>">
+                    <input type="text" name="busca"  placeholder="Buscar por nome ou e-mail" value="<?= htmlspecialchars($_GET['busca'] ?? '') ?>">
 
                 </form>
 
 
-                
+
                 <form method="GET" class="filter-group">
 
                     <label>
@@ -263,7 +271,7 @@ if (!$resultado) {
                 </form>
 
 
-                
+
                 <form method="GET" class="filter-group">
 
                     <label>
@@ -291,7 +299,7 @@ if (!$resultado) {
                 </form>
 
 
-               
+
                 <a href="adicionar_usuario.php"
                     class="btn-custom"
                     style="height:42px; white-space:nowrap; text-decoration:none;">
@@ -303,7 +311,7 @@ if (!$resultado) {
             </div>
 
 
-           
+
             <div class="users-table-box">
 
                 <table class="table mb-0">
@@ -343,14 +351,60 @@ if (!$resultado) {
 
                     <tbody>
 
-                        <!--LEMBRAR DE LISTAR OS USUARIOS AQUI
-                        -->
 
-                    </tbody>
+            <?php
+                        $sql = "SELECT * FROM usuario";
+            $resultado = mysqli_query($conn, $sql);
+
+            while ($usuario = mysqli_fetch_assoc($resultado)) {
+            ?>
+
+                <tr>
+                    <td><?php echo $usuario["id_Usuario"]; ?></td>
+
+                    <td><?php echo $usuario["nome"]; ?></td>
+
+                    <td><?php echo $usuario["email"]; ?></td>
+
+                    <td><?php echo $usuario["tipo_conta"]; ?></td>
+
+                    <td><?php echo $usuario["status"]; ?></td>
+
+                    <td>
+
+                         <a href="visualizar_usuario.php?id=<?php echo $usuario["id_Usuario"]; ?>">
+                           <button>
+                            <i class="bi bi-eye"></i>
+                           </button>
+                        </a>
+
+                        <a href="editar_usuario.php?id=<?php echo $usuario["id_Usuario"]; ?>">
+                           <button>
+                            <i class="bi bi-pencil"></i>
+                           </button>
+                        </a>
+
+                        <a href="excluir_usuario.php?id=<?php echo $usuario["id_Usuario"]; ?>">
+                           <button>
+                            <i class="bi bi-person-dash"></i>
+                           </button>
+                        </a>
+
+                                </td>
+
+                            </tr>
+
+                        <?php } ?>
 
                 </table>
+            
 
-            </div>
+
+            </tbody>
+
+            </table>
+        </div>
+        </div>
 
         </div>
 
