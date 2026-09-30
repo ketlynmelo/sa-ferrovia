@@ -91,16 +91,30 @@
                     <div class="users-table-box">
                         
                         <table class="table mb-0" id="tabelaUsuarios">
-                             <thead>
+                            <thead>
                                 <tr>
                                     <th>ID do sensor</th>
                                     <th>Nome</th>
+                                    <th>Localização</th>
                                     <th>Tipo de Dado</th>
                                     <th class="text-center">Ações</th>
                                 </tr>
                             </thead>
                             <tbody id="corpoTabela">
-                                
+                         
+                                <?php { ?>
+                                    <tr>
+                                        <td><?php echo $linha["id_Sensor"] ?></td>
+                                        <td><?php echo $linha["nome_sensor"] ?></td>
+                                        <td><?php echo $linha["localizacao"] ?></td>
+                                        <td><?php echo $linha["tipo_dado"] ?></td>
+                                        <td>
+                                            <a href="public/brinquedos-editar.php? id=<?php echo $linha["id"] ?>">Editar</a>
+                                            <a href="public/brinquedos-excluir.php? id=<?php echo $linha["id"] ?>" onclick="return confirm('Tem certeza que deseja excluir este brinquedo?')">Excluir</a>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+                                    
                             </tbody>
                         </table>
                     </div>

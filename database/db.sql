@@ -15,7 +15,7 @@ CREATE TABLE trem (
 CREATE TABLE sensor (
     id_Sensor INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nome_sensor VARCHAR(45) NOT NULL,
-    localização VARCHAR(45) NOT NULL,
+    localizacao VARCHAR(45) NOT NULL,
     tipo_dado ENUM('Velocidade', 'Temperatura', 'Falha', 'Vibração') NOT NULL   
 );
 
