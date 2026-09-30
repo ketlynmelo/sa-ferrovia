@@ -231,72 +231,42 @@ if (!$resultado) {
 
 
 
-            <div class="toolbar">
+
+            <div id="buscar">
+               
+
+                <i class="bi bi-search"></i>
+
+                <input type="text" class="" name="busca" placeholder="Buscar por nome ou e-mail">
+
+           
+    
+            <label>Tipo de conta</label>
+           
+                <select name="tipo">
+
+                    <option value="">Todos</option>
+
+                    <option value="Administrador">Administrador</option>
+
+                    <option value="Usuário"> Usuário </option>
+
+                </select>
+
+                
+                <label>  Status </label>
+
+                <select name="status">
+
+                    <option value=""> Todos </option>
+
+                    <option value="Ativo">  Ativo</option>
+
+                    <option value="Inativo"> Inativo </option>
+
+                </select>
 
 
-                <form method="GET" class="search-wrap">
-
-                    <i class="bi bi-search"></i>
-
-                    <input type="text" name="busca"  placeholder="Buscar por nome ou e-mail" value="<?= htmlspecialchars($_GET['busca'] ?? '') ?>">
-
-                </form>
-
-
-
-                <form method="GET" class="filter-group">
-
-                    <label>
-                        Tipo de conta
-                    </label>
-
-                    <select name="tipo" onchange="this.form.submit()">
-
-                        <option value="">
-                            Todos
-                        </option>
-
-                        <option value="Administrador"
-                            <?= ($_GET['tipo'] ?? '') == 'Administrador' ? 'selected' : '' ?>>
-                            Administrador
-                        </option>
-
-                        <option value="Usuário"
-                            <?= ($_GET['tipo'] ?? '') == 'Usuário' ? 'selected' : '' ?>>
-                            Usuário
-                        </option>
-
-                    </select>
-
-                </form>
-
-
-
-                <form method="GET" class="filter-group">
-
-                    <label>
-                        Status
-                    </label>
-
-                    <select name="status" onchange="this.form.submit()">
-
-                        <option value="">
-                            Todos
-                        </option>
-
-                        <option value="Ativo"
-                            <?= ($_GET['status'] ?? '') == 'Ativo' ? 'selected' : '' ?>>
-                            Ativo
-                        </option>
-
-                        <option value="Inativo"
-                            <?= ($_GET['status'] ?? '') == 'Inativo' ? 'selected' : '' ?>>
-                            Inativo
-                        </option>
-
-                    </select>
-
-                </form>
 
 
 
@@ -352,43 +322,43 @@ if (!$resultado) {
                     <tbody>
 
 
-            <?php
+                        <?php
                         $sql = "SELECT * FROM usuario";
-            $resultado = mysqli_query($conn, $sql);
+                        $resultado = mysqli_query($conn, $sql);
 
-            while ($usuario = mysqli_fetch_assoc($resultado)) {
-            ?>
+                        while ($usuario = mysqli_fetch_assoc($resultado)) {
+                        ?>
 
-                <tr>
-                    <td><?php echo $usuario["id_Usuario"]; ?></td>
+                            <tr>
+                                <td><?php echo $usuario["id_Usuario"]; ?></td>
 
-                    <td><?php echo $usuario["nome"]; ?></td>
+                                <td><?php echo $usuario["nome"]; ?></td>
 
-                    <td><?php echo $usuario["email"]; ?></td>
+                                <td><?php echo $usuario["email"]; ?></td>
 
-                    <td><?php echo $usuario["tipo_conta"]; ?></td>
+                                <td><?php echo $usuario["tipo_conta"]; ?></td>
 
-                    <td><?php echo $usuario["status"]; ?></td>
+                                <td><?php echo $usuario["status"]; ?></td>
 
-                    <td>
+                                <td>
 
-                         <a href="visualizar_usuario.php?id=<?php echo $usuario["id_Usuario"]; ?>">
-                           <button>
-                            <i class="bi bi-eye"></i>
-                           </button>
-                        </a>
+                                    <a href="visualizar_usuario.php?id=<?php echo $usuario["id_Usuario"]; ?>">
+                                        <button>
+                                            <i class="bi bi-eye"></i>
+                                        </button>
+                                    </a>
 
-                        <a href="editar_usuario.php?id=<?php echo $usuario["id_Usuario"]; ?>">
-                           <button>
-                            <i class="bi bi-pencil"></i>
-                           </button>
-                        </a>
+                                    <a href="editar_usuario.php?id=<?php echo $usuario["id_Usuario"]; ?>">
+                                        <button>
+                                            <i class="bi bi-pencil"></i>
+                                        </button>
+                                    </a>
 
-                        <a href="excluir_usuario.php?id=<?php echo $usuario["id_Usuario"]; ?>">
-                           <button>
-                            <i class="bi bi-person-dash"></i>
-                           </button>
-                        </a>
+                                    <a href="excluir_usuario.php?id=<?php echo $usuario["id_Usuario"]; ?>">
+                                        <button>
+                                            <i class="bi bi-person-dash"></i>
+                                        </button>
+                                    </a>
 
                                 </td>
 
@@ -397,13 +367,13 @@ if (!$resultado) {
                         <?php } ?>
 
                 </table>
-            
 
 
-            </tbody>
 
-            </table>
-        </div>
+                </tbody>
+
+                </table>
+            </div>
         </div>
 
         </div>
