@@ -21,12 +21,12 @@
 
         <nav class="d-flex flex-column">
 
-            <a href="../home_page/home.php" class="menu-link active">
+            <a href="../home_page/home.php" class="menu-link">
                 <i class="bi bi-house-fill"></i>
                 <span>Início</span>
             </a>
 
-            <a href="../monitoramento_page/monitoramento.php" class="menu-link">
+           <a href="../monitoramento_page/monitoramento.php" class="menu-link active">
                 <i class="bi bi-graph-up"></i>
                 <span>Monitoramento</span>
             </a>
@@ -98,6 +98,6 @@ required
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-    <script src="../script/script.js"></script>
+    <script src="../../script/script.js"></script>
 
 </html>
