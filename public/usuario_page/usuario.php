@@ -56,15 +56,10 @@ if (!$resultado) {
 
     <title>XRail - Usuários</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-        crossorigin="anonymous">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"crossorigin="anonymous">
     <link rel="stylesheet" href="../../style/style.css">
 
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
@@ -343,20 +338,20 @@ if (!$resultado) {
                                 <td>
 
                                     <a href="visualizar_usuario.php?id=<?php echo $usuario["id_Usuario"]; ?>">
-                                        <button>
+                                        <button class="btn btn-primary">
                                             <i class="bi bi-eye"></i>
                                         </button>
                                     </a>
 
                                     <a href="editar_usuario.php?id=<?php echo $usuario["id_Usuario"]; ?>">
-                                        <button>
+                                        <button class="btn btn-secondary">
                                             <i class="bi bi-pencil"></i>
                                         </button>
                                     </a>
 
                                     <a href="excluir_usuario.php?id=<?php echo $usuario["id_Usuario"]; ?>"
                                         onclick="return confirm('Tem certeza que deseja excluir este usuário?');">
-                                        <button>
+                                        <button class="btn btn-danger">
                                             <i class="bi bi-person-dash"></i>
                                         </button>
                                     </a>
