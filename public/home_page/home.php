@@ -1,3 +1,9 @@
+<?php
+   
+require_once "../../infra/conexao.php";
+?>
+
+
 <html lang="pt-BR">
 
 <head>
@@ -102,15 +108,20 @@
                             </thead>
                             <tbody id="corpoTabela">
                          
-                                <?php { ?>
+                               <?php
+                                 $sql = "SELECT * FROM sensor";
+                                 $resultado = mysqli_query($conn, $sql);
+
+                                 while ($sensor = mysqli_fetch_assoc($resultado)) {
+                        ?>
                                     <tr>
-                                        <td><?php echo $linha["id_Sensor"] ?></td>
-                                        <td><?php echo $linha["nome_sensor"] ?></td>
-                                        <td><?php echo $linha["localizacao"] ?></td>
-                                        <td><?php echo $linha["tipo_dado"] ?></td>
-                                        <td>
-                                            <a href="public/brinquedos-editar.php? id=<?php echo $linha["id"] ?>">Editar</a>
-                                            <a href="public/brinquedos-excluir.php? id=<?php echo $linha["id"] ?>" onclick="return confirm('Tem certeza que deseja excluir este brinquedo?')">Excluir</a>
+                                        <td><?php echo $sensor['id_Sensor'] ?></td>
+                                        <td><?php echo $sensor['nome_sensor'] ?></td>
+                                        <td><?php echo $sensor['localizacao'] ?></td>
+                                        <td><?php echo $sensor['tipo_dado'] ?></td>
+                                        <td class="text-center">
+                                            <a class="btn btn-secondary" href="public/sensor-editar.php? id=<?php echo $sensor['id'] ?>">Editar</a>
+                                            <a class="btn btn-danger" href="public/sensor-excluir.php? id=<?php echo $sensor['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir este sensor?')">Excluir</a>
                                         </td>
                                     </tr>
                                 <?php } ?>
