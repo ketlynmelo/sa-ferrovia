@@ -15,8 +15,23 @@
 
     <br><br>
 
+    <label for="cpf">CPF:</label>
+    <input type="text" name="cpf" id="cpf" required>
+
+    <br><br>
+
+    <label for="data_nascimento">Data de Nascimento:</label>
+    <input type="date" name="data_nascimento" id="data_nascimento" required>
+
+    <br><br>
+
     <label for="email">E-mail:</label>
     <input type="email" name="email" id="email" required>
+
+    <br><br>
+
+    <label for="endereco">Endereço:</label>
+    <input type="text" name="endereco" id="endereco" required>
 
     <br><br>
 

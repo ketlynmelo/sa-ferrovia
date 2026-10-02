@@ -232,7 +232,7 @@ if (!$resultado) {
 
 
 
-            <div id="buscar">
+            <div class="d-flex flex-wrap gap-3 mb-3 align-items-center"> 
                
 
                 <i class="bi bi-search"></i>
@@ -354,7 +354,8 @@ if (!$resultado) {
                                         </button>
                                     </a>
 
-                                    <a href="excluir_usuario.php?id=<?php echo $usuario["id_Usuario"]; ?>">
+                                    <a href="excluir_usuario.php?id=<?php echo $usuario["id_Usuario"]; ?>"
+                                        onclick="return confirm('Tem certeza que deseja excluir este usuário?');">
                                         <button>
                                             <i class="bi bi-person-dash"></i>
                                         </button>
