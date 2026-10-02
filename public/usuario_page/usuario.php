@@ -237,13 +237,13 @@ if (!$resultado) {
 
                 <i class="bi bi-search"></i>
 
-                <input type="text" class="" name="busca" placeholder="Buscar por nome ou e-mail">
+                <input type="text" id="busca" placeholder="Buscar por nome ou e-mail">
 
            
     
             <label>Tipo de conta</label>
            
-                <select name="tipo">
+                <select id="tipo" onchange="filtrarUsuarios()">
 
                     <option value="">Todos</option>
 
@@ -256,7 +256,7 @@ if (!$resultado) {
                 
                 <label>  Status </label>
 
-                <select name="status">
+                <select id="status" onchange="filtrarUsuarios()">
 
                     <option value=""> Todos </option>
 
@@ -319,7 +319,7 @@ if (!$resultado) {
                     </thead>
 
 
-                    <tbody>
+                    <tbody id="listaUsuarios">
 
 
                         <?php
@@ -365,15 +365,9 @@ if (!$resultado) {
 
                             </tr>
 
-                        <?php } ?>
-
-                </table>
-
-
-
+                        <?php }
+                         ?>
                 </tbody>
-
-                </table>
             </div>
         </div>
 
@@ -381,6 +375,32 @@ if (!$resultado) {
 
     </main>
 
+     <script>
+        const campoBusca = document.getElementById("busca");
+
+        campoBusca.addEventListener("input", function () {
+        filtrarUsuarios();
+});
+            function filtrarUsuarios() {
+    const busca = document.getElementById("busca").value;
+    const tipo = document.getElementById("tipo").value;
+    const status = document.getElementById("status").value;
+
+    fetch(
+        "buscar_usuario.php?busca=" + encodeURIComponent(busca) +
+        "&tipo=" + encodeURIComponent(tipo) +
+        "&status=" + encodeURIComponent(status)
+    )
+    .then(response => response.text())
+    .then(data => {
+        listaUsuarios.innerHTML = data;
+    })
+    .catch(error => {
+        console.error("Erro na filtragem:", error);
+    });
+}
+
+   </script>
 </body>
 
 </html>
