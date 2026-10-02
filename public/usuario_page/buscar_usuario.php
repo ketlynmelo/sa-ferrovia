@@ -33,7 +33,7 @@ while ($usuario = mysqli_fetch_assoc($resultado)) {
             <td>{$usuario['email']}</td> 
             <td>{$usuario['tipo_conta']}</td> 
             <td>{$usuario['status']}</td> 
-       <td>
+       <td class='text-center'>
                 <a class='botao_usuario' href='visualizar_usuario.php?id={$usuario['id_Usuario']}'>
                     <button class='btn btn-primary'>
                         <i class='bi bi-eye'></i>

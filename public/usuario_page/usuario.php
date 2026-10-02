@@ -335,7 +335,7 @@ if (!$resultado) {
 
                                 <td><?php echo $usuario["status"]; ?></td>
 
-                                <td>
+                                <td class="text-center">
 
                                     <a class="botao_usuario" href="visualizar_usuario.php?id=<?php echo $usuario["id_Usuario"]; ?>">
                                         <button class="btn btn-primary">
