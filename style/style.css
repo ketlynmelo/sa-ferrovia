@@ -13,7 +13,7 @@
 #branco{
     color: white;
 }
-
+ 
 #colorir {
     color: rgb(255, 255, 255) !important;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -297,8 +297,8 @@
 }
 
 .img-fluid {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
 }
 
 .conteudo {
@@ -834,4 +834,7 @@
 width: 30px;
 
 
+}
+.botao_usuario{
+    text-decoration: none;
 }

@@ -34,19 +34,19 @@ while ($usuario = mysqli_fetch_assoc($resultado)) {
             <td>{$usuario['tipo_conta']}</td> 
             <td>{$usuario['status']}</td> 
        <td>
-                <a href='visualizar_usuario.php?id={$usuario['id_Usuario']}'>
+                <a class='botao_usuario' href='visualizar_usuario.php?id={$usuario['id_Usuario']}'>
                     <button class='btn btn-primary'>
                         <i class='bi bi-eye'></i>
                     </button>
                 </a>
 
-                <a href='editar_usuario.php?id={$usuario['id_Usuario']}'>
+                <a class='botao_usuario' href='editar_usuario.php?id={$usuario['id_Usuario']}'>
                     <button class='btn btn-secondary'>
                         <i class='bi bi-pencil'></i>
                     </button>
                 </a>
 
-                <a href='excluir_usuario.php?id={$usuario['id_Usuario']}'
+                <a class='botao_usuario' href='excluir_usuario.php?id={$usuario['id_Usuario']}'
                    onclick=\'return confirm('Tem certeza que deseja excluir este usuário?');\'>
                     <button class='btn btn-danger'>
                         <i class='bi bi-person-dash'></i>
