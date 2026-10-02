@@ -49,7 +49,5 @@ CREATE TABLE usuario (
     senha VARCHAR(255) NOT NULL,
     tipo_conta ENUM('Administrador', 'Usuário') NOT NULL,
     status ENUM('Ativo', 'Inativo') NOT NULL,
-    ultimo_acesso DATETIME NULL,
-    PRIMARY KEY (id_Usuario),
     UNIQUE (email)
 );
