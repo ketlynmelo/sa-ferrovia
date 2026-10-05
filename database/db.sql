@@ -1,4 +1,4 @@
-CREATE DATABASE situação_aprendizagem
+CREATE DATABASE situação_aprendizagem;
 
 USE situação_aprendizagem;
 
