@@ -1,3 +1,19 @@
+<?php
+
+session_start();
+
+if(isset($_SESSION['usuario'])) {
+    
+    if($_SESSION['tipo'] == 'administrador') {
+        header('Location: adm_home.php');
+    } else {
+        header('Location: home.php');
+    }
+    exit();
+
+}
+?>
+
 <html lang="en">
 
 <head>

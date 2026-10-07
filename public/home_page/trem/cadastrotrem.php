@@ -19,7 +19,7 @@ if (isset($_POST['cadastrar'])) {
 
 ?>
 
-<html lang="pt-BR">
+<html lang="pt-BR">8
 
 <head>
     <meta charset="UTF-8">
