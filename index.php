@@ -49,7 +49,7 @@ if(isset($_SESSION['usuario'])) {
 
         <div class="col-md-12">
           <label for="usuario" id="branco" class="form-label">Usuário</label>
-          <input type="text" class="form-control" id="usuario">
+          <input type="email" class="form-control" id="usuario" name="email" required>
           <div id="erro-usuario" class="erro"></div>
         </div>
 
@@ -57,7 +57,7 @@ if(isset($_SESSION['usuario'])) {
 
         <div class="col-md-12">
           <label for="senha" id="branco" class="form-label">Senha</label>
-          <input type="password" class="form-control" id="senha" required>
+          <input type="password" class="form-control" id="senha" name="senha" required>
           <div id="erro-senha" class="erro"></div>
         </div>
 

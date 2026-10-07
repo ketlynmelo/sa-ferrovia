@@ -3,14 +3,18 @@
 
 session_start();
 
-
 if (!isset($_SESSION['usuario'])) {
-    header('Location: index.php');
+    header('Location: ../../../index.php');
     exit();
 }
 
-   
-require_once "../../infra/conexao.php";
+if ($_SESSION['tipo'] != 'Usuário') {
+    header('Location: ../../../index.php');
+    exit();
+}
+
+require_once "../../../infra/conexao.php";
+
     
 ?>
 

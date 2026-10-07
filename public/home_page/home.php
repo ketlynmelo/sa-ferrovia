@@ -1,22 +1,18 @@
 <?php
-   
- 
+
+
 session_start();
 
-if (!isset($_SESSION['usuario'])) {
-    header('Location: ../../../index.php');
+
+if (!isset($_SESSION['administrador'])) {
+    header('Location: index.php');
     exit();
 }
 
-if ($_SESSION['tipo'] != 'Administrador') {
-    header('Location: ../../../index.php');
-    exit();
-}
-     
-
+   
 require_once "../../infra/conexao.php";
+    
 ?>
-
 
 <html lang="pt-BR">
 
@@ -41,22 +37,22 @@ require_once "../../infra/conexao.php";
 
         <nav class="d-flex flex-column">
 
-            <a href="../../home_page/home.php" class="menu-link active">
+            <a href="../home_page/home.php" class="menu-link active">
                 <i class="bi bi-house-fill"></i>
                 <span>Início</span>
             </a>
 
-            <a href="../../monitoramento_page/monitoramento.php" class="menu-link">
+            <a href="../monitoramento_page/monitoramento.php" class="menu-link">
                 <i class="bi bi-graph-up"></i>
                 <span>Monitoramento</span>
             </a>
 
-            <a href="../../relatorios_page/relatorios.php" class="menu-link">
+            <a href="../relatorios_page/relatorios.php" class="menu-link">
                 <i class="bi bi-file-earmark-text"></i>
                 <span>Relatórios</span>
             </a>
 
-            <a href="../../usuario_page/usuario.php" class="menu-link">
+            <a href="../usuario_page/usuario.php" class="menu-link">
                 <i class="bi bi-people"></i>
                 <span>Usuários</span>
             </a>
@@ -92,11 +88,11 @@ require_once "../../infra/conexao.php";
 
            <div class="actions-top">
 
-                <a href="../../sensor/cadastrosensor.php" class="btn btn-custom">
+                <a href="../sensor/cadastrosensor.php" class="btn btn-custom">
                     Cadastrar Sensores
                 </a>
 
-                <a href="../../trem/cadastrotrem.php" class="btn btn-custom">
+                <a href="../trem/cadastrotrem.php" class="btn btn-custom">
                     Cadastrar Trem
                 </a>
 

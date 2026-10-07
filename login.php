@@ -2,34 +2,54 @@
 
 session_start();
 
-require_once 'conexao.php';
+require_once "infra/conexao.php";
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
+$email = $_POST['email'];
+$senha = $_POST['senha'];
 
-    $query = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
-    $result = $conn->query($query);
+$query = "SELECT * FROM usuario WHERE email = ? AND status = 'Ativo'";
 
-    if ($result->num_rows > 0) {
-        $usuario = $result->fetch_assoc();
-        $_SESSION['usuario'] = $usuario['email'];
-        $_SESSION['tipo'] = $usuario['cargo'];
+$comando = mysqli_prepare($conn, $query);
 
-        if ($usuario['tipo_conta'] === 'administrador') {
-            header('Location: adm_home.php');
-        } else {
-            header('Location: home.php');
+mysqli_stmt_bind_param($comando, "s", $email);
+
+mysqli_stmt_execute($comando);
+
+$resultado = mysqli_stmt_get_result($comando);
+
+if (mysqli_num_rows($resultado) > 0) {
+
+    $usuario = mysqli_fetch_assoc($resultado);
+
+    if ($senha == $usuario['senha']) {
+
+        $_SESSION['id_usuario'] = $usuario['id_Usuario'];
+        $_SESSION['nome'] = $usuario['nome'];
+        $_SESSION['email'] = $usuario['email'];
+        $_SESSION['tipo'] = $usuario['tipo_conta'];
+
+        if ($usuario['tipo_conta'] == 'Administrador') {
+
+            header("Location: public/Administrador/home_page/home.php");
+            exit();
+
+        } elseif ($usuario['tipo_conta'] == 'Usuário') {
+
+            header("Location: public/Usuário/home_page/home.php");
+            exit();
+
         }
-        exit();
+
     } else {
-        echo "Email ou senha incorretos.";
+
+        echo "Senha incorreta.";
+
     }
+
+} else {
+
+    echo "E-mail não encontrado ou usuário inativo.";
+
 }
-
-
-
-
-
 
 ?>
