@@ -51,7 +51,7 @@ if (formLogin) {
     dados.push({ usuario, senha });
     console.table(dados);
     alert("Login realizado!");
-    window.location.href = "public/Administrador/home_page/admhome.php";
+    window.location.href = "public/Administrador/home_page/home.php";
     formLogin.reset();
   });
 }
