@@ -12,19 +12,19 @@
 //   formLogin.addEventListener("submit", function (e) {
 //     e.preventDefault();
 
-//     let valido = true;
-//     const usuarioInput = document.getElementById("usuario");
-//     const senhaInput = document.getElementById("senha");
-//     const usuario = usuarioInput.value;
-//     const senha = senhaInput.value;
-//     const erroUsuario = document.getElementById("erro-usuario");
-//     const erroSenha = document.getElementById("erro-senha");
+//   let valido = true;
+//   const usuarioInput = document.getElementById("usuario");
+//   const senhaInput = document.getElementById("senha");
+//   const usuario = usuarioInput.value;
+//   const senha = senhaInput.value;
+//   const erroUsuario = document.getElementById("erro-usuario");
+//   const erroSenha = document.getElementById("erro-senha");
 
-//     if (erroUsuario) erroUsuario.innerHTML = "";
-//     if (erroSenha) erroSenha.innerHTML = "";
+//   if (erroUsuario) erroUsuario.innerHTML = "";
+//   if (erroSenha) erroSenha.innerHTML = "";
 
-//     usuarioInput.classList.remove("is-invalid");
-//     senhaInput.classList.remove("is-invalid");
+//   usuarioInput.classList.remove("is-invalid");
+//   senhaInput.classList.remove("is-invalid");
 
 //     if (usuario.trim() === "") {
 //       usuarioInput.classList.add("is-invalid");
@@ -46,22 +46,13 @@
 //       valido = false;
 //     }
 
-//     if (!valido) return;
+// //     if (!valido) return;
 
-<<<<<<< HEAD
-    dados.push({ usuario, senha });
-    console.table(dados);
-    alert("Login realizado!");
-    window.location.href = "public/Administrador/home_page/home.php";
-    formLogin.reset();
-  });
-}
-=======
+// <<<<<<< HEAD
 //     dados.push({ usuario, senha });
 //     console.table(dados);
 //     alert("Login realizado!");
-//     window.location.href = "public/Administrador/home_page/admhome.php";
+//     window.location.href = "public/Administrador/home_page/home.php";
 //     formLogin.reset();
 //   });
 // }
->>>>>>> 507db3974772af193ca782209dc4c973ba440395
