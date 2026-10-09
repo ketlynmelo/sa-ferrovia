@@ -1,20 +1,12 @@
 <?php
+session_start();
 
-if (isset($_SESSION['email'])) {
-
-    if ($_SESSION['tipo'] == 'Administrador') {
-
-        header('Location: public/Administrador/home_page/adm_home.php');
-        exit();
-
-    } elseif ($_SESSION['tipo'] == 'Usuário') {
-
-        header('Location: public/Usuário/home_page/usuario_home.php');
-        exit();
-
-    }
-
+if (isset($_SESSION["usuario_id"])) {
+    header("Location:home.php");
+    exit;
 }
+
+$erro = isset($_GET["erro"]);
 ?>
 
 <html lang="en">
@@ -43,7 +35,7 @@ if (isset($_SESSION['email'])) {
     <div id="colorir" class="container rounded-5 shadow p-3 mb-2 text-dark"
       style="margin-top: 50px; max-width: 600px; margin-top: 250px; margin-right: 400px;">
 
-      <form id="formulario" action="login.php" method="POST" class="row g-3 needs-validation" novalidate>
+      <form id="formulario" action="login.php" method="POST" class="row g-3 needs-validation" >
 
         <div style="margin-top: 50px;">
           <h2 class="text-center "> <b>LOGIN</b></h2>
