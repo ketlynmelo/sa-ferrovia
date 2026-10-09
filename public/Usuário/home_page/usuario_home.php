@@ -1,27 +1,4 @@
-<?php
 
-
-session_start();
-
-if (!isset($_SESSION['usuario'])) {
-    header('Location: ../../../index.php');
-    exit();
-}
-
-<<<<<<< HEAD
-   
-require_once "../../../infra/conexao.php";
-=======
-if ($_SESSION['tipo'] != 'Usuário') {
-    header('Location: ../../../index.php');
-    exit();
-}
-
-require_once "../../../infra/conexao.php";
-
->>>>>>> 507db3974772af193ca782209dc4c973ba440395
-    
-?>
 
 <html lang="pt-BR">
 

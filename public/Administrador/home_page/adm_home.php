@@ -1,21 +1,3 @@
-<?php
-   
- 
-session_start();
-
-if (!isset($_SESSION['usuario'])) {
-    header('Location: ../../../index.php');
-    exit();
-}
-
-if ($_SESSION['tipo'] != 'Administrador') {
-    header('Location: ../../../index.php');
-    exit();
-}
-     
-
-require_once "../../infra/conexao.php";
-?>
 
 
 <html lang="pt-BR">
