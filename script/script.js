@@ -48,7 +48,6 @@
 
 //     if (!valido) return;
 
-<<<<<<< HEAD
     dados.push({ usuario, senha });
     console.table(dados);
     alert("Login realizado!");
