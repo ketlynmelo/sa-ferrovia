@@ -1,12 +1,17 @@
 <?php
-session_start();
-
+  $erro = isset($_GET["erro"]);
 if (isset($_SESSION["usuario_id"])) {
-    header("Location:home.php");
-    exit;
-}
 
-$erro = isset($_GET["erro"]);
+    if ($_SESSION["tipo"] === "Administrador") {
+        header("Location: public/Administrador/home_page/adm_home.php");
+        exit;
+    }
+
+    if ($_SESSION["tipo"] === "Usuário") {
+        header("Location: public/Usuário/home_page/usuario_home.php");
+        exit;
+    }
+}
 ?>
 
 <html lang="en">
@@ -68,6 +73,12 @@ $erro = isset($_GET["erro"]);
         </div>
 
       </form>
+
+      <?php if ($erro) { ?>
+    <div class="alert alert-danger mt-3">
+        E-mail ou senha incorretos, ou conta inativa.
+    </div>
+<?php } ?>
 
 
 
