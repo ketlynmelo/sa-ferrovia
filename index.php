@@ -1,17 +1,12 @@
 <?php
-
 session_start();
 
-if(isset($_SESSION['usuario'])) {
-    
-    if($_SESSION['tipo'] == 'administrador') {
-        header('Location: adm_home.php');
-    } else {
-        header('Location: home.php');
-    }
-    exit();
-
+if (isset($_SESSION["usuario_id"])) {
+    header("Location:home.php");
+    exit;
 }
+
+$erro = isset($_GET["erro"]);
 ?>
 
 <html lang="en">
@@ -40,7 +35,7 @@ if(isset($_SESSION['usuario'])) {
     <div id="colorir" class="container rounded-5 shadow p-3 mb-2 text-dark"
       style="margin-top: 50px; max-width: 600px; margin-top: 250px; margin-right: 400px;">
 
-      <form id="formulario" class="row g-3 needs-validation" novalidate>
+      <form id="formulario" action="login.php" method="POST" class="row g-3 needs-validation" >
 
         <div style="margin-top: 50px;">
           <h2 class="text-center "> <b>LOGIN</b></h2>
@@ -49,7 +44,7 @@ if(isset($_SESSION['usuario'])) {
 
         <div class="col-md-12">
           <label for="usuario" id="branco" class="form-label">Usuário</label>
-          <input type="text" class="form-control" id="usuario">
+          <input type="email" class="form-control" id="usuario" name="email" required>
           <div id="erro-usuario" class="erro"></div>
         </div>
 
@@ -57,7 +52,7 @@ if(isset($_SESSION['usuario'])) {
 
         <div class="col-md-12">
           <label for="senha" id="branco" class="form-label">Senha</label>
-          <input type="password" class="form-control" id="senha" required>
+          <input type="password" class="form-control" id="senha" name="senha" required>
           <div id="erro-senha" class="erro"></div>
         </div>
 
