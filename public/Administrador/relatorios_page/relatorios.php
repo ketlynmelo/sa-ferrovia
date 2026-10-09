@@ -66,7 +66,7 @@ $relatoriosFiltrados = array_filter($relatorios, function ($relatorio) use ($per
 
     <link   rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"  >
 
-    <link rel="stylesheet"   href="../../style/style.css"  >
+    <link rel="stylesheet"   href="../../../style/style.css"  >
 
 </head>
 
@@ -78,20 +78,20 @@ $relatoriosFiltrados = array_filter($relatorios, function ($relatorio) use ($per
 
     <div class="text-center mb-5">
 
-        <img  src="../../assets/images/Simbolo.png"  class="logo"  alt="XRail" >
+        <img  src="../../../assets/images/Simbolo.png"  class="logo"  alt="XRail" >
 
     </div>
 
 
     <nav class="d-flex flex-column">
 
-        <a href="../home_page/home.php"  class="menu-link">
+        <a href="../home_page/adm_home.php"  class="menu-link">
             <i class="bi bi-house-fill"></i>
             <span>Início</span>
         </a>
 
 
-        <a href="../monitoramento_page/monitoramento.php" class="menu-link"  >
+        <a href="../monitoramento_page/adm_monitoramento.php" class="menu-link"  >
             <i class="bi bi-graph-up"></i>
             <span>Monitoramento</span>
         </a>
