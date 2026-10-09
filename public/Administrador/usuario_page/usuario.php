@@ -93,7 +93,7 @@ if (!$resultado) {
                 <span>Usuários</span>
             </a>
 
-            <a href="../../index.php" class="menu-link">
+            <a href="../../../logout.php" class="menu-link">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sair</span>
             </a>
