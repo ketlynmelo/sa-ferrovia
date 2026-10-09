@@ -1,6 +1,6 @@
 <?php
 
-require_once "../../infra/conexao.php";
+require_once "../../../infra/conexao.php";
 
 //funcionarios
 $sqlTotal = "SELECT COUNT(*) AS total FROM usuario";

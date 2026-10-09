@@ -1,6 +1,6 @@
 <?php
 
-include "../../infra/conexao.php";
+include "../../../infra/conexao.php";
 
 $nome = $_POST["nome"];
 $cpf = $_POST["cpf"];
@@ -8,6 +8,8 @@ $data_nascimento = $_POST["data_nascimento"];
 $endereco = $_POST["endereco"];
 $email = $_POST["email"];
 $senha = $_POST["senha"];
+$senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+var_dump(password_verify($senha, $senhaHash));
 $tipo_conta = $_POST["tipo_conta"];
 $status = $_POST["status"];
 
@@ -24,7 +26,7 @@ mysqli_stmt_bind_param(
     $data_nascimento,
     $endereco,  
     $email,
-    $senha,
+    $senhaHash,
     $tipo_conta,
     $status
 );

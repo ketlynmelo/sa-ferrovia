@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 <?php 
 
-include "../../infra/conexao.php"; 
+include "../../../infra/conexao.php"; 
 
 $busca = $_GET['busca'] ?? '';
 $tipo = $_GET['tipo'] ?? ''; 

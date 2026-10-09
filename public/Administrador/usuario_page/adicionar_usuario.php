@@ -1,5 +1,5 @@
  <?php
-    include "../../infra/conexao.php";
+    include "../../../infra/conexao.php";
     ?>
 
 <h1>Cadastro de Usuários</h1>

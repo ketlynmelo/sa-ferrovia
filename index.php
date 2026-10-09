@@ -1,12 +1,40 @@
 <?php
 session_start();
 
-if (isset($_SESSION["usuario_id"])) {
-    header("Location:home.php");
-    exit;
-}
+include "infra/conexao.php";
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
 
-$erro = isset($_GET["erro"]);
+    $sql = "SELECT * FROM usuario WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+
+    if (!$stmt) {
+        die("Erro no prepare: " . $conn->error);
+    }
+    $stmt->bind_param("s", $email);
+    if (!$stmt->execute()) {
+        die("Erro no execute: " . $stmt->error);
+    }
+    $result = $stmt->get_result();
+    if ($result->num_rows > 0) {
+        $usuario = $result->fetch_assoc();
+
+        if (password_verify($senha, $usuario['senha'])) {
+            echo "Senha correta!<br>";
+            $_SESSION['id_Usuario'] = $usuario['id_Usuario'];
+            $_SESSION['nome'] = $usuario['nome'];
+            $_SESSION['email'] = $usuario['email'];
+            $_SESSION['tipo_conta'] = $usuario['tipo_conta'];
+            header("Location: public/Administrador/home_page/adm_home.php");
+            exit;
+        } else {
+            echo "Senha INCORRETA!<br>";
+        }
+    } else {
+        echo "E-mail não encontrado!<br>";
+    }
+}
 ?>
 
 <html lang="en">
@@ -35,7 +63,7 @@ $erro = isset($_GET["erro"]);
     <div id="colorir" class="container rounded-5 shadow p-3 mb-2 text-dark"
       style="margin-top: 50px; max-width: 600px; margin-top: 250px; margin-right: 400px;">
 
-      <form id="formulario" action="login.php" method="POST" class="row g-3 needs-validation" >
+      <form id="formulario" method="POST" class="row g-3 needs-validation" >
 
         <div style="margin-top: 50px;">
           <h2 class="text-center "> <b>LOGIN</b></h2>
@@ -68,8 +96,6 @@ $erro = isset($_GET["erro"]);
         </div>
 
       </form>
-
-
 
     </div>
 
