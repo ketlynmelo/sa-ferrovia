@@ -1,6 +1,5 @@
 <?php
    
-<<<<<<< HEAD:public/Administrador/home_page/home.php
  
 session_start();
 
@@ -16,9 +15,6 @@ if ($_SESSION['tipo'] != 'Administrador') {
      
 
 require_once "../../infra/conexao.php";
-=======
-require_once "../../../infra/conexao.php";
->>>>>>> fcd615353eadea3a5e8bbaa6698e3c901dc0ad87:public/Administrador/home_page/adm_home.php
 ?>
 
 
