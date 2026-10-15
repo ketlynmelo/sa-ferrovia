@@ -47,19 +47,55 @@ if (!$brinquedo) {
     <link rel="stylesheet" href="../style/style.css">
 </head>
 <body>
-    <header>
-        <h1>Trens</h1>
-    </header>
+    <body>
+
+    <aside class="sidebar">
+
+        <div class="text-center mb-5">
+            <img src="../../../assets/images/Simbolo.png" class="logo">
+        </div>
+
+        <nav class="d-flex flex-column">
+
+            <a href="../home_page/home.php" class="menu-link active">
+                <i class="bi bi-house-fill"></i>
+                <span>Início</span>
+            </a>
+
+            <a href="../monitoramento_page/monitoramento.php" class="menu-link">
+                <i class="bi bi-graph-up"></i>
+                <span>Monitoramento</span>
+            </a>
+
+            <a href="../relatorios_page/relatorios.php" class="menu-link">
+                <i class="bi bi-file-earmark-text"></i>
+                <span>Relatórios</span>
+            </a>
+
+            <a href="../usuario_page/usuario.php" class="menu-link">
+                <i class="bi bi-people"></i>
+                <span>Usuários</span>
+            </a>
+
+            <a href="../../index.php" class="menu-link">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sair</span>
+            </a>
+
+        </nav>
+
+    </aside>
+
     <main>
         <div>
             <h2>Editando o trem!</h2>
-            <form action="trens-editar.php" method="POST">
+            <form action="editartrem.php" method="POST">
                 <input type="hidden" name="id" value="<?php echo $trem["id"] ?>">
 
                 <label for="nome">Nome:</label>
                 <input type="text" name="nome" value="<?php echo htmlspecialchars($trem["nome"]) ?>">
                 <br>
-                
+
                 <label for="modelo">Modelo:</label>
                 <input type="text" name="modelo" value="<?php echo htmlspecialchars($trem["modelo"]) ?>">
                 <br>
