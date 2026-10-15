@@ -1,4 +1,12 @@
+<?php
+    include_once("../../../database/conexao.php");
+    session_start();
+    if (!isset($_SESSION['admin'])) {
+        header("Location: ../../../login.php");
+        exit();
+    }
 
+?>
 
 <html lang="pt-BR">
 
