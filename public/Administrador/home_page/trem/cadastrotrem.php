@@ -1,21 +1,24 @@
 <?php
 
-include ('../../infra/conexao.php');
+include "../infra/conexao.php";
 
-if (isset($_POST['cadastrar'])) {
     $nome = $_POST['nome_trem'];
     $modelo = $_POST['modelo'];
     $carga = $_POST['carga'];
     $velocidade = $_POST['velocidade'];
-    
-    $sql = "INSERT INTO trem (nome, modelo, carga, velocidade) VALUES ('$nome', '$modelo', '$carga', '$velocidade')";
-    
-    if ($conn->query($sql) === TRUE) {
-        echo "Novo trem cadastrado com sucesso!";
-    } else {
-        echo "Erro: " . $sql . "<br>" . $conn->error;
-    }
-}
+    $sensor = $_POST['sensor'];
+
+$query = "INSERT INTO trem(nome, modelo, carga, velocidade, fk_sensor) VALUES (?, ?, ?, ?, ?)";
+
+$stmt = mysqli_prepare($conexao, $query);
+
+mysqli_stmt_bind_param($stmt, "ssss", $nome, $modelo, $carga, $velocidade);
+
+mysqli_stmt_execute($stmt);
+
+header("Location: ../index.php");
+
+exit();
 
 ?>
 
@@ -84,6 +87,11 @@ if (isset($_POST['cadastrar'])) {
                         <div class="col-12">
                             <label for="ct_nome" class="form-label">Nome do Trem</label>
                             <input type="text" class="form-control" id="ct_nome" placeholder="ex: Stiles" />
+                        </div>
+
+                        <div class="col-12">
+                            <label for="ct_modelo" class="form-label">Modelo</label>
+                            <input type="text" class="form-control" id="ct_modelo" placeholder="ex: 2023" />
                         </div>
 
                         <div class="col-12">
