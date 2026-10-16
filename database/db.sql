@@ -9,7 +9,6 @@ CREATE TABLE trem (
     modelo VARCHAR(50) NOT NULL,
     carga VARCHAR(50) NOT NULL,
     velocidade VARCHAR(45) NOT NULL
-    fk_sensor INT FOREIGN KEY (fk_sensor) REFERENCES sensor(id_Sensor),
 );
 
 
