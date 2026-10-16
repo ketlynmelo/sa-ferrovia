@@ -1,6 +1,7 @@
 <?php
 
-include "../infra/conexao.php";
+    include "../../../../infra/conexao.php";
+ 
 
     $nome = $_POST['nome_trem'];
     $modelo = $_POST['modelo'];
@@ -8,11 +9,19 @@ include "../infra/conexao.php";
     $velocidade = $_POST['velocidade'];
     $sensor = $_POST['sensor'];
 
-$query = "INSERT INTO trem(nome, modelo, carga, velocidade, fk_sensor) VALUES (?, ?, ?, ?, ?)";
+$sql = "INSERT INTO trem (nome_trem, modelo, carga, velocidade, sensor) VALUES (?, ?, ?, ?, ?)";
 
-$stmt = mysqli_prepare($conexao, $query);
+$stmt = mysqli_prepare($conn, $sql);
 
-mysqli_stmt_bind_param($stmt, "ssss", $nome, $modelo, $carga, $velocidade);
+mysqli_stmt_bind_param(
+    $stmt, 
+    "sssss",
+     $nome, 
+     $modelo, 
+     $carga, 
+     $velocidade,
+     $sensor   
+     );
 
 mysqli_stmt_execute($stmt);
 
@@ -82,39 +91,61 @@ exit();
                 <div class="form-card">
                     <div class="page-title">Cadastrar Trens</div>
 
-                    <form class="row g-3 needs-validation" novalidate>
+                     <form action="cadastrotrem.php" method="POST" class="row g-3 needs-validation">
 
-                        <div class="col-12">
-                            <label for="ct_nome" class="form-label">Nome do Trem</label>
-                            <input type="text" class="form-control" id="ct_nome" placeholder="ex: Stiles" />
-                        </div>
+                        
+<div class="col-12">
+    <label for="ct_nome" class="form-label">Nome do Trem</label>
+    <input type="text" class="form-control"
+           id="ct_nome" name="nome_trem"
+           placeholder="ex: Stiles" required>
+</div>
 
-                        <div class="col-12">
-                            <label for="ct_modelo" class="form-label">Modelo</label>
-                            <input type="text" class="form-control" id="ct_modelo" placeholder="ex: 2023" />
-                        </div>
+<div class="col-12">
+    <label for="ct_modelo" class="form-label">Modelo</label>
+    <input type="text" class="form-control"
+           id="ct_modelo" name="modelo"
+           placeholder="ex: 2023" required>
+</div>
 
-                        <div class="col-12">
-                            <label for="ct_linha" class="form-label">Linha</label>
-                            <input type="text" class="form-control" id="ct_linha" placeholder="ex: 0500" />
-                        </div>
+<div class="col-12">
+    <label for="ct_carga" class="form-label">Carga</label>
+    <select class="form-select" id="ct_carga"
+            name="carga" required>
+        <option value="" selected disabled>
+            Selecione o tipo de carga
+        </option>
+        <option value="Passageiros">Passageiros</option>
+        <option value="Carga Geral">Carga Geral</option>
+        <option value="Minério">Minério</option>
+        <option value="Combustível">Combustível</option>
+    </select>
+</div>
 
-                        <div class="col-12">
-                            <label for="ct_carga" class="form-label">Carga</label>
-                            <select class="form-select" id="ct_carga">
-                                <option value="" selected disabled>Selecione o tipo de carga</option>
-                                <option>Passageiros</option>
-                                <option>Carga Geral</option>
-                                <option>Minério</option>
-                                <option>Combustível</option>
-                            </select>
-                        </div>
+<div class="col-12">
+    <label for="ct_velocidade" class="form-label">Velocidade</label>
+    <input type="number" class="form-control"
+           id="ct_velocidade" name="velocidade"
+           required>
+</div>
 
-                        <div class="col-12">
-                            <label for="ct_sensor" class="form-label">Sensor</label>
-                            <select class="form-select" id="ct_sensor">
-                            </select>
-                        </div>
+<div class="col-12">
+    <label for="ct_sensor" class="form-label">Sensor</label>
+    <select class="form-select" id="ct_sensor"
+            name="sensor" required>
+        <option value="" selected disabled>
+            Selecione um sensor
+        </option>
+        <!-- Adicione aqui as opções dos sensores -->
+    </select>
+</div>
+
+<div class="col-12 d-flex gap-2 mt-3">
+    <button type="button" class="btn btn-cancelar"
+            onclick="history.back()">Cancelar</button>
+    <button type="submit" class="btn btn-salvar">Salvar</button>
+</div>
+
 
                         <div class="col-12 d-flex gap-2 mt-3">
                             <button type="button" class="btn btn-cancelar">Cancelar</button>
