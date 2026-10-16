@@ -17,6 +17,8 @@
 
 <body>
 
+<a href="rotas/cadastro_rotas.php">ROTAS</a>
+
     <aside class="sidebar">
 
         <div class="text-center mb-5">

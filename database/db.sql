@@ -28,7 +28,7 @@ CREATE TABLE relatorio (
 
 
 CREATE TABLE rota (
-    id_Rota INT PRIMARY KEY NOT NULL,
+    id_Rota INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nome_rota VARCHAR(45) NOT NULL,
     horario_rota VARCHAR(45) NOT NULL,
     ponto_inicial VARCHAR(45) NOT NULL,
