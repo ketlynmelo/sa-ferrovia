@@ -17,7 +17,6 @@
 
 <body>
 
-<a href="rotas/cadastro_rotas.php">ROTAS</a>
 
     <aside class="sidebar">
 
@@ -31,6 +30,12 @@
                 <i class="bi bi-house-fill"></i>
                 <span>Início</span>
             </a>
+            
+            <a href="rotas/cadastro_rotas.php" class="menu-link">
+                <i class="bi bi-train-freight-front"></i>
+                <span>Rotas</span>
+            </a>
+
 
             <a href="../monitoramento_page/adm_monitoramento.php" class="menu-link">
                 <i class="bi bi-graph-up"></i>
