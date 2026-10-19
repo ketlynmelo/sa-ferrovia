@@ -118,6 +118,10 @@ if (!$brinquedo) {
                 <input type="form-select" name="sensor" value="<?php echo htmlspecialchars($trem["sensor"]) ?>">
                 <br>
 
+                <label for="usuario">Usuário:</label>
+                <input type="form-select" name="usuario" value="<?php echo htmlspecialchars($trem["usuario"]) ?>">
+                <br>
+
                 <button type="submit">Atualizar</button>
             </form>
         </div>

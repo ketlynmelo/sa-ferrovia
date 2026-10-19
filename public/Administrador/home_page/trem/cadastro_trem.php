@@ -136,7 +136,34 @@ exit();
         <option value="" selected disabled>
             Selecione um sensor
         </option>
-        <!-- Adicione aqui as opções dos sensores -->
+        
+        <?php while ($sensor = mysqli_fetch_assoc($resultadoSensores)) { ?>
+
+            <option value="<?= $sensor['id_Sensor'] ?>">
+                <?= htmlspecialchars($sensor['nome_sensor']) ?>
+            </option>
+
+        <?php } ?>
+
+    </select>
+</div>
+
+<div class="col-12">
+    <label for="ct_sensor" class="form-label">Condutor</label>
+    <select class="form-select" id="ct_sensor"
+            name="sensor" required>
+        <option value="" selected disabled>
+            Selecione um usuário
+        </option>
+        
+        <?php while ($usuario = mysqli_fetch_assoc($resultadoSensores)) { ?>
+
+            <option value="<?= $usuario['id_Usuario'] ?>">
+                <?= htmlspecialchars($usuario['nome']) ?>
+            </option>
+
+        <?php } ?>
+        
     </select>
 </div>
 
