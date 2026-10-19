@@ -32,7 +32,7 @@ $rota = mysqli_fetch_assoc($resultado);
 
 <main>
 
-    <h2>Editando a Rota <?php echo $rota["id_Rota"]; ?>!</h2>
+    <h2>Editando a Rota <?php echo $rota["nome_rota"]; ?>!</h2>
     <form action="atualizar_rotas.php" method="POST">
 
         <input type="hidden" name="id_Rota" value="<?php echo $rota["id_Rota"]; ?>">

@@ -27,6 +27,8 @@
                 <span>Início</span>
             </a>
 
+            
+
             <a href="../../../monitoramento_page/usuario_monitoramento.php" class="menu-link">
                 <i class="bi bi-graph-up"></i>
                 <span>Monitoramento</span>
