@@ -26,7 +26,7 @@
                 <span>Início</span>
             </a>
 
-            <a href="../rotas/cadastro_rotas.php" class="menu-link">
+            <a href="../home_page/rotas/cadastro_rotas.php" class="menu-link">
                 <i class="bi bi-train-freight-front"></i>
                 <span>Rotas</span>
             </a>

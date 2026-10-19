@@ -92,7 +92,7 @@ if (!$resultado) {
         </a>
 
 
-        <a href="../relatorios.php" class="menu-link" >
+        <a href="../relatorios_page/relatorios.php" class="menu-link" >
             <i class="bi bi-file-earmark-text"></i>
             <span>Relatórios</span>
         </a>
