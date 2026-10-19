@@ -10,11 +10,15 @@
     $tipo_conta = $_POST['tipo_conta'];
     $status = $_POST['status'];
 
+
+        $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+
     $sql = "UPDATE usuario 
     SET nome='$nome', 
     cpf='$cpf',
     data_nascimento='$data_nascimento', 
-    email='$email', senha='$senha', 
+    email='$email', 
+    senha='$senhaHash', 
     tipo_conta='$tipo_conta', 
     status='$status' 
     WHERE id_Usuario=$id_Usuario";
