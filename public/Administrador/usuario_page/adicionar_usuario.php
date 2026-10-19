@@ -59,5 +59,6 @@
     <br><br>
 
     <button type="submit">Cadastrar</button>
+    <button type="button" onclick="window.location.href='usuario.php'">Voltar</button>
 
 </form>
