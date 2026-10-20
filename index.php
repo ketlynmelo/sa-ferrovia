@@ -26,11 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['nome'] = $usuario['nome'];
             $_SESSION['email'] = $usuario['email'];
             $_SESSION['tipo_conta'] = $usuario['tipo_conta'];
-            if ($usuario['tipo_conta'] === 'Administrador') {
+            // if ($usuario['tipo_conta'] === 'Administrador') {
             header("Location: public/Administrador/home_page/adm_home.php");
-        } else {
-            header('Location: public/Usuário/home_page/usuario_home.php');
-        }
+        // } else {
+        //     header('Location: public/Usuário/home_page/usuario_home.php');
+        // }
             
             
             exit;
