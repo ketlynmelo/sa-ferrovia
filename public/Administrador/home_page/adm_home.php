@@ -83,11 +83,11 @@
 
            <div class="actions-top">
 
-                <a href="../../../sensor/cadastrosensor.php" class="btn btn-custom">
+                <a href="sensor/cadastro_sensor.php" class="btn btn-custom">
                     Cadastrar Sensores
                 </a>
 
-                <a href="../../../trem/cadastrotrem.php" class="btn btn-custom">
+                <a href="trem/cadastro_trem.php" class="btn btn-custom">
                     Cadastrar Trem
                 </a>
 
@@ -106,6 +106,7 @@
                                 <tr>
                                     <th>ID do sensor</th>
                                     <th>Nome</th>
+                                    <th>Trem vinculado</th>
                                     <th>Localização</th>
                                     <th>Tipo de Dado</th>
                                     <th class="text-center">Ações</th>
@@ -125,8 +126,8 @@
                                         <td><?php echo $sensor['localizacao'] ?></td>
                                         <td><?php echo $sensor['tipo_dado'] ?></td>
                                         <td class="text-center">
-                                            <a class="btn btn-secondary" href="public/sensor-editar.php? id=<?php echo $sensor['id'] ?>">Editar</a>
-                                            <a class="btn btn-danger" href="public/sensor-excluir.php? id=<?php echo $sensor['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir este sensor?')">Excluir</a>
+                                            <a class="btn btn-secondary" href="sensor/editar_sensor.php? id=<?php echo $sensor['id'] ?>">Editar</a>
+                                            <a class="btn btn-danger" href="sensor/delete_sensor.php? id=<?php echo $sensor['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir este sensor?')">Excluir</a>
                                         </td>
                                     </tr>
                                 <?php } ?>
