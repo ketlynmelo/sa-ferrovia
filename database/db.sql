@@ -11,6 +11,12 @@ CREATE TABLE trem (
     velocidade VARCHAR(45) NOT NULL
 );
 
+ALTER TABLE sensor
+ADD COLUMN Trem_id_Trem INT NOT NULL,
+ADD CONSTRAINT fk_sensor_trem
+FOREIGN KEY (Trem_id_Trem)
+REFERENCES trem(id_Trem);
+
 
 CREATE TABLE sensor (
     id_Sensor INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
