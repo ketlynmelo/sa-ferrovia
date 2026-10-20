@@ -144,25 +144,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
 
                         <div class="col-12">
-                            <label for="ct_sensor" class="form-label">Sensor</label>
-                            <select class="form-select" id="ct_sensor"
-                                    name="sensor" required>
-                                <option value="" selected disabled>
-                                    Selecione um sensor
-                                </option>
-                                
-                                <?php while ($sensor = mysqli_fetch_assoc($resultadoSensores)) { ?>
-
-                                    <option value="<?= $sensor['id_Sensor'] ?>">
-                                        <?= htmlspecialchars($sensor['nome_sensor']) ?>
-                                    </option>
-
-                                <?php } ?>
-
-                            </select>
-                        </div>
-
-                        <div class="col-12">
                             <label for="ct_condutor" class="form-label">Condutor</label>
                             <select class="form-select" id="ct_condutor"
                                     name="condutor" required>
