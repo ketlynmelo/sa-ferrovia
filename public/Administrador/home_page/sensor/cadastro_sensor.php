@@ -87,6 +87,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="container-fluid">
 
+            <a href="../adm_home.php" class="btn btn-outline-secondary mb-3">
+               <i class="bi bi-arrow-left"></i> Voltar
+            </a>
+
             <div class="form-card" id="cadastrarTrem">
 
                     <div class="page-title">Cadastrar Sensores</div>
