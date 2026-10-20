@@ -1,6 +1,7 @@
 <?php
 
 include "../../../../infra/conexao.php";
+include "../../../../infra/verificar_adm.php";
 
 $id = $_GET["id"];
 

@@ -1,6 +1,7 @@
 <?php
     
 include "../../../../infra/conexao.php";
+include "../../../../infra/verificar_adm.php";
 
     ?>
 
@@ -55,7 +56,7 @@ include "../../../../infra/conexao.php";
                 <span>Usuários</span>
             </a>
 
-            <a href="../../../logout.php" class="menu-link">
+            <a href="../../../../logout.php" class="menu-link">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sair</span>
             </a>

@@ -1,5 +1,6 @@
 <?php
     include "../../../infra/conexao.php";
+    include "../../../infra/verificar_adm.php";
 
     $id_Usuario = $_POST['id_Usuario'];
     $nome = $_POST['nome'];

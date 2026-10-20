@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../../../../infra/conexao.php';
+include "../../../../infra/verificar_adm.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST["nome_sensor"];

@@ -2,6 +2,7 @@
 
 $id = $_GET['id'];
 include("../../infra/conexao.php");
+include "../../infra/verificar_adm.php";
 
 $sql = "DELETE FROM sensor WHERE id = $id";
 
