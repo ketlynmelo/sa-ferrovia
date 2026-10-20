@@ -20,15 +20,12 @@
     border: 0px !important;
 }
 
-.dividido {
-    display: flex !important;
-    justify-content: space-between;
-    align-items: flex-start;
-}
 
 #logo {
-    position: relative !important;
-    width: 123%;
+       display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
 }
 
 
@@ -837,4 +834,83 @@ width: 30px;
 }
 .botao_usuario{
     text-decoration: none;
+}
+
+
+.dividido {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    align-items: stretch;
+}
+
+.painel-logo {
+    width: 28%;
+    flex: 0 0 28%;
+    min-height: 100vh;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#logo {
+    width: 100%;
+    height: auto;
+    position: static;
+    object-fit: contain;
+}
+
+#colorir {
+    flex: 1;
+    min-width: 0;
+    min-height: 100vh;
+    margin: 0;
+    padding: 25px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: transparent;
+    border: none;
+}
+
+#formulario {
+    display: block;
+    width: 100%;
+    max-width: 570px;
+    margin: 0 auto;
+    padding: 30px;
+    box-sizing: border-box;
+
+    background: rgba(0, 0, 0, 0.65);
+    border-radius: 20px;
+    color: white;
+}
+
+#formulario h2 {
+    color: white;
+    margin-bottom: 25px;
+}
+
+#formulario .form-label {
+    color: white;
+}
+
+#formulario .form-control {
+    width: 100%;
+    border-radius: 10px;
+}
+
+#formulario .toggle {
+    text-align: center;
+    color: white;
+}
+
+#formulario button {
+    min-width: 120px;
+    border-radius: 10px;
 }
