@@ -1,11 +1,6 @@
 <?php
 
 require_once __DIR__ . '/../../../../infra/conexao.php';
-<<<<<<< HEAD
-=======
-include "../../infra/verificar_adm.php";
-
->>>>>>> 3e4dcf5cd616faa42522e35f4cc6598fa193b029
 
 $id = filter_input(INPUT_GET, 'id_Sensor', FILTER_VALIDATE_INT);
 
