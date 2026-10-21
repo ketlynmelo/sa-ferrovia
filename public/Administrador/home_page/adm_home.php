@@ -1,5 +1,7 @@
  <?php
+    session_start();
     include "../../../infra/conexao.php";
+    include "../../../infra/verificar_adm.php";
  ?>
 
 <html lang="pt-BR">
@@ -25,6 +27,7 @@
         </div>
 
         <nav class="d-flex flex-column">
+        
 
             <a href="../home_page/adm_home.php" class="menu-link active">
                 <i class="bi bi-house-fill"></i>
@@ -36,7 +39,7 @@
                 <span>Rotas</span>
             </a>
 
-
+            
             <a href="../monitoramento_page/adm_monitoramento.php" class="menu-link">
                 <i class="bi bi-graph-up"></i>
                 <span>Monitoramento</span>
@@ -51,6 +54,9 @@
                 <i class="bi bi-people"></i>
                 <span>Usuários</span>
             </a>
+
+
+            
 
             <a href="../../../logout.php" class="menu-link">
                 <i class="bi bi-box-arrow-right"></i>

@@ -1,3 +1,7 @@
+<?php
+session_start();
+
+?>
 
 <link rel="stylesheet" href="../style/style.css">
 <?php
@@ -90,15 +94,18 @@ $relatoriosFiltrados = array_filter($relatorios, function ($relatorio) use ($per
             <span>Início</span>
         </a>
 
-        <a href="../home_page/rotas/cadastro_rotas.php" class="menu-link">
+
+            <a href="../home_page/rotas/cadastro_rotas.php" class="menu-link  ">
                 <i class="bi bi-train-freight-front"></i>
                 <span>Rotas</span>
             </a>
 
-        <a href="../monitoramento_page/adm_monitoramento.php" class="menu-link"  >
+              <a href="../monitoramento_page/adm_monitoramento.php" class="menu-link"  >
             <i class="bi bi-graph-up"></i>
             <span>Monitoramento</span>
         </a>
+
+           
 
 
         <a href="relatorios.php" class="menu-link active" >
@@ -106,11 +113,11 @@ $relatoriosFiltrados = array_filter($relatorios, function ($relatorio) use ($per
             <span>Relatórios</span>
         </a>
 
+         <a href="../usuario_page/usuario.php" class="menu-link ">
+                <i class="bi bi-people"></i>
+                <span>Usuários</span>
+            </a>
 
-        <a href="../usuario_page/usuario.php" class="menu-link" >
-         <i class="bi bi-people"></i>
-            <span>Usuários</span>
-        </a>
 
 
         <a href="../../../logout.php"class="menu-link"  >
