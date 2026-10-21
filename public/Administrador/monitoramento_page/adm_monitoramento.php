@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['tipo_conta'])) {
+    header("Location: ../../login.php");
+    exit;
+}
+?>
+
+
 <html lang="pt-BR">
 
 <head>
@@ -26,15 +36,17 @@
                 <span>Início</span>
             </a>
 
-            <a href="../home_page/rotas/cadastro_rotas.php" class="menu-link">
-                <i class="bi bi-train-freight-front"></i>
-                <span>Rotas</span>
-            </a>
 
-           <a href="../monitoramento_page/adm_monitoramento.php" class="menu-link active">
-                <i class="bi bi-graph-up"></i>
-                <span>Monitoramento</span>
-            </a>
+        <a href="../home_page/rotas/cadastro_rotas.php" class="menu-link ">
+        <i class="bi bi-train-freight-front"></i>
+        <span>Rotas</span>
+        </a>
+
+
+        <a href="monitoramento_page/adm_monitoramento.php" class="menu-link active"  >
+            <i class="bi bi-graph-up"></i>
+            <span>Monitoramento</span>
+        </a>
 
             <a href="../relatorios_page/relatorios.php" class="menu-link">
                 <i class="bi bi-file-earmark-text"></i>
@@ -42,9 +54,10 @@
             </a>
 
             <a href="../usuario_page/usuario.php" class="menu-link">
-                <i class="bi bi-people"></i>
-                <span>Usuários</span>
-            </a>
+        <i class="bi bi-people"></i>
+        <span>Usuários</span>
+    </a>
+
 
             <a href="../../../logout.php" class="menu-link">
                 <i class="bi bi-box-arrow-right"></i>

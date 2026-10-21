@@ -59,25 +59,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>Início</span>
             </a>
             
-            <a href="rotas/cadastro_rotas.php" class="menu-link">
+            <?php if ($_SESSION['tipo_conta'] === 'Administrador'): ?>
+
+
+            <a href="../cadastro_rotas.php" class="menu-link active">
                 <i class="bi bi-train-freight-front"></i>
                 <span>Rotas</span>
             </a>
 
-
-            <a href="../monitoramento_page/adm_monitoramento.php" class="menu-link">
-                <i class="bi bi-graph-up"></i>
-                <span>Monitoramento</span>
+            <a href="../usuario_page/usuario.php" class="menu-link ">
+                <i class="bi bi-people"></i>
+                <span>Usuários</span>
             </a>
+
+            <?php endif; ?>
 
             <a href="../relatorios_page/relatorios.php" class="menu-link">
                 <i class="bi bi-file-earmark-text"></i>
                 <span>Relatórios</span>
-            </a>
-
-            <a href="../usuario_page/usuario.php" class="menu-link">
-                <i class="bi bi-people"></i>
-                <span>Usuários</span>
             </a>
 
             <a href="../../../logout.php" class="menu-link">
