@@ -1,7 +1,7 @@
  <?php
     include "../../../infra/conexao.php";
-    include "../../../infra/verificar_adm.php";
     ?>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 <h1>Cadastro de Usuários</h1>
 <link rel="stylesheet" href="../style/style.css">

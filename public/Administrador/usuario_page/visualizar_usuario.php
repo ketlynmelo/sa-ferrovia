@@ -2,7 +2,6 @@
 session_start();
 
 include "../../../infra/conexao.php";
-include "../../../infra/verificar_adm.php";
 
 $id = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
 
