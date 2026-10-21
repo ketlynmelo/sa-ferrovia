@@ -1,7 +1,6 @@
 <?php
-      session_start();
+    session_start();
 include "../../../../infra/conexao.php";
-include "../../../../infra/verificar_adm.php";
 
     ?>
 
@@ -52,7 +51,7 @@ include "../../../../infra/verificar_adm.php";
                 <i class="bi bi-file-earmark-text"></i>
                 <span>Relatórios</span>
             </a>
-            
+
             <a href="../../usuario_page/usuario.php" class="menu-link ">
                 <i class="bi bi-people"></i>
                 <span>Usuários</span>
@@ -108,9 +107,9 @@ include "../../../../infra/verificar_adm.php";
             </div>
 
 
-                <a href="adicionar_rota.php"
+                <a href="../rotas/adicionar_rota.php"
                     class="btn-custom"
-                    style="height:42px; white-space:nowrap; text-decoration:none;">
+                    style="height:42px; white-space:nowrap; text-decoration:none; margin-bottom:10px">
 
                     + Adicionar rota
 
@@ -192,12 +191,7 @@ include "../../../../infra/verificar_adm.php";
 
                                 <td class="text-center">
 
-                                    <a class="botao_usuario" href="visualizar_rota.php?id=<?php echo $rota ["id_Rota"]; ?>">
-                                        <button class="btn btn-primary">
-                                            <i class="bi bi-eye"></i>
-                                        </button>
-                                    </a>
-
+                                    
                                     <a class="botao_usuario" href="editar_rota.php?id=<?php echo $rota["id_Rota"]; ?>">
                                         <button class="btn btn-secondary">
                                             <i class="bi bi-pencil"></i>

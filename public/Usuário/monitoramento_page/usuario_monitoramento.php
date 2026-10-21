@@ -7,7 +7,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../style/style.css">
+    <link rel="stylesheet" href="../../../style/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
@@ -16,7 +16,7 @@
     <aside class="sidebar">
 
         <div class="text-center mb-5">
-            <img src="../../assets/images/Simbolo.png" class="logo">
+            <img src="../../../assets/images/Simbolo.png" class="logo">
         </div>
 
         <nav class="d-flex flex-column">
@@ -33,17 +33,9 @@
                 <span>Monitoramento</span>
             </a>
 
-            <a href="../relatorios_page/relatorios.php" class="menu-link">
-                <i class="bi bi-file-earmark-text"></i>
-                <span>Relatórios</span>
-            </a>
 
-            <a href="../usuario_page/usuario.php" class="menu-link">
-                <i class="bi bi-people"></i>
-                <span>Usuários</span>
-            </a>
 
-            <a href="../../index.php" class="menu-link">
+            <a href="../../../index.php" class="menu-link">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sair</span>
             </a>

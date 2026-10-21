@@ -1,6 +1,5 @@
 <?php
     include "../../../../infra/conexao.php";
-    include "../../../../infra/verificar_adm.php";
 
     $nome_rota = $_POST['nome_rota'];
     $horario_rota = $_POST['horario_rota'];

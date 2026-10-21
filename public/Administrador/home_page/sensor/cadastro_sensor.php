@@ -1,7 +1,6 @@
 <?php
 
 require_once __DIR__ . '/../../../../infra/conexao.php';
-include "../../../../infra/verificar_adm.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST["nome_sensor"];
@@ -58,8 +57,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <i class="bi bi-house-fill"></i>
                 <span>Início</span>
             </a>
-            
-            <?php if ($_SESSION['tipo_conta'] === 'Administrador'): ?>
 
 
             <a href="../cadastro_rotas.php" class="menu-link active">
@@ -72,7 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>Usuários</span>
             </a>
 
-            <?php endif; ?>
 
             <a href="../relatorios_page/relatorios.php" class="menu-link">
                 <i class="bi bi-file-earmark-text"></i>

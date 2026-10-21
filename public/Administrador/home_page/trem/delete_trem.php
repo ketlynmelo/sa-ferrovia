@@ -4,7 +4,7 @@ include "../infra/conexao.php";
 $id = $_GET["id"];
 
 $stmt = mysqli_prepare(
-    $conexao,
+    $conn,
 
     "DELETE FROM trem WHERE id = ? "
 

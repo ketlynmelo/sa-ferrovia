@@ -916,3 +916,166 @@ width: 30px;
 }
 
 
+
+/* ==============================
+   PÁGINA DE ROTAS - XRAIL
+============================== */
+
+.rotas-page {
+    padding: 24px 0;
+    width: 100%;
+    color: #202b3c;
+}
+
+.rotas-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 26px;
+    flex-wrap: wrap;
+}
+
+.rotas-header h1 {
+    margin: 0 0 8px;
+    font-size: 27px;
+    font-weight: 700;
+    color: #17243a;
+}
+
+.rotas-header p {
+    margin: 0;
+    color: #778195;
+    font-size: 14px;
+}
+
+.rotas-add-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 44px;
+    padding: 0 20px;
+    border-radius: 8px;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+/* Caixa da tabela */
+
+.rotas-table-box {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #ffffff;
+    border: 1px solid #e5eaf1;
+    box-shadow: 0 4px 18px rgba(25, 42, 70, 0.06);
+}
+
+.rotas-table-scroll {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.rotas-table-box table {
+    width: 100%;
+    min-width: 950px;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 0;
+}
+
+.rotas-table-box thead th {
+    padding: 17px 16px;
+    background: #f3f6fa;
+    color: #46546a;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    white-space: nowrap;
+    border-bottom: 1px solid #e3e8ef;
+}
+
+.rotas-table-box tbody td {
+    padding: 16px;
+    color: #344156;
+    font-size: 13px;
+    vertical-align: middle;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.rotas-table-box tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.rotas-table-box tbody tr {
+    transition: background-color 0.2s ease;
+}
+
+.rotas-table-box tbody tr:hover {
+    background-color: #f7f9fc;
+}
+
+/* Botões de ação */
+
+.rotas-actions {
+    white-space: nowrap;
+}
+
+.rotas-actions .btn {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    margin: 0 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    font-size: 14px;
+}
+
+/* Estado sem rotas */
+
+.rotas-table-box .rotas-empty {
+    padding: 55px 20px;
+    text-align: center;
+    color: #778195;
+}
+
+.rotas-empty i {
+    font-size: 38px;
+    color: #9aa8bb;
+}
+
+.rotas-empty p {
+    margin: 12px 0 5px;
+    color: #344156;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.rotas-empty span {
+    font-size: 13px;
+}
+
+/* Responsividade */
+
+@media (max-width: 768px) {
+    .rotas-page {
+        padding: 18px 0;
+    }
+
+    .rotas-header {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .rotas-header h1 {
+        font-size: 23px;
+    }
+
+    .rotas-add-btn {
+        width: 100%;
+    }
+}

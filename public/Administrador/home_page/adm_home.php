@@ -4,12 +4,6 @@ include "../../../infra/conexao.php";
 
 ?>
 
- <?php
-    session_start();
-    include "../../../infra/conexao.php";
-    require_once __DIR__ . "/../../infra/verificar_login.php";
-
- ?>
 
 <html lang="pt-BR">
 
@@ -41,14 +35,12 @@ include "../../../infra/conexao.php";
                 <span>Início</span>
             </a>
             
-            <?php if ($_SESSION['tipo_conta'] === 'Administrador'): ?>
 
             <a href="rotas/cadastro_rotas.php" class="menu-link">
                 <i class="bi bi-train-freight-front"></i>
                 <span>Rotas</span>
             </a>
 
-            <?php endif; ?>
 
             
             <a href="../monitoramento_page/adm_monitoramento.php" class="menu-link">
@@ -61,12 +53,12 @@ include "../../../infra/conexao.php";
                 <span>Relatórios</span>
             </a>
 
-            <?php if ($_SESSION['tipo_conta'] === 'Administrador'): ?>
+            
             <a href="../usuario_page/usuario.php" class="menu-link">
                 <i class="bi bi-people"></i>
                 <span>Usuários</span>
             </a>
-            <?php endif; ?>
+            
 
 
 

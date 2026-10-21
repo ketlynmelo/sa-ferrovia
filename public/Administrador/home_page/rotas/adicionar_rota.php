@@ -1,6 +1,6 @@
 <?php
     include "../../../../infra/conexao.php";
-    include "../../../../infra/verificar_adm.php";
+    
     ?>
 
 
@@ -41,14 +41,13 @@
     <select name="sensor_id" id="sensor_id" required>
         <option value="">Selecione o sensor</option>
 
-        <!-- <?php
+        <?php 
 
         // $sql = "SELECT id_Sensor, nome FROM sensor";
         // $result = $conn->query($sql);
 
         // while ($sensor = mysqli_fetch_assoc($result)) {
-        // ?>
-
+        // 
         //     <option value="<?php// echo $sensor["id_Sensor"]; ?>">
         //         <?php// echo $sensor["nome"]; ?>
         //     </option>
@@ -61,6 +60,8 @@
 
 
     <button type="submit">Cadastrar</button>
+    <button type="button" onclick="window.location.href='cadastro_rotas.php'">Voltar</button>
+
 
 </form>
 

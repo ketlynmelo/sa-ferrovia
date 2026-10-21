@@ -1,11 +1,4 @@
-<?php
-session_start();
 
-if (!isset($_SESSION['tipo_conta'])) {
-    header("Location: ../../login.php");
-    exit;
-}
-?>
 
 
 <html lang="pt-BR">

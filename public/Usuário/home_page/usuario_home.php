@@ -25,14 +25,14 @@
 
         <nav class="d-flex flex-column">
 
-            <a href="../../../home_page/usuario_home.php" class="menu-link active">
+            <a href="home_page/usuario_home.php" class="menu-link active">
                 <i class="bi bi-house-fill"></i>
                 <span>Início</span>
             </a>
 
             
 
-            <a href="monitoramento_page/usuario_monitoramento.php" class="menu-link">
+            <a href="../monitoramento_page/usuario_monitoramento.php" class="menu-link">
                 <i class="bi bi-graph-up"></i>
                 <span>Monitoramento</span>
             </a>

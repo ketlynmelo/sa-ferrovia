@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 include "infra/conexao.php";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
@@ -27,7 +25,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['email'] = $usuario['email'];
             $_SESSION['tipo_conta'] = $usuario['tipo_conta'];
             
-            header("Location: /ketlyn/sa-ferrovia/public/home_page/home.php");
+        if ($usuario['tipo_conta'] === 'Administrador') {
+            header("Location: public/Administrador/home_page/adm_home.php");
+        } else {
+            header('Location: public/Usuário/home_page/usuario_home.php');
+        }
+         } else {
+            header('Location: public/Usuário/home_page/usuario_home.php');
+         }
 
             exit;
         } else {
@@ -37,15 +42,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         echo "E-mail não encontrado!<br>";
     }
-}
+
 ?>
 
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XRail</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XRail</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">

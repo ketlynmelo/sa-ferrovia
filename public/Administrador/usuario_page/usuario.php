@@ -1,7 +1,6 @@
 <?php
 
 require_once "../../../infra/conexao.php";
-include "../../../infra/verificar_adm.php";
 
 //funcionarios
 $sqlTotal = "SELECT COUNT(*) AS total FROM usuario";
@@ -100,7 +99,7 @@ if (!$resultado) {
 
 
         <a href="../usuario_page/usuario.php" class="menu-link  active" >
-         <i class="bi bi-people"></i>
+        <i class="bi bi-people"></i>
             <span>Usuários</span>
         </a>
 

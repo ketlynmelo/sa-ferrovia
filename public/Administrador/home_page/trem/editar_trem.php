@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $sensor = $_POST['sensor'];
 
     $stmt = mysqli_prepare(
-        $conexao,
+        $conn,
         "UPDATE trem
          SET nome = ?, modelo = ?, carga = ?, velocidade = ?, fk_sensor = ?
          WHERE id = ?"
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 $id = $_GET["id"];
 
-$stmt = mysqli_prepare($conexao, "SELECT * FROM trem WHERE id = ?");
+$stmt = mysqli_prepare($conn, "SELECT * FROM trem WHERE id = ?");
 mysqli_stmt_bind_param($stmt, "i", $id);
 mysqli_stmt_execute($stmt);
 $resultado = mysqli_stmt_get_result($stmt);

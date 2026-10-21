@@ -1,7 +1,6 @@
 <?php
 
 include "../../../../infra/conexao.php";
-include "../../../../infra/verificar_adm.php";
 
 $id = $_GET["id"];
 
@@ -63,6 +62,7 @@ $rota = mysqli_fetch_assoc($resultado);
         <br>  
 
         <button type="submit">Atualizar</button>
+         <button type="button" onclick="window.location.href='cadastro_rotas.php'">Voltar</button>
 
     </form>
 
