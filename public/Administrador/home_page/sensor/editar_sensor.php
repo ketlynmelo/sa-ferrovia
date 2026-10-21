@@ -1,11 +1,8 @@
 <?php
 
-<<<<<<< HEAD
 require_once __DIR__ . '/../../../../infra/conexao.php';
-=======
-include ('../../infra/conexao.php');
 include "../../infra/verificar_adm.php";
->>>>>>> c402ed74a540febc0f5b6883f807cf121fab464a
+
 
 $id = filter_input(INPUT_GET, 'id_Sensor', FILTER_VALIDATE_INT);
 
@@ -148,10 +145,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <label for="es_tipo" class="form-label">
                                     Tipo de dado monitorado
                                 </label>
-                                <input type="text" class="form-control"
-                                    id="es_tipo" name="tipo_dado"
-                                    value="<?= htmlspecialchars($sensor['tipo_dado']) ?>"
-                                    required>
+                               <select class="form-select" id="tipo_dado" name="tipo_dado" required>
+
+                                    <option value="<?= $sensor['tipo_dado'] ?>" selected>
+                                        <?= htmlspecialchars($sensor['tipo_dado']) ?>
+                                    </option>
+                                    <option value="Temperatura">Temperatura</option>
+                                    <option value="Proximidade">Proximidade</option>
+                                    <option value="Velocidade">Velocidade</option>
+                                    <option value="Localização">Localização</option>
+                                    <option value="Vibração">Vibração</option>
+                                </select>
                             </div>
 
                             <div class="col-12">

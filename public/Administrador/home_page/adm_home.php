@@ -1,15 +1,14 @@
-<<<<<<< HEAD
 <?php
+
 include "../../../infra/conexao.php";
 
 ?>
-=======
+
  <?php
     session_start();
     include "../../../infra/conexao.php";
     include "../../../infra/verificar_adm.php";
  ?>
->>>>>>> c402ed74a540febc0f5b6883f807cf121fab464a
 
 <html lang="pt-BR">
 
