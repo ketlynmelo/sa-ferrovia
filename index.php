@@ -57,55 +57,55 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body id="login">
-  <main class="dividido">
+   <main class="dividido">
 
-    <div>
-
-      <img id="logo" src="assets/images/tela.png" alt="Logo">
-
-    </div>
-
-
-    <div id="colorir" class="container rounded-5 shadow p-3 mb-2 text-dark"
-      style="margin-top: 50px; max-width: 600px; margin-top: 250px; margin-right: 400px;">
-
-      <form id="formulario" method="POST" class="row g-3 needs-validation" >
-
-        <div style="margin-top: 50px;">
-          <h2 class="text-center "> <b>LOGIN</b></h2>
+        <div class="painel-logo">
+            <img id="logo" src="assets/images/tela.png" alt="Logo XRail">
         </div>
 
+        <div id="colorir">
 
-        <div class="col-md-12">
-          <label for="usuario" id="branco" class="form-label">Usuário</label>
-          <input type="email" class="form-control" id="usuario" name="email" required>
-          <div id="erro-usuario" class="erro"></div>
+            <form id="formulario" method="POST" class="needs-validation">
+
+                <h2 class="text-center mb-4">
+                    <b>LOGIN</b>
+                </h2>
+
+                <div class="mb-3">
+                    <label for="usuario" id="branco" class="form-label">
+                        Usuário
+                    </label>
+                    <input type="email" class="form-control"
+                        id="usuario" name="email" required>
+                    <div id="erro-usuario" class="erro"></div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="senha" id="branco" class="form-label">
+                        Senha
+                    </label>
+                    <input type="password" class="form-control"
+                        id="senha" name="senha" required>
+                    <div id="erro-senha" class="erro"></div>
+                </div>
+
+                <div id="mensagem"></div>
+
+                <div class="toggle" id="toggle">
+                    <p>Não tem conta? Solicite!</p>
+                </div>
+
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary" type="submit">
+                        Entrar
+                    </button>
+                </div>
+
+            </form>
+
         </div>
 
-
-
-        <div class="col-md-12">
-          <label for="senha" id="branco" class="form-label">Senha</label>
-          <input type="password" class="form-control" id="senha" name="senha" required>
-          <div id="erro-senha" class="erro"></div>
-        </div>
-
-
-        <div id="mensagem"></div>
-        <div class="toggle" id="toggle">
-          <p>Não tem conta? Solicite!</p>
-        </div>
-
-
-        <div class="col-12" style="text-align: center;">
-          <button class="btn btn-primary" type="submit">Entrar</button>
-        </div>
-
-      </form>
-
-    </div>
-
-  </main>
+    </main>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
