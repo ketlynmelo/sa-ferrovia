@@ -100,10 +100,16 @@
                                         <td><?php echo $sensor['localizacao'] ?></td>
                                         <td><?php echo $sensor['tipo_dado'] ?></td>
                                         <td class="text-center">
-                                            <a class="btn btn-secondary" href="public/sensor-editar.php? id=<?php echo $sensor['id'] ?>">Editar</a>
-                                            <a class="btn btn-danger" href="public/sensor-excluir.php? id=<?php echo $sensor['id'] ?>" onclick="return confirm('Tem certeza que deseja excluir este sensor?')">Excluir</a>
+
+                                            <a href="../monitoramento_page/adm_visualizar_sensor.php?id_Sensor=<?= $sensor['id_Sensor'] ?>"
+                                            class="btn btn-primary">
+                                                <i class="bi bi-eye"></i>
+                                            </a>
+
                                         </td>
+
                                     </tr>
+                                    
                                 <?php } ?>
                                     
                             </tbody>
