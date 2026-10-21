@@ -1,57 +1,96 @@
 <?php
 
-include ('../../infra/conexao.php');
+require_once __DIR__ . '/../../../../infra/conexao.php';
 
-$id = $_GET['id'];
-$sql = "SELECT * FROM sensor WHERE id = $id";
-$sensor_editantes = $conn->query($sql);
-$sensor = $sensor_editantes->fetch_assoc();
+$id = filter_input(INPUT_GET, 'id_Sensor', FILTER_VALIDATE_INT);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nome = $_POST["nome_sensor"];
-    $localizacao = $_POST["localização"];
-    $tipo = $_POST["tipo_dado"];
-    $trem = $_POST["Trem_id_Trem"];
-
-    $sql = "UPDATE sensor SET nome='$nome', localização='$localizacao', tipo_dado='$tipo', Trem_id_Trem='$trem' WHERE id=$id";
-    if ($conn->query($sql) === TRUE) {
-        echo "Sensor atualizado com sucesso!";
-    } else {
-        echo "Erro: " . $sql . "<br>" . $conn->error;
-    }
+if (!$id) {
+    header("Location: ../adm_home.php");
+    exit;
 }
 
+$sql = "SELECT * FROM sensor WHERE id_Sensor = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $id);
+$stmt->execute();
+
+$resultado = $stmt->get_result();
+$sensor = $resultado->fetch_assoc();
+
+if (!$sensor) {
+    die("Sensor não encontrado.");
+}
+
+$trens = $conn->query(
+    "SELECT id_Trem, nome_trem FROM trem ORDER BY nome_trem"
+);
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nome = trim($_POST['nome_sensor'] ?? '');
+    $localizacao = trim($_POST['localizacao'] ?? '');
+    $tipo = trim($_POST['tipo_dado'] ?? '');
+    $trem = filter_input(INPUT_POST, 'Trem_id_Trem', FILTER_VALIDATE_INT);
+
+    if ($nome === '' || $localizacao === '' || $tipo === '' || !$trem) {
+        die("Preencha todos os campos corretamente.");
+    }
+
+    $sql = "UPDATE sensor
+            SET nome_sensor = ?, localizacao = ?,
+                tipo_dado = ?, Trem_id_Trem = ?
+            WHERE id_Sensor = ?";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("sssii", $nome, $localizacao, $tipo, $trem, $id);
+
+    if ($stmt->execute()) {
+        header("Location: ../adm_home.php");
+        exit;
+    } else {
+        echo "Erro ao atualizar sensor: " . $conn->error;
+    }
+}
 ?>
 
-<html lang="en">
+
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XRail</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../../style/style.css">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../../../style/style.css">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
 </head>
 
 <body>
 
+
     <aside class="sidebar">
 
         <div class="text-center mb-5">
-            <img src="../../../assets/images/Simbolo.png" class="logo">
+            <img src="../../../../assets/images/Simbolo.png" class="logo">
         </div>
 
         <nav class="d-flex flex-column">
 
-            <a href="../home_page/home.php" class="menu-link active">
+            <a href="../adm_home.php" class="menu-link active">
                 <i class="bi bi-house-fill"></i>
                 <span>Início</span>
             </a>
+            
+            <a href="../rotas/cadastro_rotas.php" class="menu-link">
+                <i class="bi bi-train-freight-front"></i>
+                <span>Rotas</span>
+            </a>
 
-            <a href="../monitoramento_page/monitoramento.php" class="menu-link">
+
+            <a href="../monitoramento_page/adm_monitoramento.php" class="menu-link">
                 <i class="bi bi-graph-up"></i>
                 <span>Monitoramento</span>
             </a>
@@ -66,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>Usuários</span>
             </a>
 
-            <a href="../../index.php" class="menu-link">
+            <a href="../../../logout.php" class="menu-link">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sair</span>
             </a>
@@ -75,55 +114,86 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     </aside>
 
-    <main class="main">
+     <main class="main">
 
         <div class="container-fluid">
 
-            <div class="tab-pane fade" id="editarSensor">
-                <div class="form-card">
+            <a href="../adm_home.php" class="btn btn-outline-secondary mb-3">
+               <i class="bi bi-arrow-left"></i> Voltar
+            </a>
+
+            <div class="form-card" id="cadastrarTrem">
+
                     <div class="page-title">Editar Sensor</div>
 
-                    <form class="row g-3 needs-validation" novalidate>
+                
+                        <form class="row g-3 needs-validation"
+                            action="editar_sensor.php?id_Sensor=<?= $id ?>"
+                            method="POST">
 
-                        <div class="col-12">
-                            <label for="es_nome" class="form-label">Nome do sensor</label>
-                            <input type="text" class="form-control" id="es_nome" value="Lazum" />
-                        </div>
-
-                        <div class="col-12">
-                            <label for="es_tipo" class="form-label">Tipos de Dados Monitorado</label>
-                            <input type="text" class="form-control" id="es_tipo" value="Velocidade" readonly />
-                        </div>
-
-                        <div class="col-12">
-                            <label for="es_id" class="form-label">ID</label>
-                            <input type="text" class="form-control" id="es_id" value="150" readonly />
-                        </div>
-
-                        <div class="col-12">
-                            <div class="form-check mb-1">
-                                <input class="form-check-input" type="text" name="es_assoc" id="es_loc_radio"
-                                    value="localizacao" />
-                                <label class="form-check-label" for="es_loc_radio">Localização</label>
+                            <div class="col-12">
+                                <label for="es_nome" class="form-label">Nome do sensor</label>
+                                <input type="text" class="form-control"
+                                    id="es_nome" name="nome_sensor"
+                                    value="<?= htmlspecialchars($sensor['nome_sensor']) ?>"
+                                    required>
                             </div>
-                        </div>
 
-                        <div class="col-12">
-                            <div class="form-check mb-1">
-                                <input class="form-check-input" type="radio" name="es_assoc" id="es_trem_radio"
-                                    value="trem" checked />
-                                <label class="form-check-label" for="es_trem_radio">Trem vinculado</label>
+                            <div class="col-12">
+                                <label for="es_tipo" class="form-label">
+                                    Tipo de dado monitorado
+                                </label>
+                                <input type="text" class="form-control"
+                                    id="es_tipo" name="tipo_dado"
+                                    value="<?= htmlspecialchars($sensor['tipo_dado']) ?>"
+                                    required>
                             </div>
-                            <select class="form-select" id="es_trem">
-                            </select>
-                        </div>
 
-                        <div class="col-12 d-flex gap-2 mt-3">
-                            <button type="button" class="btn btn-cancelar">Cancelar</button>
-                            <button type="submit" class="btn btn-salvar">Salvar</button>
-                        </div>
+                            <div class="col-12">
+                                <label for="es_id" class="form-label">ID</label>
+                                <input type="text" class="form-control"
+                                    id="es_id"
+                                    value="<?= $sensor['id_Sensor'] ?>" readonly>
+                            </div>
 
-                    </form>
+                            <div class="col-12">
+                                <label for="es_localizacao" class="form-label">
+                                    Localização
+                                </label>
+                                <input type="text" class="form-control"
+                                    id="es_localizacao" name="localizacao"
+                                    value="<?= htmlspecialchars($sensor['localizacao']) ?>"
+                                    required>
+                            </div>
+
+                            <div class="col-12">
+                                <label for="es_trem" class="form-label">Trem vinculado</label>
+                                <select class="form-select" id="es_trem"
+                                        name="Trem_id_Trem" required>
+
+                                    <?php while ($trem = $trens->fetch_assoc()) { ?>
+                                        <option value="<?= $trem['id_Trem'] ?>"
+                                            <?= $trem['id_Trem'] == $sensor['Trem_id_Trem']
+                                                ? 'selected' : '' ?>>
+                                            <?= htmlspecialchars($trem['nome_trem']) ?>
+                                        </option>
+                                    <?php } ?>
+
+                                </select>
+                            </div>
+
+                            <div class="col-12 d-flex gap-2 mt-3">
+                                <a href="../adm_home.php" class="btn btn-cancelar">
+                                    Cancelar
+                                </a>
+
+                                <button type="submit" class="btn btn-salvar">
+                                    Salvar alterações
+                                </button>
+                            </div>
+
+                        </form>
+
 
                 </div>
             </div>
