@@ -5,11 +5,19 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 if (!isset($_SESSION['id_Usuario'])) {
-    header("Location: index.php");
+    header("Location: sa-ferrovia/index.php");
     exit;
 }
 
-if (!isset($_SESSION['tipo_conta']) || $_SESSION['tipo_conta'] !== 'Administrador') {
-    header("Location: index.php");
-    exit;
+
+require_once __DIR__ . "/verificar_login.php";
+
+if (
+    !isset($_SESSION['tipo_conta']) ||
+    $_SESSION['tipo_conta'] !== 'Administrador'
+) {
+    http_response_code(403);
+    exit("Acesso negado. Somente administradores podem acessar esta página.");
 }
+
+?>
