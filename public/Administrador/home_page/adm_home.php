@@ -1,7 +1,15 @@
+<<<<<<< HEAD
 <?php
 include "../../../infra/conexao.php";
 
 ?>
+=======
+ <?php
+    session_start();
+    include "../../../infra/conexao.php";
+    include "../../../infra/verificar_adm.php";
+ ?>
+>>>>>>> c402ed74a540febc0f5b6883f807cf121fab464a
 
 <html lang="pt-BR">
 
@@ -26,6 +34,7 @@ include "../../../infra/conexao.php";
         </div>
 
         <nav class="d-flex flex-column">
+        
 
             <a href="../home_page/adm_home.php" class="menu-link active">
                 <i class="bi bi-house-fill"></i>
@@ -37,7 +46,7 @@ include "../../../infra/conexao.php";
                 <span>Rotas</span>
             </a>
 
-
+            
             <a href="../monitoramento_page/adm_monitoramento.php" class="menu-link">
                 <i class="bi bi-graph-up"></i>
                 <span>Monitoramento</span>
@@ -52,6 +61,9 @@ include "../../../infra/conexao.php";
                 <i class="bi bi-people"></i>
                 <span>Usuários</span>
             </a>
+
+
+            
 
             <a href="../../../logout.php" class="menu-link">
                 <i class="bi bi-box-arrow-right"></i>

@@ -1,6 +1,7 @@
 <?php
 
 include "../../../infra/conexao.php";
+include "../../../infra/verificar_adm.php";
 
 $nome = $_POST["nome"];
 $cpf = $_POST["cpf"];

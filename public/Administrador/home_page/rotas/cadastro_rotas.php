@@ -1,6 +1,7 @@
 <?php
-    
+      session_start();
 include "../../../../infra/conexao.php";
+include "../../../../infra/verificar_adm.php";
 
     ?>
 
@@ -36,26 +37,36 @@ include "../../../../infra/conexao.php";
                 <span>Início</span>
             </a>
 
+
             <a href="cadastro_rotas.php" class="menu-link active">
                 <i class="bi bi-train-freight-front"></i>
                 <span>Rotas</span>
+            </a>
 
-            <a href="../../monitoramento_page/adm_monitoramento.php" class="menu-link">
+             <a href="../../monitoramento_page/adm_monitoramento.php" class="menu-link">
                 <i class="bi bi-graph-up"></i>
                 <span>Monitoramento</span>
-            </a>
+            </a> 
 
             <a href="../../relatorios_page/relatorios.php" class="menu-link">
                 <i class="bi bi-file-earmark-text"></i>
                 <span>Relatórios</span>
             </a>
-
+            
             <a href="../../usuario_page/usuario.php" class="menu-link ">
                 <i class="bi bi-people"></i>
                 <span>Usuários</span>
             </a>
 
-            <a href="../../../logout.php" class="menu-link">
+           
+
+           
+
+            
+
+            
+
+            <a href="../../../../logout.php" class="menu-link">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sair</span>
             </a>

@@ -4,6 +4,7 @@
 <?php 
 
 include "../../../infra/conexao.php"; 
+include "../../../infra/verificar_adm.php";
 
 $busca = $_GET['busca'] ?? '';
 $tipo = $_GET['tipo'] ?? ''; 
