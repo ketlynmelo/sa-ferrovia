@@ -171,6 +171,14 @@ include "../../../infra/conexao.php";
 
             </div>
 
+            <div class="actions" style="display: absolute; justify-content: left;">
+
+                <a href="trem/visualizar_trem.php" class="btn btn-custom">
+                    Visualizar Trens ➡️
+                </a>
+
+            </div>
+
         </div>
 
     </main>
