@@ -13,28 +13,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = $_POST['nome_trem'];
     $modelo = $_POST['modelo'];
     $carga = $_POST['carga'];
-    $velocidade = $_POST['velocidade'];
+    $velocidade = (int) $_POST['velocidade'];
+    $usuario = (int) $_POST['Usuario_id_Usuario'];
 
-    $sql = "INSERT INTO trem (nome_trem, modelo, carga, velocidade)
-            VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO trem
+            (nome_trem, modelo, carga, velocidade, Usuario_id_Usuario)
+            VALUES (?, ?, ?, ?, ?)";
 
     $stmt = mysqli_prepare($conn, $sql);
 
     if ($stmt) {
-        mysqli_stmt_bind_param($stmt, "ssdd", $nome, $modelo, $carga, $velocidade);
+        mysqli_stmt_bind_param($stmt, "sssii", $nome, $modelo, $carga, $velocidade, $usuario);
 
         if (mysqli_stmt_execute($stmt)) {
             header("Location: cadastro_trem.php?sucesso=1");
             exit;
         } else {
-            echo "Erro ao cadastrar trem.";
+            echo "Erro ao cadastrar: " .
+                 htmlspecialchars(mysqli_stmt_error($stmt));
         }
 
         mysqli_stmt_close($stmt);
     } else {
-        echo "Erro na consulta SQL.";
+        echo "Erro ao preparar a consulta.";
     }
 }
+
 ?>
 
 <html lang="pt-BR">
@@ -63,33 +67,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <nav class="d-flex flex-column">
 
-            <a href="../home_page/adm_home.php" class="menu-link active">
+            <a href="../../home_page/adm_home.php/trem/cadastro_trem.php" class="menu-link active">
                 <i class="bi bi-house-fill"></i>
                 <span>Início</span>
             </a>
             
-            <a href="rotas/cadastro_rotas.php" class="menu-link">
+            <a href="../../home_page/rotas/cadastro_rotas.php" class="menu-link">
                 <i class="bi bi-train-freight-front"></i>
                 <span>Rotas</span>
             </a>
 
 
-            <a href="../monitoramento_page/adm_monitoramento.php" class="menu-link">
+            <a href="../../home_page/monitoramento_page/adm_monitoramento.php" class="menu-link">
                 <i class="bi bi-graph-up"></i>
                 <span>Monitoramento</span>
             </a>
 
-            <a href="../relatorios_page/relatorios.php" class="menu-link">
+            <a href="../../home_page/relatorios_page/relatorios.php" class="menu-link">
                 <i class="bi bi-file-earmark-text"></i>
                 <span>Relatórios</span>
             </a>
 
-            <a href="../usuario_page/usuario.php" class="menu-link">
+            <a href="../../home_page/usuarios/usuario.php" class="menu-link">
                 <i class="bi bi-people"></i>
                 <span>Usuários</span>
             </a>
 
-            <a href="../../../logout.php" class="menu-link">
+            <a href="../../home_page/logout.php" class="menu-link">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sair</span>
             </a>
@@ -149,19 +153,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
 
                         <div class="col-12">
-                            <label for="ct_condutor" class="form-label">Condutor</label>
-                            <select class="form-select" id="ct_condutor"
-                                    name="condutor" required>
+                            <label for="ct_carga" class="form-label">Usuário</label>
+                            <select class="form-select" id="ct_trem" name="Usuario_id_Usuario" required>
 
                                 <option value="" selected disabled>
                                     Selecione um usuário
                                 </option>
 
-                                <?php while ($usuario = mysqli_fetch_assoc($resultadoUsuarios)) { ?>
-                                    <option value="<?= $usuario['id_Usuario'] ?>">
-                                        <?= htmlspecialchars($usuario['nome']) ?>
-                                    </option>
-                                <?php } ?>
+                                <?php
+                                    $sqlUsuarios = "SELECT id_Usuario, nome FROM usuario";
+                                    $resultadoUsuarios = mysqli_query($conn, $sqlUsuarios);
+
+                                    while ($usuario = mysqli_fetch_assoc($resultadoUsuarios)) {
+                                        echo '<option value="' . $usuario['id_Usuario'] . '">' . htmlspecialchars($usuario['nome']) . '</option>';
+                                    }
+                                ?>
 
                             </select>
                         </div>
