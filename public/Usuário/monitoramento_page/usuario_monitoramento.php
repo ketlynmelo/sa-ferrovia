@@ -51,12 +51,12 @@
             <div class="header">
 
                 <h1 class="titulo">
-                    Bem vindo, Administrador!
+                    Bem vindo, Usuário!
                 </h1>
 
                 <div class="user">
                     <span>
-                        <img src="../../../assets/images/usuário.png" class="img-fluid"> Administrador
+                        <img src="../../assets/images/usuário.png" class="img-fluid"> Usuário
                     </span>
                 </div>
 
