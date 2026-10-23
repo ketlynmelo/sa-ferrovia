@@ -224,7 +224,7 @@ if (!$usuario) {
             </a>
 
 
-            <a href="editarfuncionario.php?id=<?= urlencode($usuario["id_Usuario"]) ?>"
+            <a href="editar_usuario.php? id=<?= urlencode($usuario["id_Usuario"]) ?>"
                class="btn-custom d-inline-flex align-items-center justify-content-center gap-2">
                 <i class="bi bi-pencil-square"></i>
                 Editar funcionário
