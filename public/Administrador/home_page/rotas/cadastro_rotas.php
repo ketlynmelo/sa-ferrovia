@@ -1,9 +1,10 @@
 <?php
-    session_start();
-include "../../../../infra/conexao.php";
+session_start();
+require_once "../../../../infra/conexao.php";
 
-    ?>
-
+$sql = "SELECT * FROM rota ORDER BY id_Rota DESC";
+$resultado = mysqli_query($conn, $sql);
+?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -12,21 +13,23 @@ include "../../../../infra/conexao.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>XRail - Usuários</title>
+    <title>XRail - Rotas</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="../../../../style/style.css">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
 <body>
 
-
     <aside class="sidebar">
 
         <div class="text-center mb-5">
-            <img src="../../../../assets/images/Simbolo.png" class="logo">
+            <img src="../../../../assets/images/Simbolo.png" class="logo" alt="XRail">
         </div>
 
         <nav class="d-flex flex-column">
@@ -36,34 +39,25 @@ include "../../../../infra/conexao.php";
                 <span>Início</span>
             </a>
 
-
             <a href="cadastro_rotas.php" class="menu-link active">
                 <i class="bi bi-train-freight-front"></i>
                 <span>Rotas</span>
             </a>
 
-             <a href="../../monitoramento_page/adm_monitoramento.php" class="menu-link">
+            <a href="../../monitoramento_page/adm_monitoramento.php" class="menu-link">
                 <i class="bi bi-graph-up"></i>
                 <span>Monitoramento</span>
-            </a> 
+            </a>
 
             <a href="../../relatorios_page/relatorios.php" class="menu-link">
                 <i class="bi bi-file-earmark-text"></i>
                 <span>Relatórios</span>
             </a>
 
-            <a href="../../usuario_page/usuario.php" class="menu-link ">
+            <a href="../../usuario_page/usuario.php" class="menu-link">
                 <i class="bi bi-people"></i>
                 <span>Usuários</span>
             </a>
-
-           
-
-           
-
-            
-
-            
 
             <a href="../../../../logout.php" class="menu-link">
                 <i class="bi bi-box-arrow-right"></i>
@@ -74,151 +68,123 @@ include "../../../../infra/conexao.php";
 
     </aside>
 
-
-
     <main class="main">
 
         <div class="container-fluid">
 
-
             <div class="header">
 
+                <div></div>
 
                 <div class="user">
-
                     <span>
                         <img src="../../../../assets/images/usuário.png"
-                            class="img-fluid">
-
+                            class="img-fluid"
+                            alt="Perfil do usuário">
                         Administrador
                     </span>
-
                 </div>
 
             </div>
 
+            <h2 class="page-title">Gerenciamento de Rotas</h2>
 
-           
-
-
-    
-
-
-            </div>
-
+            <div class="d-flex justify-content-end mb-4">
 
                 <a href="../rotas/adicionar_rota.php"
                     class="btn-custom"
-                    style="height:42px; white-space:nowrap; text-decoration:none; margin-bottom:10px">
+                    style="height:42px; display:inline-flex; align-items:center; justify-content:center; white-space:nowrap; text-decoration:none;">
 
-                    + Adicionar rota
+                    <i class="bi bi-plus-lg me-2"></i>
+                    Adicionar rota
 
                 </a>
 
             </div>
 
-
-
             <div class="users-table-box">
 
-                <table class="table mb-0">
+                <div class="table-responsive">
 
-                    <thead>
+                    <table class="table mb-0 align-middle">
 
-                        <tr>
-
-                            <th>
-                                ID
-                            </th>
-
-                            <th>
-                                Nome
-                            </th>
-
-                            <th>
-                                Horário
-                            </th>
-
-                            <th>
-                                Ponto Inicial
-                            </th>
-
-                            <th>
-                                Ponto Final
-                            </th>
-
-                            <th>
-                                Distância
-                            </th>
-
-                            <th>
-                                Sensor ID
-                            </th>
-
-                            <th class="text-center">
-                                Ações
-                            </th>
-
-                        </tr>
-
-                    </thead>
-
-
-                    <tbody id="listaRotas">
-
-
-                        <?php
-                        $sql = "SELECT * FROM rota";
-                        $resultado = mysqli_query($conn, $sql);
-
-                        while ($rota = mysqli_fetch_assoc($resultado)) {
-                        ?>
-
+                        <thead>
                             <tr>
-                                <td><?php echo $rota["id_Rota"]; ?></td>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Horário</th>
+                                <th>Ponto Inicial</th>
+                                <th>Ponto Final</th>
+                                <th>Distância</th>
+                                <th>Sensor ID</th>
+                                <th class="text-center">Ações</th>
+                            </tr>
+                        </thead>
 
-                                <td><?php echo $rota["nome_rota"]; ?></td>
+                        <tbody id="listaRotas">
 
-                                <td><?php echo $rota["horario_rota"]; ?></td>
+                            <?php if ($resultado && mysqli_num_rows($resultado) > 0) { ?>
 
-                                <td><?php echo $rota["ponto_inicial"]; ?></td>
+                                <?php while ($rota = mysqli_fetch_assoc($resultado)) { ?>
 
-                                <td><?php echo $rota["ponto_final"]; ?></td>
+                                    <tr>
+                                       <td><?php echo $rota["id_Rota"]; ?></td>
 
-                                <td><?php echo $rota["distancia"]; ?></td>
+                                        <td><?php echo $rota["nome_rota"]; ?></td>
+
+                                        <td><?php echo $rota["horario_rota"]; ?></td>
+
+                                        <td><?php echo $rota["ponto_inicial"]; ?></td>
+
+                                        <td><?php echo $rota["ponto_final"]; ?></td>
+
+                                        <td><?php echo $rota["distancia"]; ?></td>
 
                                 <td><?php echo $rota["sensor_id"]; ?></td>
 
-                                <td class="text-center">
+                                        <td class="text-center text-nowrap">
 
-                                    
-                                    <a class="botao_usuario" href="editar_rota.php?id=<?php echo $rota["id_Rota"]; ?>">
-                                        <button class="btn btn-secondary">
-                                            <i class="bi bi-pencil"></i>
-                                        </button>
-                                    </a>
+                                            <a class="btn btn-secondary btn-sm me-1"
+                                                href="editar_rota.php?id=<?= urlencode((string)$rota["id_Rota"]) ?>"
+                                                title="Editar rota">
+                                                <i class="bi bi-pencil"></i>
+                                            </a>
 
-                                    <a class="botao_usuario" href="excluir_rota.php?id=<?php echo $rota["id_Rota"]; ?>"
-                                        onclick="return confirm('Tem certeza que deseja excluir esta rota?');">
-                                        <button class="btn btn-danger">
-                                            <i class="bi bi-person-dash"></i>
-                                        </button>
-                                    </a>
+                                            <a class="btn btn-danger btn-sm"
+                                                href="excluir_rota.php?id=<?= urlencode((string)$rota["id_Rota"]) ?>"
+                                                onclick="return confirm('Tem certeza que deseja excluir esta rota?');"
+                                                title="Excluir rota">
+                                                <i class="bi bi-trash"></i>
+                                            </a>
 
-                                </td>
+                                        </td>
+                                    </tr>
 
-                            </tr>
+                                <?php } ?>
 
-                        <?php }
-                         ?>
-                </tbody>
+                            <?php } else { ?>
+
+                                <tr>
+                                    <td colspan="8" class="text-center py-4 text-muted">
+                                        Nenhuma rota cadastrada.
+                                    </td>
+                                </tr>
+
+                            <?php } ?>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
             </div>
-        </div>
 
         </div>
 
     </main>
 
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
+</body>
 </html>
