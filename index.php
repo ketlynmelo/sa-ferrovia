@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 <div class="mb-3">
                     <label for="usuario" id="branco" class="form-label">
-                        Usuário
+                        E-mail
                     </label>
                     <input type="email" class="form-control"
                         id="usuario" name="email" required>

@@ -4,7 +4,7 @@ $host = "localhost";
 $usuario = "root";
 $senha = "";
 $banco = "situação_aprendizagem";
-$porta = 3306;
+$porta = 3309;
 
 
 $conn = new mysqli($host, $usuario, $senha, $banco, $porta);
