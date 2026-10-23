@@ -56,7 +56,7 @@
 
                 <div class="user">
                     <span>
-                        <img src="../../assets/images/usuário.png" class="img-fluid"> Usuário
+                        <img src="../../../assets/images/usuário.png" class="img-fluid"> Usuário
                     </span>
                 </div>
 
