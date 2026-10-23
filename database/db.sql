@@ -11,19 +11,18 @@ CREATE TABLE trem (
     velocidade VARCHAR(45) NOT NULL
 );
 
-ALTER TABLE sensor
-ADD COLUMN Trem_id_Trem INT NOT NULL,
-ADD CONSTRAINT fk_sensor_trem
-FOREIGN KEY (Trem_id_Trem)
-REFERENCES trem(id_Trem);
-
-
 CREATE TABLE sensor (
     id_Sensor INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nome_sensor VARCHAR(45) NOT NULL,
     localizacao VARCHAR(45) NOT NULL,
     tipo_dado ENUM('Velocidade', 'Temperatura', 'Falha', 'Vibração') NOT NULL   
 );
+
+ALTER TABLE sensor
+ADD COLUMN Trem_id_Trem INT NOT NULL,
+ADD CONSTRAINT fk_sensor_trem
+FOREIGN KEY (Trem_id_Trem)
+REFERENCES trem(id_Trem);
 
 CREATE TABLE relatorio (
     id_Relatorio INT PRIMARY KEY  AUTO_INCREMENT NOT NULL,

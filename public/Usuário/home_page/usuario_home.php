@@ -25,7 +25,7 @@
 
         <nav class="d-flex flex-column">
 
-            <a href="home_page/usuario_home.php" class="menu-link active">
+            <a href="usuario_home.php" class="menu-link active">
                 <i class="bi bi-house-fill"></i>
                 <span>Início</span>
             </a>
@@ -101,7 +101,7 @@
                                         <td><?php echo $sensor['tipo_dado'] ?></td>
                                         <td class="text-center">
 
-                                            <a href="../monitoramento_page/adm_visualizar_sensor.php?id_Sensor=<?= $sensor['id_Sensor'] ?>"
+                                            <a href="usuario_monitoramento.php?id_Sensor=<?= $sensor['id_Sensor'] ?>"
                                             class="btn btn-primary">
                                                 <i class="bi bi-eye"></i>
                                             </a>
