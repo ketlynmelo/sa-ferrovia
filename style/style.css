@@ -1026,7 +1026,7 @@ width: 30px;
     background-color: #f7f9fc;
 }
 
-/* Botões de ação */
+
 
 .rotas-actions {
     white-space: nowrap;
@@ -1044,7 +1044,6 @@ width: 30px;
     font-size: 14px;
 }
 
-/* Estado sem rotas */
 
 .rotas-table-box .rotas-empty {
     padding: 55px 20px;
@@ -1088,3 +1087,7 @@ width: 30px;
         width: 100%;
     }
 }
+
+
+
+
