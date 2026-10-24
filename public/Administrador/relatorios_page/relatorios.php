@@ -2,7 +2,7 @@
 
 <link rel="stylesheet" href="../style/style.css">
 <?php
-
+include_once "../../../infra/conexao.php";
 
 $relatorios = [
     [

@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "infra/conexao.php";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
