@@ -108,6 +108,30 @@ include "../../../infra/conexao.php";
 
             <div class="sensor-container">
 
+             <?php
+                    $mensagens = [
+                        'cadastrado' => ['success', 'Sensor cadastrado com sucesso!'],
+                        'excluido' => ['success', 'Sensor excluído com sucesso!'],
+                        'atualizado' => ['success', 'Sensor atualizado com sucesso!'],
+                        'erro' => ['danger', 'Não foi possível realizar a operação.']
+                    ];
+
+                    $codigo = $_GET['mensagem'] ?? '';
+
+                    if (isset($mensagens[$codigo])) {
+                        [$tipo, $texto] = $mensagens[$codigo];
+                    ?>
+
+                        <div class="alert alert-<?= $tipo ?> alert-dismissible fade show"
+                            role="alert">
+                            <?= htmlspecialchars($texto) ?>
+
+                            <button type="button" class="btn-close"
+                                    data-bs-dismiss="alert" aria-label="Fechar"></button>
+                        </div>
+
+                <?php } ?>
+
                 <div class="sensor-header">
                     <h3>Sensores</h3>
                 </div>

@@ -18,11 +18,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $stmt->bind_param("sssi", $nome, $localizacao, $tipo, $trem);
 
-    if ($stmt->execute() === TRUE) {
-        echo "Novo sensor cadastrado com sucesso!";
+  if (mysqli_stmt_execute($stmt)) {
+    mysqli_stmt_close($stmt);
+
+    header("Location: ../adm_home.php?mensagem=cadastrado");
+    exit;
     } else {
-        echo "Erro: " . $sql . "<br>" . $conn->error;
+        mysqli_stmt_close($stmt);
+
+        header("Location: ../adm_home.php?mensagem=erro");
+        exit;
     }
+
 }
 
 ?>
@@ -43,7 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-
 
     <aside class="sidebar">
 

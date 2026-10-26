@@ -43,12 +43,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("sssii", $nome, $localizacao, $tipo, $trem, $id);
 
-    if ($stmt->execute()) {
-        header("Location: ../adm_home.php");
-        exit;
-    } else {
-        echo "Erro ao atualizar sensor: " . $conn->error;
-    }
+    if (mysqli_stmt_execute($stmt)) {
+    mysqli_stmt_close($stmt);
+
+    header("Location: ../adm_home.php?mensagem=atualizado");
+    exit;
+} else {
+    mysqli_stmt_close($stmt);
+
+    header("Location: ../adm_home.php?mensagem=erro");
+    exit;
+}
+
 }
 ?>
 
