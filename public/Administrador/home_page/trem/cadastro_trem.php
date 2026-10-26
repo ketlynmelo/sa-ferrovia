@@ -1,44 +1,40 @@
+
 <?php
 
 require_once __DIR__ . '/../../../../infra/conexao.php';
 
-$sqlSensores = "SELECT id_Sensor, nome_sensor FROM sensor";
-$resultadoSensores = mysqli_query($conn, $sqlSensores);
-
-$sqlUsuarios = "SELECT id_Usuario, nome FROM usuario";
-$resultadoUsuarios = mysqli_query($conn, $sqlUsuarios);
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $nome = trim($_POST['nome_trem'] ?? '');
+    $modelo = trim($_POST['modelo'] ?? '');
+    $carga = trim($_POST['carga'] ?? '');
+    $velocidade = trim($_POST['velocidade'] ?? '');
 
-    $nome = $_POST['nome_trem'];
-    $modelo = $_POST['modelo'];
-    $carga = $_POST['carga'];
-    $velocidade = (int) $_POST['velocidade'];
-    $usuario = (int) $_POST['id_Usuario'];
+    if ($nome === '' || $modelo === '' || $carga === '' || $velocidade === '') {
+        die('Preencha todos os campos.');
+    }
 
-    $sql = "INSERT INTO trens
-            (nome_trem, modelo, carga, velocidade, id_Usuario)
-            VALUES (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO trem (nome_trem, modelo, carga, velocidade)
+            VALUES (?, ?, ?, ?)";
 
     $stmt = mysqli_prepare($conn, $sql);
 
-    if ($stmt) {
-        mysqli_stmt_bind_param($stmt, "sssii", $nome, $modelo, $carga, $velocidade, $usuario);
-
-        if (mysqli_stmt_execute($stmt)) {
-         header("Location: visualizar_trem.php?mensagem=cadastrado");
-        exit;
-        } else {
-            echo "Erro ao cadastrar: " .
-                 htmlspecialchars(mysqli_stmt_error($stmt));
-        }
-
-        mysqli_stmt_close($stmt);
-    } else {
-        echo "Erro ao preparar a consulta.";
+    if (!$stmt) {
+        die('Erro ao preparar o cadastro: ' . htmlspecialchars(mysqli_error($conn)));
     }
-}
 
+    mysqli_stmt_bind_param($stmt, "ssss", $nome, $modelo, $carga, $velocidade);
+
+    if (mysqli_stmt_execute($stmt)) {
+        mysqli_stmt_close($stmt);
+        header("Location: visualizar_trem.php?mensagem=cadastrado");
+        exit;
+    }
+
+    $erro = mysqli_stmt_error($stmt);
+    mysqli_stmt_close($stmt);
+
+    die('Erro ao cadastrar o trem: ' . htmlspecialchars($erro));
+}
 ?>
 
 <html lang="pt-BR">
@@ -67,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <nav class="d-flex flex-column">
 
-            <a href="../../home_page/adm_home.php/trem/cadastro_trem.php" class="menu-link active">
+            <a href="../adm_home.php/trem/cadastro_trem.php" class="menu-link active">
                 <i class="bi bi-house-fill"></i>
                 <span>Início</span>
             </a>

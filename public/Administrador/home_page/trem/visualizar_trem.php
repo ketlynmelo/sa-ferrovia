@@ -2,11 +2,7 @@
 
 require_once __DIR__ . '/../../../../infra/conexao.php';
 
-$sql = "SELECT trem.*, usuario.nome AS nome_usuario
-        FROM trem
-        LEFT JOIN usuario
-        ON trem.Usuario_id_Usuario = usuario.id_Usuario";
-
+$sql = "SELECT * FROM trem";
 $resultado = mysqli_query($conn, $sql);
 
 if (!$resultado) {
@@ -147,8 +143,8 @@ if (!$resultado) {
                                             <td><?php echo $trem['nome_trem'] ?></td>
                                             <td><?php echo $trem['carga'] ?></td>
                                             <td><?php echo $trem['velocidade'] ?></td>
-                                            <td><?= !empty($trem['nome_usuario']) 
-                                            ? htmlspecialchars($trem['nome_usuario']): 'Não vinculado' ?></td>
+                                            <td><?= !empty($usuario['nome']) 
+                                            ? htmlspecialchars($usuario['nome']): 'Não vinculado' ?></td>
 
                                             <td class="text-center">
                                         
