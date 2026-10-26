@@ -17,6 +17,18 @@ if ($id_Usuario <= 0) {
     exit("ID de usuário inválido.");
 }
 
+if (
+    ($_SESSION['tipo_conta'] ?? '') === 'Administrador' &&
+    $id_Usuario === (int) $_SESSION['id_Usuario'] &&
+    $tipo_conta !== 'Administrador'
+) {
+    $_SESSION['erro_permissao'] =
+        'Você não pode alterar o tipo da sua própria conta.';
+
+    header("Location: usuario.php");
+    exit;
+}
+
 if (!empty($senha)) {
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 

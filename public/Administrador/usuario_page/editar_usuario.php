@@ -30,6 +30,8 @@ if (!$row) {
     header("Location: usuario.php");
     exit;
 }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -47,6 +49,7 @@ if (!$row) {
 </head>
 
 <body>
+
 
     <aside class="sidebar">
         <div class="text-center mb-5">

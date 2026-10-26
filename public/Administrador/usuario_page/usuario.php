@@ -49,6 +49,12 @@ if (session_status() === PHP_SESSION_NONE) {
 
 $erroExclusao = $_SESSION['erro_exclusao'] ?? '';
 unset($_SESSION['erro_exclusao']);
+
+
+$erroPermissao = $_SESSION['erro_permissao'] ?? '';
+
+unset($_SESSION['erro_permissao']);
+
 ?>
 
 
@@ -75,6 +81,25 @@ unset($_SESSION['erro_exclusao']);
     <div class="alerta-temporario" id="alertaExclusao">
         <i class="bi bi-exclamation-circle"></i>
         <span><?php echo htmlspecialchars($erroExclusao); ?></span>
+    </div>
+
+    
+<?php } ?>
+
+
+<?php if (!empty($erroExclusao) || !empty($erroPermissao)) { ?>
+    <div class="alerta-temporario" id="alertaExclusao">
+        <i class="bi bi-exclamation-circle"></i>
+
+        <span>
+            <?php
+            echo htmlspecialchars(
+                !empty($erroPermissao) ? $erroPermissao : $erroExclusao,
+                ENT_QUOTES,
+                'UTF-8'
+            );
+            ?>
+        </span>
     </div>
 <?php } ?>
 
