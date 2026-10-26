@@ -422,18 +422,18 @@ unset($_SESSION['erro_exclusao']);
 
    </script>
    <script>
-    const alerta = document.getElementById('alertaExclusao');
+        setTimeout(function () {
+            const alerta = document.getElementById('alertaExclusao');
 
-    if (alerta) {
-        setTimeout(() => {
-            alerta.classList.add('saindo');
+            if (alerta) {
+                alerta.classList.add('saindo');
 
-            setTimeout(() => {
-                alerta.remove();
-            }, 300);
-        }, 3500);
-    }
-</script>
+                setTimeout(function () {
+                    alerta.remove();
+                }, 400);
+            }
+        }, 3000);
+    </script>
 </body>
 
 </html>
