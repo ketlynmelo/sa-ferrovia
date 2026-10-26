@@ -43,7 +43,12 @@ if (!$resultado) {
 }
 
 
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
+$erroExclusao = $_SESSION['erro_exclusao'] ?? '';
+unset($_SESSION['erro_exclusao']);
 ?>
 
 
@@ -62,7 +67,16 @@ if (!$resultado) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 
+
 <body>
+
+
+<?php if (!empty($erroExclusao)) { ?>
+    <div class="alerta-temporario" id="alertaExclusao">
+        <i class="bi bi-exclamation-circle"></i>
+        <span><?php echo htmlspecialchars($erroExclusao); ?></span>
+    </div>
+<?php } ?>
 
 
     <aside class="sidebar">
@@ -377,6 +391,7 @@ if (!$resultado) {
         </div>
 
         </div>
+        
 
     </main>
 
@@ -406,6 +421,19 @@ if (!$resultado) {
 }
 
    </script>
+   <script>
+    const alerta = document.getElementById('alertaExclusao');
+
+    if (alerta) {
+        setTimeout(() => {
+            alerta.classList.add('saindo');
+
+            setTimeout(() => {
+                alerta.remove();
+            }, 300);
+        }, 3500);
+    }
+</script>
 </body>
 
 </html>
