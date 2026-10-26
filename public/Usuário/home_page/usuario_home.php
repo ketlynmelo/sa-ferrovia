@@ -101,8 +101,7 @@
                                         <td><?php echo $sensor['tipo_dado'] ?></td>
                                         <td class="text-center">
 
-                                            <a href="usuario_monitoramento.php?id_Sensor=<?= $sensor['id_Sensor'] ?>"
-                                            class="btn btn-primary">
+                                            <a href="../monitoramento_page/usuario_monitoramento.php"class="btn btn-primary">
                                                 <i class="bi bi-eye"></i>
                                             </a>
 
