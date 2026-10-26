@@ -40,12 +40,50 @@ if ($posPublic !== false) {
     $paginaInterna = false;
 }
 
+    
 if ($paginaInterna) {
 
     if (
         !isset($_SESSION['id_Usuario']) ||
         !isset($_SESSION['tipo_conta'])
     ) {
+        header("Location: " . $caminhoBase . "/index.php");
+        exit;
+    }
+
+    $idSessao = (int) $_SESSION['id_Usuario'];
+
+    $stmtStatus = $conn->prepare(
+        "SELECT status FROM usuario WHERE id_Usuario = ?"
+    );
+
+    $stmtStatus->bind_param("i", $idSessao);
+    $stmtStatus->execute();
+
+    $resultadoStatus = $stmtStatus->get_result();
+    $dadosStatus = $resultadoStatus->fetch_assoc();
+
+    $stmtStatus->close();
+
+    if (!$dadosStatus || $dadosStatus['status'] !== 'Ativo') {
+        $_SESSION = [];
+
+        if (ini_get('session.use_cookies')) {
+            $parametros = session_get_cookie_params();
+
+            setcookie(
+                session_name(),
+                '',
+                time() - 42000,
+                $parametros['path'],
+                $parametros['domain'],
+                $parametros['secure'],
+                $parametros['httponly']
+            );
+        }
+
+        session_destroy();
+
         header("Location: " . $caminhoBase . "/index.php");
         exit;
     }

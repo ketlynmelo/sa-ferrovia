@@ -25,22 +25,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $usuario = $result->fetch_assoc();
 
             if (password_verify($senha, $usuario['senha'])) {
-                $_SESSION['id_Usuario'] = $usuario['id_Usuario'];
-                $_SESSION['nome'] = $usuario['nome'];
-                $_SESSION['email'] = $usuario['email'];
-                $_SESSION['tipo_conta'] = $usuario['tipo_conta'];
 
-                $stmt->close();
+    if (($usuario['status'] ?? '') !== 'Ativo') {
+        $mensagemLogin = "Sua conta está inativa. Entre em contato com um administrador.";
+    } else {
+        session_regenerate_id(true);
 
-                if ($usuario['tipo_conta'] === 'Administrador') {
-                    header("Location: public/Administrador/home_page/adm_home.php");
-                } else {
-                    header("Location: public/Usuário/home_page/usuario_home.php");
-                }
-                exit;
-            } else {
-                $mensagemLogin = "Senha incorreta!";
-            }
+        $_SESSION['id_Usuario'] = $usuario['id_Usuario'];
+        $_SESSION['nome'] = $usuario['nome'];
+        $_SESSION['email'] = $usuario['email'];
+        $_SESSION['tipo_conta'] = $usuario['tipo_conta'];
+
+        $stmt->close();
+
+        if ($usuario['tipo_conta'] === 'Administrador') {
+            header("Location: public/Administrador/home_page/adm_home.php");
+        } else {
+            header("Location: public/Usuário/home_page/usuario_home.php");
+        }
+
+        exit;
+    }
+} else {
+    $mensagemLogin = "Senha incorreta!";
+}
         } else {
             $mensagemLogin = "E-mail não encontrado!";
         }
