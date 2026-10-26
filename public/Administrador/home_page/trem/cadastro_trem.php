@@ -14,10 +14,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $modelo = $_POST['modelo'];
     $carga = $_POST['carga'];
     $velocidade = (int) $_POST['velocidade'];
-    $usuario = (int) $_POST['Usuario_id_Usuario'];
+    $usuario = (int) $_POST['id_Usuario'];
 
-    $sql = "INSERT INTO trem
-            (nome_trem, modelo, carga, velocidade, Usuario_id_Usuario)
+    $sql = "INSERT INTO trens
+            (nome_trem, modelo, carga, velocidade, id_Usuario)
             VALUES (?, ?, ?, ?, ?)";
 
     $stmt = mysqli_prepare($conn, $sql);
@@ -154,7 +154,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         <div class="col-12">
                             <label for="ct_carga" class="form-label">Usuário</label>
-                            <select class="form-select" id="ct_trem" name="Usuario_id_Usuario" required>
+                            <select class="form-select" id="ct_trem" name="id_Usuario" required>
 
                                 <option value="" selected disabled>
                                     Selecione um usuário

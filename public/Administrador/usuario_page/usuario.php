@@ -76,17 +76,6 @@ unset($_SESSION['erro_permissao']);
 
 <body>
 
-
-<?php if (!empty($erroExclusao)) { ?>
-    <div class="alerta-temporario" id="alertaExclusao">
-        <i class="bi bi-exclamation-circle"></i>
-        <span><?php echo htmlspecialchars($erroExclusao); ?></span>
-    </div>
-
-    
-<?php } ?>
-
-
 <?php if (!empty($erroExclusao) || !empty($erroPermissao)) { ?>
     <div class="alerta-temporario" id="alertaExclusao">
         <i class="bi bi-exclamation-circle"></i>
