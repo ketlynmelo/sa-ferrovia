@@ -62,7 +62,7 @@ if (!$usuario) {
             </a>
 
 
-            <a href="monitoramento_page/adm_monitoramento.php" class="menu-link active"  >
+            <a href="monitoramento_page/adm_monitoramento.php" class="menu-link "  >
                 <i class="bi bi-graph-up"></i>
                 <span>Monitoramento</span>
             </a>
@@ -72,7 +72,7 @@ if (!$usuario) {
                 <span>Relatórios</span>
             </a>
 
-            <a href="../usuario_page/usuario.php" class="menu-link">
+            <a href="../usuario_page/usuario.php" class="menu-link active">
             <i class="bi bi-people"></i>
             <span>Usuários</span>
             </a>
@@ -219,7 +219,7 @@ if (!$usuario) {
 
     <div class="d-flex justify-content-end gap-2 mt-4 pt-3 border-top">
 
-            <a href="../../usuario_page/usuarios.php" class="btn btn-outline-secondary mb-3">
+            <a href="usuario.php" class="btn btn-outline-secondary mb-3">
                <i class="bi bi-arrow-left"></i> Voltar
             </a>
 

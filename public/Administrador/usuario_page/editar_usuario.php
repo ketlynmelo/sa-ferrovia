@@ -1,71 +1,214 @@
-<?php
-    include "../../../infra/conexao.php";
-    ?>
-
-<h1>Editar Usuário</h1>
-<link rel="stylesheet" href="../style/style.css">
 
 <?php
-    $id_Usuario = $_GET['id'];
-    $sql = "SELECT * FROM usuario WHERE id_Usuario = $id_Usuario";
-    $result = mysqli_query($conn, $sql);
-    $row = mysqli_fetch_assoc($result);
+session_start();
+
+require_once "../../../infra/conexao.php";
+
+if (
+    !isset($_SESSION['id_Usuario']) ||
+    ($_SESSION['tipo_conta'] ?? '') !== 'Administrador'
+) {
+    header("Location: ../../../index.php");
+    exit;
+}
+
+if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+    header("Location: usuario.php");
+    exit;
+}
+
+$id_Usuario = (int) $_GET['id'];
+
+$stmt = $conn->prepare("SELECT * FROM usuario WHERE id_Usuario = ?");
+$stmt->bind_param("i", $id_Usuario);
+$stmt->execute();
+
+$result = $stmt->get_result();
+$row = $result->fetch_assoc();
+
+if (!$row) {
+    header("Location: usuario.php");
+    exit;
+}
 ?>
 
-<form action="atualizar_usuario.php" method="POST" >
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-    <input type="hidden" name="id_Usuario" value="<?php echo $row['id_Usuario']; ?>">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <label for="nome">Nome:</label>
-    <input type="text" name="nome" id="nome" value="<?php echo $row['nome']; ?>" required>
+    <title>XRail - Editar Usuário</title>
 
-    <br><br>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../style/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
 
-    <label for="cpf">CPF:</label>
-    <input type="text" name="cpf" id="cpf" value="<?php echo $row['cpf']; ?>" required>
+<body>
 
-    <br><br>
+    <aside class="sidebar">
+        <div class="text-center mb-5">
+            <img src="../../../assets/images/Simbolo.png" class="logo" alt="XRail">
+        </div>
 
-    <label for="data_nascimento">Data de Nascimento:</label>
-    <input type="date" name="data_nascimento" id="data_nascimento" value="<?php echo $row['data_nascimento']; ?>" required>
+        <nav class="d-flex flex-column">
+            <a href="../home_page/adm_home.php" class="menu-link">
+                <i class="bi bi-house-fill"></i>
+                <span>Início</span>
+            </a>
 
-    <br><br>
-    
-    <label for="endereco">Endereço:</label>
-    <input type="text" name="endereco" id="endereco" value="<?php echo $row['endereco']; ?>" required>
+            <a href="../home_page/rotas/cadastro_rotas.php" class="menu-link">
+                <i class="bi bi-train-freight-front"></i>
+                <span>Rotas</span>
+            </a>
 
-    <br><br>
+            <a href="../monitoramento_page/adm_monitoramento.php" class="menu-link">
+                <i class="bi bi-graph-up"></i>
+                <span>Monitoramento</span>
+            </a>
 
-    <label for="email">E-mail:</label>
-    <input type="email" name="email" id="email" value="<?php echo $row['email']; ?>" required>
+            <a href="../relatorios_page/relatorios.php" class="menu-link">
+                <i class="bi bi-file-earmark-text"></i>
+                <span>Relatórios</span>
+            </a>
 
-    <br><br>
+            <a href="usuario.php" class="menu-link active">
+                <i class="bi bi-people"></i>
+                <span>Usuários</span>
+            </a>
 
+            <a href="../../../logout.php" class="menu-link">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sair</span>
+            </a>
+        </nav>
+    </aside>
 
-    <label for="senha">Senha:</label>
-    <input type="password" name="senha" id="senha" required placeholder="Digite a nova senha">
+    <main class="main">
+        <div class="container-fluid">
 
-    <br><br>
+            <div class="header">
+                <div></div>
 
-    <label for="tipo_conta">Tipo de Conta:</label>
-    <select name="tipo_conta" id="tipo_conta" required>
-        <option value="">Selecione o tipo de conta</option>
-        <option value="Administrador" <?php if($row['tipo_conta'] == 'Administrador') echo 'selected'; ?>>Administrador</option>
-        <option value="Usuário" <?php if($row['tipo_conta'] == 'Usuário') echo 'selected'; ?>>Usuário</option>
-    </select>
+                <div class="user">
+                    <span>
+                        <img src="../../../assets/images/usuário.png" class="img-fluid" alt="">
+                        Administrador
+                    </span>
+                </div>
+            </div>
 
-    <br><br>
+            <h2 class="page-title">Editar Usuário</h2>
 
-    <label for="status">Status:</label>
-    <select name="status" id="status" required>
-        <option value="">Selecione o status</option>
-        <option value="Ativo" <?php if($row['status'] == 'Ativo') echo 'selected'; ?>>Ativo</option>
-        <option value="Inativo" <?php if($row['status'] == 'Inativo') echo 'selected'; ?>>Inativo</option>
-    </select>
+            <div class="editar-usuario-card">
 
-    <br><br>
+                <div class="editar-usuario-cabecalho">
+                    <div class="editar-usuario-icone">
+                        <i class="bi bi-person-gear"></i>
+                    </div>
 
-    <button type="submit">Atualizar</button>
-    <button type="button" onclick="window.location.href='usuario.php'">Voltar</button>
+                    <div>
+                        <h3>Dados do funcionário</h3>
+                        <p>Atualize as informações cadastradas no sistema.</p>
+                    </div>
+                </div>
 
-</form>
+                <form action="atualizar_usuario.php" method="POST">
+
+                    <input type="hidden" name="id_Usuario"
+                        value="<?= (int) $row['id_Usuario'] ?>">
+
+                    <div class="editar-usuario-grid">
+
+                        <div class="editar-campo">
+                            <label for="nome">Nome completo</label>
+                            <input type="text" class="form-control" name="nome" id="nome"
+                                value="<?= htmlspecialchars($row['nome'], ENT_QUOTES, 'UTF-8') ?>" required>
+                        </div>
+
+                        <div class="editar-campo">
+                            <label for="cpf">CPF</label>
+                            <input type="text" class="form-control" name="cpf" id="cpf"
+                                value="<?= htmlspecialchars($row['cpf'], ENT_QUOTES, 'UTF-8') ?>" required>
+                        </div>
+
+                        <div class="editar-campo">
+                            <label for="data_nascimento">Data de nascimento</label>
+                            <input type="date" class="form-control" name="data_nascimento"
+                                id="data_nascimento"
+                                value="<?= htmlspecialchars($row['data_nascimento'], ENT_QUOTES, 'UTF-8') ?>"
+                                required>
+                        </div>
+
+                        <div class="editar-campo">
+                            <label for="email">E-mail</label>
+                            <input type="email" class="form-control" name="email" id="email"
+                                value="<?= htmlspecialchars($row['email'], ENT_QUOTES, 'UTF-8') ?>" required>
+                        </div>
+
+                        <div class="editar-campo campo-completo">
+                            <label for="endereco">Endereço</label>
+                            <input type="text" class="form-control" name="endereco" id="endereco"
+                                value="<?= htmlspecialchars($row['endereco'], ENT_QUOTES, 'UTF-8') ?>" required>
+                        </div>
+
+                        <div class="editar-campo">
+                            <label for="senha">Nova senha</label>
+                            <input type="password" class="form-control" name="senha" id="senha"
+                                placeholder="Digite a nova senha" required>
+                        </div>
+
+                        <div class="editar-campo">
+                            <label for="tipo_conta">Tipo de conta</label>
+                            <select class="form-select" name="tipo_conta" id="tipo_conta" required>
+                                <option value="Administrador"
+                                    <?= $row['tipo_conta'] === 'Administrador' ? 'selected' : '' ?>>
+                                    Administrador
+                                </option>
+
+                                <option value="Usuário"
+                                    <?= $row['tipo_conta'] === 'Usuário' ? 'selected' : '' ?>>
+                                    Usuário
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="editar-campo">
+                            <label for="status">Status da conta</label>
+                            <select class="form-select" name="status" id="status" required>
+                                <option value="Ativo"
+                                    <?= $row['status'] === 'Ativo' ? 'selected' : '' ?>>
+                                    Ativo
+                                </option>
+
+                                <option value="Inativo"
+                                    <?= $row['status'] === 'Inativo' ? 'selected' : '' ?>>
+                                    Inativo
+                                </option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="editar-usuario-acoes">
+                        <a href="usuario.php" class="btn-editar-voltar">
+                            <i class="bi bi-arrow-left"></i>
+                            Voltar
+                        </a>
+
+                        <button type="submit" class="btn-editar-salvar">
+                            <i class="bi bi-check-lg"></i>
+                            Salvar alterações
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>

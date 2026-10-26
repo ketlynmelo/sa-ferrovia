@@ -1185,3 +1185,172 @@ width: 30px;
             margin-top: -10px;
             transition: opacity 0.4s ease, margin-top 0.4s ease;
         }
+
+        
+.editar-usuario-card {
+    width: 100%;
+    background: #fff;
+    border: 1px solid #edf0f5;
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.editar-usuario-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 24px;
+    margin-bottom: 26px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.editar-usuario-icone {
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background: #eef1ff;
+    color: #4656a5;
+    font-size: 25px;
+}
+
+.editar-usuario-cabecalho h3 {
+    margin: 0 0 5px;
+    color: #20243a;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.editar-usuario-cabecalho p {
+    margin: 0;
+    color: #7b8190;
+    font-size: 13px;
+}
+
+.editar-usuario-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 24px;
+}
+
+.editar-campo {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.editar-campo label {
+    margin-bottom: 8px;
+    color: #343a40;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.editar-campo .form-control,
+.editar-campo .form-select {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid #d9deea;
+    border-radius: 7px;
+    background-color: #fff;
+    color: #30364b;
+    font-size: 14px;
+    box-shadow: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.editar-campo .form-control:focus,
+.editar-campo .form-select:focus {
+    border-color: #4656a5;
+    box-shadow: 0 0 0 3px rgba(70, 86, 165, 0.12);
+    outline: none;
+}
+
+.editar-campo .form-control::placeholder {
+    color: #a0a6b3;
+}
+
+.editar-campo.campo-completo {
+    grid-column: 1 / -1;
+}
+
+.editar-usuario-acoes {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+    padding-top: 22px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.btn-editar-voltar,
+.btn-editar-salvar {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    min-height: 43px;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.btn-editar-voltar {
+    background: #fff;
+    color: #4656a5;
+    border: 1px solid #4656a5;
+}
+
+.btn-editar-voltar:hover {
+    background: #eef1ff;
+    color: #303f8c;
+}
+
+.btn-editar-salvar {
+    background: #4656a5;
+    color: #fff;
+    border: 1px solid #4656a5;
+}
+
+.btn-editar-salvar:hover {
+    background: #35448e;
+    border-color: #35448e;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+    .editar-usuario-card {
+        padding: 20px;
+    }
+
+    .editar-usuario-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .editar-campo.campo-completo {
+        grid-column: auto;
+    }
+
+    .editar-usuario-acoes {
+        justify-content: stretch;
+    }
+
+    .btn-editar-voltar,
+    .btn-editar-salvar {
+        flex: 1;
+        padding: 10px 14px;
+    }
+}
