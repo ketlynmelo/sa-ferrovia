@@ -9,6 +9,10 @@ $sql = "SELECT trem.*, usuario.nome AS nome_usuario
 
 $resultado = mysqli_query($conn, $sql);
 
+if (!$resultado) {
+    die("Erro ao consultar trens: " . mysqli_error($conn));
+}
+
 ?>
 
 <html lang="pt-BR">
@@ -72,10 +76,42 @@ $resultado = mysqli_query($conn, $sql);
 
             <div class="container-fluid">
 
+            
+                <?php
+                    $mensagens = [
+                        'cadastrado' => ['success', 'Trem cadastrado com sucesso!'],
+                        'excluido' => ['success', 'Trem excluído com sucesso!'],
+                        'atualizado' => ['success', 'Trem atualizado com sucesso!'],
+                        'vinculado' => ['danger', 'Este trem não pode ser excluído porque possui sensores vinculados.'],
+                        'erro' => ['danger', 'Não foi possível realizar a operação.']
+                    ];
+
+                    $codigo = $_GET['mensagem'] ?? '';
+
+                    if (isset($mensagens[$codigo])) {
+                        [$tipo, $texto] = $mensagens[$codigo];
+                    ?>
+
+                        <div class="alert alert-<?= $tipo ?> alert-dismissible fade show"
+                            role="alert">
+                            <?= htmlspecialchars($texto) ?>
+
+                            <button type="button" class="btn-close"
+                                    data-bs-dismiss="alert" aria-label="Fechar"></button>
+                        </div>
+
+                <?php } ?>
+
+
                 <div class="header">
                 </div>
 
                 <hr>
+
+                <a href="../adm_home.php" class="btn btn-outline-secondary mb-3">
+                        <i class="bi bi-arrow-left"></i> Voltar
+                    </a>
+
 
                 <div class="sensor-container">
 
@@ -121,9 +157,9 @@ $resultado = mysqli_query($conn, $sql);
                                                     <i class="bi bi-pencil"></i>
                                                 </a>
 
-                                                <a href="delete_trem.php?id_Trem=<?= $trem['id_Trem'] ?>"
+                                                <a href="delete_trem.php?id_Trem=<?= (int) $trem['id_Trem'] ?>"
                                                 class="btn btn-danger"
-                                                onclick="return confirm('Tem certeza que deseja excluir este sensor?');">
+                                                onclick="return confirm('Tem certeza que deseja excluir este trem?');">
                                                     <i class="bi bi-trash"></i>
                                                 </a>
 
@@ -144,5 +180,7 @@ $resultado = mysqli_query($conn, $sql);
         </main>
 
     </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 
 </html>

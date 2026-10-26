@@ -26,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         mysqli_stmt_bind_param($stmt, "sssii", $nome, $modelo, $carga, $velocidade, $usuario);
 
         if (mysqli_stmt_execute($stmt)) {
-            header("Location: cadastro_trem.php?sucesso=1");
-            exit;
+         header("Location: visualizar_trem.php?mensagem=cadastrado");
+        exit;
         } else {
             echo "Erro ao cadastrar: " .
                  htmlspecialchars(mysqli_stmt_error($stmt));
