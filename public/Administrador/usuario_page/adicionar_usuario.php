@@ -1,65 +1,172 @@
- <?php
-    include "../../../infra/conexao.php";
-    ?>
+
+<?php
+require_once "../../../infra/conexao.php";
+?>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>XRail - Cadastrar Usuário</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../style/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
 
-<h1>Cadastro de Usuários</h1>
-<link rel="stylesheet" href="../style/style.css">
+<body class="pagina-cadastro-usuario">
 
+    <aside class="sidebar">
+        <div class="text-center mb-5">
+            <img src="../../../assets/images/Simbolo.png" class="logo" alt="XRail">
+        </div>
 
+        <nav class="d-flex flex-column">
+            <a href="../home_page/adm_home.php" class="menu-link">
+                <i class="bi bi-house-fill"></i>
+                <span>Início</span>
+            </a>
 
-<form action="cadastrar_usuario.php" method="POST" >
+            <a href="../home_page/rotas/cadastro_rotas.php" class="menu-link">
+                <i class="bi bi-train-freight-front"></i>
+                <span>Rotas</span>
+            </a>
 
+            <a href="../monitoramento_page/adm_monitoramento.php" class="menu-link">
+                <i class="bi bi-graph-up"></i>
+                <span>Monitoramento</span>
+            </a>
 
-    <label for="nome">Nome:</label>
-    <input type="text" name="nome" id="nome" required>
+            <a href="../relatorios_page/relatorios.php" class="menu-link">
+                <i class="bi bi-file-earmark-text"></i>
+                <span>Relatórios</span>
+            </a>
 
-    <br><br>
+            <a href="usuario.php" class="menu-link active">
+                <i class="bi bi-people"></i>
+                <span>Usuários</span>
+            </a>
 
-    <label for="cpf">CPF:</label>
-    <input type="text" name="cpf" id="cpf" required>
+            <a href="../../../logout.php" class="menu-link">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sair</span>
+            </a>
+        </nav>
+    </aside>
 
-    <br><br>
+    <main class="main">
+        <div class="container-fluid">
 
-    <label for="data_nascimento">Data de Nascimento:</label>
-    <input type="date" name="data_nascimento" id="data_nascimento" required>
+            <div class="header">
+                <div></div>
 
-    <br><br>
+                <div class="user">
+                    <span>
+                        <img src="../../../assets/images/usuário.png" class="img-fluid" alt="">
+                        Administrador
+                    </span>
+                </div>
+            </div>
 
-    <label for="email">E-mail:</label>
-    <input type="email" name="email" id="email" required>
+            <h2 class="page-title">Cadastrar Usuário</h2>
 
-    <br><br>
+            <p class="subtitulo-cadastro">
+                Cadastre um novo usuário ou administrador no sistema XRail.
+            </p>
 
-    <label for="endereco">Endereço:</label>
-    <input type="text" name="endereco" id="endereco" required>
+            <div class="cadastro-usuario-card">
 
-    <br><br>
+                <div class="cadastro-usuario-header">
+                    <div class="cadastro-usuario-icone">
+                        <i class="bi bi-person-plus-fill"></i>
+                    </div>
 
-    <label for="senha">Senha:</label>
-    <input type="password" name="senha" id="senha" required>
+                    <div>
+                        <h3>Informações da conta</h3>
+                        <p>Preencha os dados para cadastrar uma nova conta.</p>
+                    </div>
+                </div>
 
-    <br><br>
+                <form action="cadastrar_usuario.php" method="POST">
 
-    <label for="tipo_conta">Tipo de Conta:</label>
-    <select name="tipo_conta" id="tipo_conta" required>
-        <option value="">Selecione o tipo de conta</option>
-        <option value="Administrador">Administrador</option>
-        <option value="Usuário">Usuário</option>
-    </select>
+                    <div class="cadastro-usuario-grid">
 
-    <br><br>
+                        <div class="campo-cadastro">
+                            <label for="nome">Nome completo</label>
+                            <input type="text" name="nome" id="nome"
+                                class="form-control" placeholder="Digite o nome completo" required>
+                        </div>
 
-    <label for="status">Status:</label>
-    <select name="status" id="status" required>
-        <option value="">Selecione o status</option>
-        <option value="Ativo">Ativo</option>
-        <option value="Inativo">Inativo</option>
-    </select>
+                        <div class="campo-cadastro">
+                            <label for="cpf">CPF</label>
+                            <input type="text" name="cpf" id="cpf"
+                                class="form-control" placeholder="Digite o CPF" required>
+                        </div>
 
-    <br><br>
+                        <div class="campo-cadastro">
+                            <label for="data_nascimento">Data de nascimento</label>
+                            <input type="date" name="data_nascimento" id="data_nascimento"
+                                class="form-control" required>
+                        </div>
 
-    <button type="submit">Cadastrar</button>
-    <button type="button" onclick="window.location.href='usuario.php'">Voltar</button>
+                        <div class="campo-cadastro">
+                            <label for="email">E-mail</label>
+                            <input type="email" name="email" id="email"
+                                class="form-control" placeholder="exemplo@email.com" required>
+                        </div>
 
-</form>
+                        <div class="campo-cadastro campo-cadastro-completo">
+                            <label for="endereco">Endereço</label>
+                            <input type="text" name="endereco" id="endereco"
+                                class="form-control" placeholder="Digite o endereço completo" required>
+                        </div>
+
+                        <div class="campo-cadastro">
+                            <label for="senha">Senha inicial</label>
+                            <input type="password" name="senha" id="senha"
+                                class="form-control" placeholder="Crie uma senha" autocomplete="new-password" required>
+                        </div>
+
+                        <div class="campo-cadastro">
+                            <label for="tipo_conta">Tipo de conta</label>
+                            <select name="tipo_conta" id="tipo_conta" class="form-select" required>
+                                <option value="" selected disabled>Selecione o tipo de conta</option>
+                                <option value="Usuário">Usuário</option>
+                                <option value="Administrador">Administrador</option>
+                            </select>
+                        </div>
+
+                        <div class="campo-cadastro">
+                            <label for="status">Status da conta</label>
+                            <select name="status" id="status" class="form-select" required>
+                                <option value="" selected disabled>Selecione o status</option>
+                                <option value="Ativo">Ativo</option>
+                                <option value="Inativo">Inativo</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="cadastro-usuario-acoes">
+                        <a href="usuario.php" class="botao-cadastro-voltar">
+                            <i class="bi bi-arrow-left"></i>
+                            Voltar
+                        </a>
+
+                        <button type="submit" class="botao-cadastro-salvar">
+                            <i class="bi bi-person-check"></i>
+                            Cadastrar usuário
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+</body>
+</html>

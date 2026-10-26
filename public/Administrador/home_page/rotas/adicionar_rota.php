@@ -70,7 +70,7 @@
 
         <div class="container-fluid">
 
-            <a href="../adm_home.php" class="btn btn-outline-secondary mb-3">
+            <a href="cadastro_rotas.php" class="btn btn-outline-secondary mb-3">
                 <i class="bi bi-arrow-left"></i> Voltar
             </a>
 
@@ -129,7 +129,6 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
-                <button type="button" class="btn btn-secondary" onclick="window.location.href='cadastro_rotas.php'">Voltar</button>
 
                 </form> 
         </div>
