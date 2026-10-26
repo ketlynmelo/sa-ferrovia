@@ -38,7 +38,7 @@ include_once "../../../infra/conexao.php";
         </a>
 
 
-        <a href="monitoramento_page/adm_monitoramento.php" class="menu-link active"  >
+        <a href="adm_monitoramento.php" class="menu-link active"  >
             <i class="bi bi-graph-up"></i>
             <span>Monitoramento</span>
         </a>
