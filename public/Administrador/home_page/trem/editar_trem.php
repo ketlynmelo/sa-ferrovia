@@ -65,6 +65,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $ok = mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
+    
+
     if ($ok) {
         header("Location: $pagina?mensagem=atualizado");
     } else {

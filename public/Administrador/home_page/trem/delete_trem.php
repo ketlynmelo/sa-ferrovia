@@ -16,34 +16,36 @@ if (
 
 $id = (int) $_GET['id_Trem'];
 
-$stmt = mysqli_prepare(
-    $conn,
-    "DELETE FROM trem WHERE id_Trem = ?"
-);
+try {
+    $stmt = mysqli_prepare(
+        $conn,
+        "DELETE FROM trem WHERE id_Trem = ?"
+    );
 
-if (!$stmt) {
-    header("Location: $pagina?mensagem=erro");
-    exit;
-}
+    mysqli_stmt_bind_param($stmt, "i", $id);
+    mysqli_stmt_execute($stmt);
 
-mysqli_stmt_bind_param($stmt, "i", $id);
-$executou = mysqli_stmt_execute($stmt);
+    $excluido = mysqli_stmt_affected_rows($stmt) === 1;
 
-if ($executou && mysqli_stmt_affected_rows($stmt) === 1) {
     mysqli_stmt_close($stmt);
 
-    header("Location: $pagina?mensagem=excluido");
+    header(
+        "Location: $pagina?mensagem=" .
+        ($excluido ? "excluido" : "erro")
+    );
+    exit;
+
+} catch (mysqli_sql_exception $e) {
+    if (isset($stmt) && $stmt instanceof mysqli_stmt) {
+        mysqli_stmt_close($stmt);
+    }
+
+    if ((int) $e->getCode() === 1451) {
+        header("Location: $pagina?mensagem=vinculado");
+    } else {
+        error_log($e->getMessage());
+        header("Location: $pagina?mensagem=erro");
+    }
+
     exit;
 }
-
-$codigoErro = mysqli_stmt_errno($stmt);
-mysqli_stmt_close($stmt);
-
-if ($codigoErro === 1451) {
-    header("Location: $pagina?mensagem=vinculado");
-} else {
-    header("Location: $pagina?mensagem=erro");
-}
-
-exit;
-?>
