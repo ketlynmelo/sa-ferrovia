@@ -156,9 +156,9 @@ if (!$row) {
 
                         <div class="editar-campo">
                             <label for="senha">Nova senha</label>
-                            <input type="password" class="form-control" name="senha" id="senha"
-                                placeholder="Digite a nova senha" required>
-                        </div>
+                            <input type="password" class="form-control" name="senha"id="senha"placeholder="Deixe vazio para manter a senha atual"autocomplete="new-password">
+                            <small class="text-muted mt-1">Preencha somente se desejar alterar a senha.</small>
+</div>
 
                         <div class="editar-campo">
                             <label for="tipo_conta">Tipo de conta</label>
