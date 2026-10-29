@@ -1,5 +1,6 @@
 <?php
 include_once "../../../infra/conexao.php";
+include_once "../../../infra/clima.php";
 ?>
 
 
@@ -83,7 +84,89 @@ include_once "../../../infra/conexao.php";
 
     <div class="container-pesquisa" >
 
-  <h2>Monitoramento </h2>
+  <!-- <h2>Monitoramento </h2> -->
+
+
+  
+                 <p class="clima-erro">
+    <?= htmlspecialchars($mensagemErroClima) ?>
+</p>
+
+
+            
+<div class="card-clima">
+    <div class="clima-topo">
+        <div>
+            <h3>Clima atual</h3>
+            <p class="clima-local">
+                <i class="bi bi-geo-alt"></i>
+                Joinville, Santa Catarina
+            </p>
+        </div>
+
+        <i class="bi bi-cloud-sun clima-icone"></i>
+    </div>
+
+    <?php if ($clima !== null): ?>
+
+        <div class="clima-temperatura">
+            <img
+                src="https://openweathermap.org/img/wn/<?= htmlspecialchars($clima['weather'][0]['icon']) ?>@2x.png"
+                alt="Condição climática"
+            >
+
+            <strong>
+                <?= number_format(
+                    $clima['main']['temp'],
+                    1,
+                    ',',
+                    '.'
+                ) ?>°C
+            </strong>
+        </div>
+
+        <p class="clima-condicao">
+            <?= htmlspecialchars(
+                ucfirst($clima['weather'][0]['description'])
+            ) ?>
+        </p>
+
+        <div class="clima-info">
+            <p>
+                <i class="bi bi-droplet"></i>
+                Umidade:
+                <strong><?= (int) $clima['main']['humidity'] ?>%</strong>
+            </p>
+
+            <p>
+                <i class="bi bi-cloud"></i>
+                Nebulosidade:
+                <strong><?= (int) $clima['clouds']['all'] ?>%</strong>
+            </p>
+        </div>
+
+        <p class="clima-horario">
+            <i class="bi bi-clock"></i>
+            Última medição:
+            <?= date('d/m/Y H:i', (int) $clima['dt']) ?>
+        </p>
+
+    <?php else: ?>
+
+        <p class="clima-erro">
+            Não foi possível carregar o clima.
+            Tente novamente mais tarde.
+        </p>
+
+    <?php endif; ?>
+
+    <small>
+        Fonte:
+        <a href="https://openweathermap.org/"
+           target="_blank"
+           rel="noopener noreferrer">OpenWeatherMap</a>
+    </small>
+</div>
 
 <form  method="GET" action="monitoramento.php" class=" barra d-flex mb-4 " style="margin-top: 60px; margin-left: 20px; left: 570px; position: absolute;">
 <input
