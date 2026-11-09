@@ -202,7 +202,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php endif; ?>
 
 
+
+
    <main class="dividido">
+    
 
         <div class="painel-logo">
             <img id="logo" src="assets/images/tela.png" alt="Logo XRail">

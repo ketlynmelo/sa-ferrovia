@@ -1,5 +1,6 @@
 <?php
 include_once "../../../infra/conexao.php";
+include_once "../../../infra/clima.php";
 ?>
 
 <html lang="pt-BR">
@@ -65,10 +66,10 @@ include_once "../../../infra/conexao.php";
                 </div>
 
             </div>
+        
+    
 
     <div class="container-pesquisa" >
-
-  <h2>Monitoramento </h2>
 
 <form  method="GET" action="monitoramento.php" class=" barra d-flex mb-4 " style="margin-top: 60px; margin-left: 20px; left: 570px; position: absolute;">
 <input
