@@ -56,3 +56,6 @@ CREATE TABLE usuario (
     status ENUM('Ativo', 'Inativo') NOT NULL,
     UNIQUE (email)
 );
+
+Insert into usuario
+VALUES (null, 'Adm', '12345678912', '2004-03-12','Rua Urussanga', 'adm@gmail.com', '$2y$10$Mhr9MVrbBi0r8Gnp56BAsO9EdyOoLQLwu2gHyN5VLhITeIxWQxeKO', 'Administrador', 'Ativo' )
