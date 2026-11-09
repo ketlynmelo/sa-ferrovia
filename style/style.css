@@ -2345,7 +2345,7 @@ body {
 
 #login #logo {
     width: 100%;
-    max-width: 390px;
+    max-width: 450px;
     height: auto;
     object-fit: contain;
 }
