@@ -1,3 +1,4 @@
+
 <?php
 
 include "../../../infra/conexao.php";
@@ -30,13 +31,13 @@ include "../../../infra/clima.php";
         </div>
 
         <nav class="d-flex flex-column">
-        
+
 
             <a href="../home_page/adm_home.php" class="menu-link active">
                 <i class="bi bi-house-fill"></i>
                 <span>Início</span>
             </a>
-            
+
 
             <a href="rotas/cadastro_rotas.php" class="menu-link">
                 <i class="bi bi-train-freight-front"></i>
@@ -44,7 +45,7 @@ include "../../../infra/clima.php";
             </a>
 
 
-            
+
             <a href="../monitoramento_page/adm_monitoramento.php" class="menu-link">
                 <i class="bi bi-graph-up"></i>
                 <span>Monitoramento</span>
@@ -55,16 +56,14 @@ include "../../../infra/clima.php";
                 <span>Relatórios</span>
             </a>
 
-            
+
             <a href="../usuario_page/usuario.php" class="menu-link">
                 <i class="bi bi-people"></i>
                 <span>Usuários</span>
             </a>
-            
 
 
 
-            
 
             <a href="../../../logout.php" class="menu-link">
                 <i class="bi bi-box-arrow-right"></i>
@@ -96,95 +95,101 @@ include "../../../infra/clima.php";
 
             <hr>
 
-             <div class="card-clima">
-        <div class="clima-topo">
-            <div>
-                <h3>Clima atual</h3>
-                <p class="clima-local">
-                    <i class="bi bi-geo-alt"></i>
-                    Joinville, Santa Catarina
-                </p>
+            <div class="painel-superior">
+
+                <div class="card-clima">
+                    <div class="clima-topo">
+                        <div>
+                            <h3>Clima atual</h3>
+                            <p class="clima-local">
+                                <i class="bi bi-geo-alt"></i>
+                                Joinville, Santa Catarina
+                            </p>
+                        </div>
+
+                        <i class="bi bi-cloud-sun clima-icone"></i>
+                    </div>
+
+                    <?php if ($clima !== null): ?>
+
+                        <div class="clima-temperatura">
+                            <img
+                                src="https://openweathermap.org/img/wn/<?= htmlspecialchars($clima['weather'][0]['icon']) ?>@2x.png"
+                                alt="Condição climática"
+                            >
+
+                            <strong>
+                                <?= number_format(
+                                    $clima['main']['temp'],
+                                    1,
+                                    ',',
+                                    '.'
+                                ) ?>°C
+                            </strong>
+                        </div>
+
+                        <p class="clima-condicao">
+                            <?= htmlspecialchars(
+                                ucfirst($clima['weather'][0]['description'])
+                            ) ?>
+                        </p>
+
+                        <div class="clima-info">
+                            <p>
+                                <i class="bi bi-droplet"></i>
+                                Umidade:
+                                <strong><?= (int) $clima['main']['humidity'] ?>%</strong>
+                            </p>
+
+                            <p>
+                                <i class="bi bi-cloud"></i>
+                                Nebulosidade:
+                                <strong><?= (int) $clima['clouds']['all'] ?>%</strong>
+                            </p>
+                        </div>
+
+                        <p class="clima-horario">
+                            <i class="bi bi-clock"></i>
+                            Última medição:
+                            <?= date('d/m/Y H:i', (int) $clima['dt']) ?>
+                        </p>
+
+                    <?php else: ?>
+
+                        <p class="clima-erro">
+                            Não foi possível carregar o clima.
+                            Tente novamente mais tarde.
+                        </p>
+
+                    <?php endif; ?>
+
+                    <small>
+                        Fonte:
+                        <a href="https://openweathermap.org/"
+                        target="_blank"
+                        rel="noopener noreferrer">OpenWeatherMap</a>
+                    </small>
+                </div>
+
+
+                <div class="actions-top">
+
+                    <a href="sensor/cadastro_sensor.php" class="btn btn-custom">
+                        Cadastrar Sensores
+                    </a>
+
+                    <a href="trem/cadastro_trem.php" class="btn btn-custom">
+                        Cadastrar Trem
+                    </a>
+
+                </div>
+
             </div>
 
-            <i class="bi bi-cloud-sun clima-icone"></i>
-        </div>
-
-        <?php if ($clima !== null): ?>
-
-            <div class="clima-temperatura">
-                <img
-                    src="https://openweathermap.org/img/wn/<?= htmlspecialchars($clima['weather'][0]['icon']) ?>@2x.png"
-                    alt="Condição climática"
-                >
-
-                <strong>
-                    <?= number_format(
-                        $clima['main']['temp'],
-                        1,
-                        ',',
-                        '.'
-                    ) ?>°C
-                </strong>
-            </div>
-
-            <p class="clima-condicao">
-                <?= htmlspecialchars(
-                    ucfirst($clima['weather'][0]['description'])
-                ) ?>
-            </p>
-
-            <div class="clima-info">
-                <p>
-                    <i class="bi bi-droplet"></i>
-                    Umidade:
-                    <strong><?= (int) $clima['main']['humidity'] ?>%</strong>
-                </p>
-
-                <p>
-                    <i class="bi bi-cloud"></i>
-                    Nebulosidade:
-                    <strong><?= (int) $clima['clouds']['all'] ?>%</strong>
-                </p>
-            </div>
-
-            <p class="clima-horario">
-                <i class="bi bi-clock"></i>
-                Última medição:
-                <?= date('d/m/Y H:i', (int) $clima['dt']) ?>
-            </p>
-
-        <?php else: ?>
-
-            <p class="clima-erro">
-                Não foi possível carregar o clima.
-                Tente novamente mais tarde.
-            </p>
-
-        <?php endif; ?>
-
-        <small>
-            Fonte:
-            <a href="https://openweathermap.org/"
-            target="_blank"
-            rel="noopener noreferrer">OpenWeatherMap</a>
-        </small>
-    </div>
-
-           <div class="actions-top">
-
-                <a href="sensor/cadastro_sensor.php" class="btn btn-custom">
-                    Cadastrar Sensores
-                </a>
-
-                <a href="trem/cadastro_trem.php" class="btn btn-custom">
-                    Cadastrar Trem
-                </a>
-
-            </div>
 
             <div class="sensor-container">
 
-             <?php
+                <?php
                     $mensagens = [
                         'cadastrado' => ['success', 'Sensor cadastrado com sucesso!'],
                         'excluido' => ['success', 'Sensor excluído com sucesso!'],
@@ -196,7 +201,7 @@ include "../../../infra/clima.php";
 
                     if (isset($mensagens[$codigo])) {
                         [$tipo, $texto] = $mensagens[$codigo];
-                    ?>
+                ?>
 
                         <div class="alert alert-<?= $tipo ?> alert-dismissible fade show"
                             role="alert">
@@ -212,70 +217,70 @@ include "../../../infra/clima.php";
                     <h3>Sensores</h3>
                 </div>
 
-                    <div class="users-table-box">
-                        
-                        <table class="table mb-0" id="tabelaUsuarios">
-                            <thead>
+                <div class="users-table-box">
+
+                    <table class="table mb-0" id="tabelaUsuarios">
+                        <thead>
+                            <tr>
+                                <th>ID do sensor</th>
+                                <th>Nome</th>
+                                <th>Trem vinculado</th>
+                                <th>Localização</th>
+                                <th>Tipo de Dado</th>
+                                <th class="text-center">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="corpoTabela">
+
+                            <?php
+                                $sql = "SELECT * FROM sensor";
+                                $resultado = mysqli_query($conn, $sql);
+
+                                while ($sensor = mysqli_fetch_assoc($resultado)) {
+                            ?>
+
+
                                 <tr>
-                                    <th>ID do sensor</th>
-                                    <th>Nome</th>
-                                    <th>Trem vinculado</th>
-                                    <th>Localização</th>
-                                    <th>Tipo de Dado</th>
-                                    <th class="text-center">Ações</th>
+                                    <td><?php echo $sensor['id_Sensor'] ?></td>
+                                    <td><?php echo $sensor['nome_sensor'] ?></td>
+                                    <td><?php echo $sensor['Trem_id_Trem'] ?></td>
+                                    <td><?php echo $sensor['localizacao'] ?></td>
+                                    <td><?php echo $sensor['tipo_dado'] ?></td>
+
+                                    <td class="text-center">
+
+                                        <a href="../monitoramento_page/adm_visualizar_sensor.php?id_Sensor=<?= $sensor['id_Sensor'] ?>"
+                                        class="btn btn-primary">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+
+                                        <a href="sensor/editar_sensor.php?id_Sensor=<?= $sensor['id_Sensor'] ?>"
+                                        class="btn btn-secondary">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+
+                                        <a href="sensor/delete_sensor.php?id_Sensor=<?= $sensor['id_Sensor'] ?>"
+                                        class="btn btn-danger"
+                                        onclick="return confirm('Tem certeza que deseja excluir este sensor?');">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+
+                                    </td>
+
                                 </tr>
-                            </thead>
-                            <tbody id="corpoTabela">
-                         
-                               <?php
-                                 $sql = "SELECT * FROM sensor";
-                                 $resultado = mysqli_query($conn, $sql);
 
-                                 while ($sensor = mysqli_fetch_assoc($resultado)) {
-                                ?>
+                            <?php } ?>
 
-                                
-                                    <tr>
-                                        <td><?php echo $sensor['id_Sensor'] ?></td>
-                                        <td><?php echo $sensor['nome_sensor'] ?></td>
-                                        <td><?php echo $sensor['Trem_id_Trem'] ?></td>
-                                        <td><?php echo $sensor['localizacao'] ?></td>
-                                        <td><?php echo $sensor['tipo_dado'] ?></td>
-                                        
-                                        <td class="text-center">
-
-                                            <a href="../monitoramento_page/adm_visualizar_sensor.php?id_Sensor=<?= $sensor['id_Sensor'] ?>"
-                                            class="btn btn-primary">
-                                                <i class="bi bi-eye"></i>
-                                            </a>
-
-                                            <a href="sensor/editar_sensor.php?id_Sensor=<?= $sensor['id_Sensor'] ?>"
-                                            class="btn btn-secondary">
-                                                <i class="bi bi-pencil"></i>
-                                            </a>
-
-                                            <a href="sensor/delete_sensor.php?id_Sensor=<?= $sensor['id_Sensor'] ?>"
-                                            class="btn btn-danger"
-                                            onclick="return confirm('Tem certeza que deseja excluir este sensor?');">
-                                                <i class="bi bi-trash"></i>
-                                            </a>
-
-                                        </td>
-
-                                    </tr>
-
-                                <?php } ?>
-                                    
-                            </tbody>
-                        </table>
-                    </div>
+                        </tbody>
+                    </table>
+                </div>
 
             </div>
 
             <div class="actions" style="display: absolute; justify-content: left;">
 
                 <a href="trem/visualizar_trem.php" class="btn btn-custom">
-                    Visualizar Trens 
+                    Visualizar Trens
                 </a>
 
             </div>
