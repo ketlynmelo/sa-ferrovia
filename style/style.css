@@ -1942,3 +1942,585 @@ width: 30px;
         align-items: flex-start;
     }
 }
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #050505;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* PAINEL LATERAL */
+
+.painel-lateral {
+    width: 28.3%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    z-index: 10;
+}
+
+.logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.logo img {
+    width: 100%;
+    max-width: 390px;
+    height: auto;
+    object-fit: contain;
+}
+
+.texto-lateral {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.texto-lateral span {
+    color: #416bd0;
+    font-size: 11px;
+    letter-spacing: 4px;
+    font-weight: bold;
+}
+
+.texto-lateral p {
+    color: #bfc5d0;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* CONTEÚDO */
+
+.conteudo-pagina {
+    width: 71.7%;
+    margin-left: 28.3%;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.72)
+        ),
+        url("../assets/images/Fundo_tela.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* NAVBAR */
+
+.navbar {
+    padding: 25px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.navbar-brand {
+    font-size: 23px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.nav-link {
+    color: white !important;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.nav-link:hover {
+    color: #4778e8 !important;
+}
+
+.botao-login {
+    display: inline-block;
+    text-decoration: none;
+    background: #1769e8;
+    color: white;
+    padding: 11px 20px;
+    border-radius: 7px;
+    font-weight: bold;
+    font-size: 13px;
+    transition: .3s;
+}
+
+.botao-login:hover {
+    background: #3b80ee;
+    color: white;
+}
+
+/* CONTEÚDO PRINCIPAL */
+
+.hero-conteudo {
+    position: absolute;
+    top: 50%;
+    left: 9%;
+    transform: translateY(-50%);
+    max-width: 650px;
+    padding: 20px;
+}
+
+.linha-destaque {
+    width: 55px;
+    height: 5px;
+    background: #416bd0;
+    margin-bottom: 25px;
+}
+
+.identificacao {
+    color: #668ce9;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.hero-conteudo h1 {
+    font-size: clamp(38px, 5vw, 68px);
+    font-weight: bold;
+    line-height: 1.08;
+    margin: 20px 0;
+}
+
+.hero-conteudo p {
+    color: #e0e0e0;
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 500px;
+}
+
+.botao-conhecer {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+    padding: 13px 22px;
+    border-radius: 7px;
+    background: #1769e8;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .3s;
+}
+
+.botao-conhecer:hover {
+    background: #fff;
+    color: #1769e8;
+}
+
+/* INDICADOR DE SCROLL */
+
+.indicador-scroll {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 24px;
+    animation: descer 1.5s infinite;
+}
+
+@keyframes descer {
+    0%, 100% {
+        transform: translate(-50%, 0);
+    }
+
+    50% {
+        transform: translate(-50%, 10px);
+    }
+}
+
+/* SEÇÕES */
+
+.secao {
+    padding: 100px 8%;
+}
+
+.sobre {
+    background: #080d16;
+}
+
+.secao h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 20px 0;
+    max-width: 700px;
+}
+
+.sobre p {
+    color: #bfc5d0;
+    font-size: 16px;
+    line-height: 1.9;
+    max-width: 850px;
+}
+
+/* FUNCIONALIDADES */
+
+.funcionalidades {
+    background: #0c1422;
+}
+
+.descricao-secao {
+    color: #bfc5d0;
+}
+
+.card-funcionalidade {
+    height: 100%;
+    min-height: 220px;
+    background: #111e32;
+    border: 1px solid #263b5c;
+    border-radius: 10px;
+    padding: 25px;
+    transition: .3s;
+}
+
+.card-funcionalidade:hover {
+    transform: translateY(-7px);
+    border-color: #416bd0;
+}
+
+.card-funcionalidade i {
+    color: #5282ed;
+    font-size: 32px;
+}
+
+.card-funcionalidade h3 {
+    font-size: 17px;
+    font-weight: bold;
+    margin: 20px 0 12px;
+}
+
+.card-funcionalidade p {
+    color: #bfc5d0;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* RODAPÉ */
+
+.rodape {
+    background: #000;
+    padding: 55px 8%;
+    text-align: center;
+}
+
+.rodape h2 {
+    color: #5282ed;
+    font-weight: bold;
+}
+
+.rodape p {
+    color: #bfc5d0;
+    margin: 15px 0 25px;
+}
+
+.rodape hr {
+    border-color: #444;
+    margin: 35px 0 20px;
+}
+
+.rodape small {
+    color: #888;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 991px) {
+
+    .painel-lateral {
+        width: 100%;
+        height: 100px;
+        position: relative;
+        padding: 10px 20px;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .logo {
+        width: 120px;
+    }
+
+    .logo img {
+        max-width: 110px;
+        max-height: 80px;
+    }
+
+    .texto-lateral {
+        display: none;
+    }
+
+    .conteudo-pagina {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .hero {
+        min-height: calc(100vh - 100px);
+    }
+
+    .hero-conteudo {
+        left: 4%;
+        right: 4%;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .hero-conteudo h1 {
+        font-size: 42px;
+    }
+
+    .hero-conteudo p {
+        font-size: 14px;
+    }
+
+    .secao {
+        padding: 70px 25px;
+    }
+
+    .secao h2 {
+        font-size: 28px;
+    }
+
+}
+
+/* =====================================
+   LOGIN XRail
+===================================== */
+
+#login {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background-color: #000;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+/* DIVISÃO DA TELA */
+
+#login .dividido {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* PAINEL DA LOGO */
+
+#login .painel-logo {
+    width: 28.3%;
+    min-height: 100vh;
+    background-color: #000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 35px;
+}
+
+#login #logo {
+    width: 100%;
+    max-width: 390px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* IMAGEM DE FUNDO */
+
+#login #colorir {
+    width: 71.7%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 40px;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.48),
+            rgba(0, 0, 0, 0.62)
+        ),
+        url("../assets/images/Fundo_tela.png");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* FORMULÁRIO */
+
+#login #formulario {
+    width: 100%;
+    max-width: 530px;
+
+    padding: 30px;
+
+    background: rgba(0, 0, 0, 0.67);
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+
+    color: white;
+}
+
+/* TÍTULO */
+
+#login #formulario h2 {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* LABELS */
+
+#login #branco {
+    color: white;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* CAMPOS */
+
+#login #formulario .form-control {
+    height: 42px;
+
+    background-color: #e9f0ff;
+    color: #101010;
+
+    border: 1px solid #aebbd0;
+    border-radius: 9px;
+
+    font-size: 14px;
+    padding: 10px 13px;
+}
+
+#login #formulario .form-control:focus {
+    background-color: white;
+    border-color: #2875ee;
+
+    box-shadow: 0 0 0 3px rgba(40, 117, 238, 0.2);
+}
+
+/* SOLICITAÇÃO DE CONTA */
+
+#login .toggle {
+    text-align: center;
+    margin-top: 15px;
+    color: white;
+    font-size: 14px;
+}
+
+#login .toggle p {
+    margin-bottom: 0;
+}
+
+/* BOTÃO */
+
+#login #formulario .btn-primary {
+    background-color: #1769e8;
+    border: none;
+
+    width: 110px;
+    height: 37px;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: 0.3s;
+}
+
+#login #formulario .btn-primary:hover {
+    background-color: #3984f3;
+    transform: translateY(-2px);
+}
+
+/* ERROS */
+
+#login .erro {
+    color: #ff7777;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px) {
+
+    #login .dividido {
+        flex-direction: column;
+    }
+
+    #login .painel-logo {
+        width: 100%;
+        min-height: 150px;
+        height: 150px;
+        padding: 15px;
+    }
+
+    #login #logo {
+        max-width: 180px;
+        max-height: 130px;
+    }
+
+    #login #colorir {
+        width: 100%;
+        min-height: calc(100vh - 150px);
+        padding: 25px 18px;
+    }
+
+    #login #formulario {
+        max-width: 480px;
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    #login .painel-logo {
+        min-height: 120px;
+        height: 120px;
+    }
+
+    #login #logo {
+        max-width: 145px;
+    }
+
+    #login #colorir {
+        min-height: calc(100vh - 120px);
+    }
+
+    #login #formulario {
+        padding: 22px;
+    }
+}
