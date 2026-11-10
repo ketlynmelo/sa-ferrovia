@@ -62,7 +62,7 @@ if (!empty($senha)) {
     $stmt = $conn->prepare($sql);
 
     $stmt->bind_param(
-        "sssssssssssssi",
+        "ssssssssssssssi",
         $nome,
         $cpf,
         $data_nascimento,
@@ -101,7 +101,7 @@ if (!empty($senha)) {
     $stmt = $conn->prepare($sql);
 
     $stmt->bind_param(
-        "ssssssssssssi",
+        "sssssssssssssi",
         $nome,
         $cpf,
         $data_nascimento,
