@@ -107,7 +107,9 @@
                 
             
 
-                <button type="submit" class="btn btn-primary">Cadastrar</button>
+                
+                    <button type="submit" class="botao-rota-salvar">
+                    <i class="bi bi-check-lg"></i>Cadastrar</button>
 
                 </form> 
         </div>

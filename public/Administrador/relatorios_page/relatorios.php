@@ -141,7 +141,7 @@ $relatoriosFiltrados = array_filter($relatorios, function ($relatorio) use ($per
                 <a href="gerar_relatorio.php"class="btn btn-primary">
                  <i class="bi bi-file-earmark-plus"></i> Gerar novo Relatório
                 </a>
-
+            
             </div>
 
         </div>
@@ -196,11 +196,12 @@ $relatoriosFiltrados = array_filter($relatorios, function ($relatorio) use ($per
 
                         <div class="col-md-2">
 
-                            <button
-                                type="submit" class="btn btn-primary w-100">Filtrar</button>
+                            
+                        <button type="submit" class="botao-rota-salvar">
+                            <i class="bi bi-check-lg"></i>Filtrar</button>
 
                         </div>
-
+    
                     </div>
 
                 </form>
