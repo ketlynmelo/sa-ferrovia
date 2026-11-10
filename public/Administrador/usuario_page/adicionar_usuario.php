@@ -151,10 +151,9 @@ require_once "../../../infra/conexao.php";
                     </div>
 
                     <div class="cadastro-usuario-acoes">
-                        <a href="usuario.php" class="botao-cadastro-voltar">
-                            <i class="bi bi-arrow-left"></i>
-                            Voltar
-                        </a>
+                         <a href="usuario.php" class="btn btn-outline-secondary mb-3">
+                <i class="bi bi-arrow-left"></i> Voltar
+            </a>
 
                         <button type="submit" class="botao-cadastro-salvar">
                             <i class="bi bi-person-check"></i>

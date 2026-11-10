@@ -2,7 +2,7 @@
 include_once "../../../infra/conexao.php";
 include_once "../../../infra/clima.php";
 ?>
-
+<!DOCTYPE html>
 
 <html lang="pt-BR">
 
@@ -166,8 +166,12 @@ include_once "../../../infra/clima.php";
            target="_blank"
            rel="noopener noreferrer">OpenWeatherMap</a>
     </small>
+
+<br>
+<br>
 </div>
 
+<h3>Procure o sensor pelo ID</h3>
 <form method="GET" action="adm_visualizar_sensor.php">
 <input
 type="number"
@@ -177,7 +181,7 @@ class="form-control me-2"
 placeholder="Digite o ID do sensor"
 required
 >
-
+<br>
 <button type="submit" class="btn btn-primary">
     Pesquisar
 </button>

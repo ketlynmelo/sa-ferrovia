@@ -1,5 +1,5 @@
 
-
+<!DOCTYPE html>
 <link rel="stylesheet" href="../style/style.css">
 <?php
 include_once "../../../infra/conexao.php";
@@ -52,7 +52,7 @@ $relatoriosFiltrados = array_filter($relatorios, function ($relatorio) use ($per
 });
 ?>
 
-<!DOCTYPE html>
+
 <html lang="pt-BR">
 
 <head>
