@@ -3,6 +3,7 @@
 session_start();
 
 require_once "../../../infra/conexao.php";
+include ("../../../infra/consultar_cep.php");
 
 if (
     !isset($_SESSION['id_Usuario']) ||
@@ -151,17 +152,51 @@ if (!$row) {
                                 value="<?= htmlspecialchars($row['email'], ENT_QUOTES, 'UTF-8') ?>" required>
                         </div>
 
-                        <div class="editar-campo campo-completo">
-                            <label for="endereco">Endereço</label>
-                            <input type="text" class="form-control" name="endereco" id="endereco"
-                                value="<?= htmlspecialchars($row['endereco'], ENT_QUOTES, 'UTF-8') ?>" required>
+                        
+                        <div class="editar-campo">
+                            <label for="cep">CEP</label>
+                            <input type="text" class="form-control"
+                                name="cep" id="cep" maxlength="9" required
+                                value="<?= htmlspecialchars($row['cep'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
                         </div>
+
+                        <div class="editar-campo">
+                            <label for="logradouro">Logradouro</label>
+                            <input type="text" class="form-control"
+                                name="logradouro" id="logradouro" required
+                                value="<?= htmlspecialchars($row['logradouro'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
+                        </div>
+
+                        <div class="editar-campo">
+                            <label for="bairro">Bairro</label>
+                            <input type="text" class="form-control"
+                                name="bairro" id="bairro" required
+                                value="<?= htmlspecialchars($row['bairro'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
+                        </div>
+
+                        <div class="editar-campo">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" class="form-control"
+                                name="cidade" id="cidade" required
+                                value="<?= htmlspecialchars($row['cidade'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
+                        </div>
+
+                        <div class="editar-campo">
+                            <label for="uf">UF</label>
+                            <input type="text" class="form-control"
+                                name="uf" id="uf" maxlength="2" required
+                                value="<?= htmlspecialchars($row['uf'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
+                        </div>
+
+                        <input type="hidden" name="endereco" id="endereco"
+                            value="<?= htmlspecialchars($row['endereco'], ENT_QUOTES, 'UTF-8') ?>">
+
 
                         <div class="editar-campo">
                             <label for="senha">Nova senha</label>
                             <input type="password" class="form-control" name="senha"id="senha"placeholder="Deixe vazio para manter a senha atual"autocomplete="new-password">
                             <small class="text-muted mt-1">Preencha somente se desejar alterar a senha.</small>
-</div>
+                        </div>
 
                         <div class="editar-campo">
                             <label for="tipo_conta">Tipo de conta</label>

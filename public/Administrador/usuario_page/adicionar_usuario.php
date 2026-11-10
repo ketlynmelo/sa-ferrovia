@@ -1,6 +1,7 @@
 
 <?php
 require_once "../../../infra/conexao.php";
+include ("../../../infra/consultar_cep.php");
 ?>
 
 <!DOCTYPE html>
@@ -118,10 +119,48 @@ require_once "../../../infra/conexao.php";
                                 class="form-control" placeholder="exemplo@email.com" required>
                         </div>
 
-                        <div class="campo-cadastro campo-cadastro-completo">
-                            <label for="endereco">Endereço</label>
-                            <input type="text" name="endereco" id="endereco"
-                                class="form-control" placeholder="Digite o endereço completo" required>
+                     
+                        <div class="campo-cadastro">
+                            <label for="cep">CEP</label>
+                            <input type="text" name="cep" id="cep"
+                                class="form-control" placeholder="00000-000"
+                                maxlength="9" required>
+                        </div>
+
+                        <div class="campo-cadastro">
+                            <label for="logradouro">Logradouro</label>
+                            <input type="text" name="logradouro" id="logradouro"
+                                class="form-control" placeholder="Rua, avenida..."
+                                required>
+                        </div>
+
+                        <div class="campo-cadastro">
+                            <label for="numero">Número</label>
+                            <input type="number" name="numero" id="numero"
+                                class="form-control" placeholder="Número da residência"
+                                required>
+
+                        </div>
+
+                        <div class="campo-cadastro">
+                            <label for="bairro">Bairro</label>
+                            <input type="text" name="bairro" id="bairro"
+                                class="form-control" placeholder="Bairro"
+                                required>
+                        </div>
+
+                        <div class="campo-cadastro">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" name="cidade" id="cidade"
+                                class="form-control" placeholder="Município"
+                                required>
+                        </div>
+
+                        <div class="campo-cadastro">
+                            <label for="uf">UF</label>
+                            <input type="text" name="uf" id="uf"
+                                class="form-control" placeholder="SC"
+                                maxlength="2" required>
                         </div>
 
                         <div class="campo-cadastro">
@@ -167,6 +206,70 @@ require_once "../../../infra/conexao.php";
 
         </div>
     </main>
+
+
+    <script>
+    const campoCep = document.getElementById('cep');
+
+    campoCep.addEventListener('input', function () {
+        let valor = this.value.replace(/\D/g, '');
+        valor = valor.replace(/^(\d{5})(\d)/, '$1-$2');
+        this.value = valor;
+    });
+
+    campoCep.addEventListener('blur', consultarCep);
+
+    async function consultarCep() {
+        const cep = campoCep.value.replace(/\D/g, '');
+
+        if (cep.length !== 8) {
+            return;
+        }
+
+        try {
+            campoCep.disabled = true;
+
+            const resposta = await fetch(
+                'consultar_cep.php?cep=' + encodeURIComponent(cep)
+            );
+
+            const dados = await resposta.json();
+
+            if (!resposta.ok || dados.erro) {
+                alert(dados.mensagem || 'Erro ao consultar CEP.');
+                return;
+            }
+
+            document.getElementById('logradouro').value =
+                dados.logradouro || '';
+
+            document.getElementById('bairro').value =
+                dados.bairro || '';
+
+            document.getElementById('cidade').value =
+                dados.cidade || '';
+
+            document.getElementById('uf').value =
+                dados.uf || '';
+
+        } catch (erro) {
+            alert('Não foi possível consultar o CEP. Verifique sua conexão.');
+        } finally {
+            campoCep.disabled = false;
+        }
+    }
+
+    document.querySelector('form').addEventListener('submit', function () {
+        const logradouro = document.getElementById('logradouro').value;
+        const bairro = document.getElementById('bairro').value;
+        const cidade = document.getElementById('cidade').value;
+        const uf = document.getElementById('uf').value;
+        const cep = campoCep.value;
+
+        document.getElementById('endereco').value =
+            `${logradouro}, ${bairro}, ${cidade} - ${uf}, CEP: ${cep}`;
+    });
+    </script>
 
 </body>
 </html>
