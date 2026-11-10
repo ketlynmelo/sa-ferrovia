@@ -87,6 +87,27 @@ $resultado = mysqli_query($conn, $sql);
 
             </div>
 
+                        <?php
+                $mensagens = [
+                    'excluido' => ['success', 'Rota excluída com sucesso!'],
+                    'erro'     => ['danger', 'Não foi possível realizar a operação.']
+                ];
+
+                $codigo = $_GET['mensagem'] ?? '';
+
+                if (isset($mensagens[$codigo])) {
+                    [$tipo, $texto] = $mensagens[$codigo];
+            ?>
+
+                    <div class="alert alert-<?= $tipo ?> alert-dismissible fade show" role="alert">
+                        <?= htmlspecialchars($texto) ?>
+
+                        <button type="button" class="btn-close"
+                                data-bs-dismiss="alert" aria-label="Fechar"></button>
+                    </div>
+
+            <?php } ?>
+
             <h2 class="page-title">Gerenciamento de Rotas</h2>
 
             <div class="d-flex justify-content-end mb-4">
@@ -140,7 +161,11 @@ $resultado = mysqli_query($conn, $sql);
 
                                         <td><?php echo $rota["distancia"]; ?></td>
 
-                                <td><?php echo $rota["sensor_id"]; ?></td>
+                                                                <td>
+                                    <?= $rota["sensor_id"] !== null
+                                        ? (int) $rota["sensor_id"]
+                                        : '<span class="text-muted">Sem sensor</span>' ?>
+                                </td>
 
                                         <td class="text-center text-nowrap">
 

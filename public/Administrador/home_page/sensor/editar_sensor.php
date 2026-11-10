@@ -2,6 +2,8 @@
 
 require_once __DIR__ . '/../../../../infra/conexao.php';
 
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
 $id = filter_input(INPUT_GET, 'id_Sensor', FILTER_VALIDATE_INT);
 
 if (!$id) {
@@ -16,6 +18,7 @@ $stmt->execute();
 
 $resultado = $stmt->get_result();
 $sensor = $resultado->fetch_assoc();
+$stmt->close();
 
 if (!$sensor) {
     die("Sensor não encontrado.");
@@ -25,36 +28,78 @@ $trens = $conn->query(
     "SELECT id_Trem, nome_trem FROM trem ORDER BY nome_trem"
 );
 
+/* Rotas livres + a rota que já pertence a este sensor */
+$stmtRotas = $conn->prepare(
+    "SELECT id_Rota, nome_rota, ponto_inicial, ponto_final, sensor_id
+     FROM rota
+     WHERE sensor_id IS NULL OR sensor_id = ?
+     ORDER BY nome_rota"
+);
+$stmtRotas->bind_param("i", $id);
+$stmtRotas->execute();
+$listaRotas = $stmtRotas->get_result()->fetch_all(MYSQLI_ASSOC);
+$stmtRotas->close();
+
+$rotaAtual = null;
+foreach ($listaRotas as $r) {
+    if ((int) $r['sensor_id'] === $id) {
+        $rotaAtual = (int) $r['id_Rota'];
+    }
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = trim($_POST['nome_sensor'] ?? '');
     $localizacao = trim($_POST['localizacao'] ?? '');
     $tipo = trim($_POST['tipo_dado'] ?? '');
     $trem = filter_input(INPUT_POST, 'Trem_id_Trem', FILTER_VALIDATE_INT);
+    $rota = filter_input(INPUT_POST, 'Rota_id_Rota', FILTER_VALIDATE_INT);
 
-    if ($nome === '' || $localizacao === '' || $tipo === '' || !$trem) {
+    if ($nome === '' || $localizacao === '' || $tipo === '' || !$trem || !$rota) {
         die("Preencha todos os campos corretamente.");
     }
 
-    $sql = "UPDATE sensor
-            SET nome_sensor = ?, localizacao = ?,
-                tipo_dado = ?, Trem_id_Trem = ?
-            WHERE id_Sensor = ?";
+    $conn->begin_transaction();
 
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sssii", $nome, $localizacao, $tipo, $trem, $id);
+    try {
+        /* 1. Atualiza os dados do sensor */
+        $stmt = $conn->prepare(
+            "UPDATE sensor
+             SET nome_sensor = ?, localizacao = ?, tipo_dado = ?, Trem_id_Trem = ?
+             WHERE id_Sensor = ?"
+        );
+        $stmt->bind_param("sssii", $nome, $localizacao, $tipo, $trem, $id);
+        $stmt->execute();
+        $stmt->close();
 
-    if (mysqli_stmt_execute($stmt)) {
-    mysqli_stmt_close($stmt);
+        /* 2. Libera a rota antiga deste sensor */
+        $stmt = $conn->prepare("UPDATE rota SET sensor_id = NULL WHERE sensor_id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $stmt->close();
 
-    header("Location: ../adm_home.php?mensagem=atualizado");
-    exit;
-} else {
-    mysqli_stmt_close($stmt);
+        /* 3. Liga a rota escolhida (só se estiver livre) */
+        $stmt = $conn->prepare(
+            "UPDATE rota SET sensor_id = ? WHERE id_Rota = ? AND sensor_id IS NULL"
+        );
+        $stmt->bind_param("ii", $id, $rota);
+        $stmt->execute();
 
-    header("Location: ../adm_home.php?mensagem=erro");
-    exit;
-}
+        if ($stmt->affected_rows !== 1) {
+            throw new Exception("Rota indisponível.");
+        }
 
+        $stmt->close();
+        $conn->commit();
+
+        header("Location: ../adm_home.php?mensagem=atualizado");
+        exit;
+
+    } catch (Throwable $e) {
+        $conn->rollback();
+
+        header("Location: ../adm_home.php?mensagem=erro");
+        exit;
+    }
 }
 ?>
 
@@ -195,12 +240,44 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 </select>
                             </div>
 
+                            <div class="col-12">
+                                <label for="es_rota" class="form-label">Rota vinculada</label>
+
+                                <?php if (count($listaRotas) > 0): ?>
+
+                                    <select class="form-select" id="es_rota" name="Rota_id_Rota" required>
+
+                                        <option value="" disabled <?= $rotaAtual ? '' : 'selected' ?>>
+                                            Selecione uma rota
+                                        </option>
+
+                                        <?php foreach ($listaRotas as $r): ?>
+                                            <option value="<?= (int) $r['id_Rota'] ?>"
+                                                <?= (int) $r['id_Rota'] === $rotaAtual ? 'selected' : '' ?>>
+                                                <?= htmlspecialchars($r['nome_rota']) ?>
+                                                (<?= htmlspecialchars($r['ponto_inicial']) ?>
+                                                → <?= htmlspecialchars($r['ponto_final']) ?>)
+                                            </option>
+                                        <?php endforeach; ?>
+
+                                    </select>
+
+                                <?php else: ?>
+
+                                    <div class="alert alert-warning mb-0">
+                                        Não há rotas disponíveis.
+                                        <a href="../rotas/adicionar_rota.php">Cadastre uma rota</a>.
+                                    </div>
+
+                                <?php endif; ?>
+                            </div>
+
                             <div class="col-12 d-flex gap-2 mt-3">
                                 <a href="../adm_home.php" class="btn btn-cancelar">
                                     Cancelar
                                 </a>
 
-                                <button type="submit" class="btn btn-salvar">
+                                                               <button type="submit" class="btn btn-salvar" <?= count($listaRotas) > 0 ? '' : 'disabled' ?>>
                                     Salvar alterações
                                 </button>
                             </div>

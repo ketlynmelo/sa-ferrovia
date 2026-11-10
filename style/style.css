@@ -2524,3 +2524,377 @@ body {
         padding: 22px;
     }
 }
+
+
+
+/* ==============================
+   MONITORAMENTO - DETALHES DO SENSOR
+============================== */
+
+.sv-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 22px;
+}
+
+.sv-btn-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1px solid #44539c;
+    background: #fff;
+    color: #44539c;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.sv-btn-voltar:hover {
+    background: #eef0ff;
+    color: #2d3d7a;
+}
+
+.sv-busca {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.sv-busca-campo {
+    position: relative;
+}
+
+.sv-busca-campo i {
+    position: absolute;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9a9a9a;
+}
+
+.sv-busca-campo input {
+    width: 260px;
+    max-width: 100%;
+    height: 44px;
+    padding: 10px 12px 10px 38px;
+    border: 1px solid #d9deea;
+    border-radius: 8px;
+    background: #fff;
+    color: #30364b;
+    font-size: 14px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.sv-busca-campo input:focus {
+    outline: none;
+    border-color: #44539c;
+    box-shadow: 0 0 0 3px rgba(68, 83, 156, 0.18);
+}
+
+.sv-btn-pesquisar {
+    min-height: 44px;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 8px;
+    background: #44539c;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.sv-btn-pesquisar:hover {
+    background: #2d3d7a;
+    transform: translateY(-1px);
+}
+
+/* Cabeçalho do sensor */
+.sv-hero {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 26px 30px;
+    margin-bottom: 18px;
+    background: #fff;
+    border: 1px solid #e9ebf2;
+    border-left: 5px solid #44539c;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+    color: #20243a;
+}
+
+.sv-hero-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 68px;
+    height: 68px;
+    border-radius: 14px;
+    background: #44539c;
+    color: #fff;
+    font-size: 32px;
+}
+
+.sv-hero-texto {
+    flex: 1;
+    min-width: 0;
+}
+
+.sv-hero-id {
+    color: #818797;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.sv-hero-texto h2 {
+    margin: 4px 0 6px;
+    color: #20243a;
+    font-size: 26px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.sv-hero-texto p {
+    margin: 0;
+    color: #818797;
+    font-size: 14px;
+}
+
+.sv-hero-texto p i {
+    margin-right: 4px;
+    color: #44539c;
+}
+
+.sv-badge {
+    padding: 7px 16px;
+    border-radius: 20px;
+    background: #eef0ff;
+    color: #44539c;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Cadeia Sensor -> Trem -> Rotas */
+.sv-vinculo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 18px 20px;
+    margin-bottom: 18px;
+    background: #fff;
+    border: 1px solid #e9ebf2;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.sv-vinculo-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: #eef0ff;
+    color: #2d3d7a;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.sv-vinculo-item i {
+    font-size: 1.1rem;
+    color: #44539c;
+}
+
+.sv-vinculo-seta {
+    color: #9aa8bb;
+    font-size: 1.2rem;
+}
+
+/* Grid de cards */
+.sv-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 18px;
+}
+
+.sv-card {
+    padding: 28px 30px;
+    background: #fff;
+    border: 1px solid #e9ebf2;
+    border-radius: 14px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+    color: #20243a;
+}
+
+.sv-card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 22px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e8eaf0;
+}
+
+.sv-card-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: #eef0ff;
+    color: #44539c;
+    font-size: 25px;
+}
+
+.sv-card-header h3 {
+    margin: 0 0 4px;
+    color: #252a40;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.sv-card-header p {
+    margin: 0;
+    color: #818797;
+    font-size: 13px;
+}
+
+/* Lista de dados */
+.sv-lista {
+    margin: 0;
+}
+
+.sv-lista > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f0f1f6;
+}
+
+.sv-lista > div:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.sv-lista dt {
+    color: #818797;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.sv-lista dd {
+    margin: 0;
+    color: #20243a;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+/* Tabela de rotas */
+.sv-tabela {
+    min-width: 700px;
+    color: #344156;
+}
+
+.sv-tabela thead th {
+    padding: 14px 16px;
+    background: #f3f6fa;
+    color: #46546a;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border-bottom: 1px solid #e3e8ef;
+}
+
+.sv-tabela tbody td {
+    padding: 14px 16px;
+    color: #344156;
+    font-size: 14px;
+    vertical-align: middle;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.sv-tabela tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.sv-tabela tbody tr:hover {
+    background: #f7f9fc;
+}
+
+/* Estado vazio */
+.sv-vazio {
+    padding: 50px 20px;
+    text-align: center;
+    color: #778195;
+}
+
+.sv-vazio-pequeno {
+    padding: 30px 20px;
+}
+
+.sv-vazio i {
+    font-size: 38px;
+    color: #9aa8bb;
+}
+
+.sv-vazio p {
+    margin: 12px 0 5px;
+    color: #344156;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.sv-vazio span {
+    font-size: 13px;
+}
+
+/* Responsivo */
+@media (max-width: 991px) {
+    .sv-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .sv-topo {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .sv-busca-campo {
+        flex: 1;
+    }
+
+    .sv-busca-campo input {
+        width: 100%;
+    }
+
+    .sv-hero {
+        flex-wrap: wrap;
+        padding: 22px;
+    }
+
+    .sv-card {
+        padding: 22px;
+    }
+}

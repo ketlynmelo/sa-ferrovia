@@ -105,28 +105,7 @@
                     <input type="number" name="distancia" id="distancia" class="form-control" required>
                 </div>
                 
-                <div class="col-12">
-                    <label for="sensor_id" class="form-label">Sensor:</label>
-
-                    <select name="sensor_id" id="sensor_id" class="form-control" required>
-                        <option value="">Selecione o sensor</option>
-
-                        <?php
-                            $sql = "SELECT id_Sensor, nome_sensor FROM sensor";
-                            $result = $conn->query($sql);
-
-                            while ($sensor = mysqli_fetch_assoc($result)) {
-                        ?>
-                                <option value="<?php echo $sensor['id_Sensor']; ?>">
-                                    <?php echo $sensor['nome_sensor']; ?>
-                                </option>
-                        <?php
-                            }
-                        ?>
-                    
-                    </select>
-
-                </div>
+            
 
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
 
