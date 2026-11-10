@@ -1,9 +1,11 @@
+
 <?php
 
 session_start();
 require_once "../../../infra/conexao.php";
 
 $id_Usuario = (int) ($_POST['id_Usuario'] ?? 0);
+
 $nome = trim($_POST['nome'] ?? '');
 $cpf = trim($_POST['cpf'] ?? '');
 $data_nascimento = $_POST['data_nascimento'] ?? '';
@@ -12,6 +14,13 @@ $email = trim($_POST['email'] ?? '');
 $senha = $_POST['senha'] ?? '';
 $tipo_conta = $_POST['tipo_conta'] ?? '';
 $status = $_POST['status'] ?? '';
+
+$cep = trim($_POST['cep'] ?? '');
+$logradouro = trim($_POST['logradouro'] ?? '');
+$numero = trim($_POST['numero'] ?? '');
+$bairro = trim($_POST['bairro'] ?? '');
+$cidade = trim($_POST['cidade'] ?? '');
+$uf = strtoupper(trim($_POST['uf'] ?? ''));
 
 if ($id_Usuario <= 0) {
     exit("ID de usuário inválido.");
@@ -30,6 +39,7 @@ if (
 }
 
 if (!empty($senha)) {
+
     $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
     $sql = "UPDATE usuario SET
@@ -40,13 +50,19 @@ if (!empty($senha)) {
         email = ?,
         senha = ?,
         tipo_conta = ?,
-        status = ?
+        status = ?,
+        cep = ?,
+        logradouro = ?,
+        numero = ?,
+        bairro = ?,
+        cidade = ?,
+        uf = ?
         WHERE id_Usuario = ?";
 
     $stmt = $conn->prepare($sql);
 
     $stmt->bind_param(
-        "ssssssssi",
+        "ssssssssssssssi",
         $nome,
         $cpf,
         $data_nascimento,
@@ -55,9 +71,17 @@ if (!empty($senha)) {
         $senhaHash,
         $tipo_conta,
         $status,
+        $cep,
+        $logradouro,
+        $numero,
+        $bairro,
+        $cidade,
+        $uf,
         $id_Usuario
     );
+
 } else {
+
     $sql = "UPDATE usuario SET
         nome = ?,
         cpf = ?,
@@ -65,13 +89,19 @@ if (!empty($senha)) {
         endereco = ?,
         email = ?,
         tipo_conta = ?,
-        status = ?
+        status = ?,
+        cep = ?,
+        logradouro = ?,
+        numero = ?,
+        bairro = ?,
+        cidade = ?,
+        uf = ?
         WHERE id_Usuario = ?";
 
     $stmt = $conn->prepare($sql);
 
     $stmt->bind_param(
-        "sssssssi",
+        "sssssssssssssi",
         $nome,
         $cpf,
         $data_nascimento,
@@ -79,6 +109,12 @@ if (!empty($senha)) {
         $email,
         $tipo_conta,
         $status,
+        $cep,
+        $logradouro,
+        $numero,
+        $bairro,
+        $cidade,
+        $uf,
         $id_Usuario
     );
 }
@@ -89,7 +125,9 @@ if ($stmt->execute()) {
     exit;
 }
 
-echo "Erro ao atualizar usuário: " . htmlspecialchars($stmt->error);
+echo "Erro ao atualizar usuário: " .
+    htmlspecialchars($stmt->error);
 
 $stmt->close();
+
 ?>

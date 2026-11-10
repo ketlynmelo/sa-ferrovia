@@ -54,7 +54,14 @@ CREATE TABLE usuario (
     senha VARCHAR(255) NOT NULL,
     tipo_conta ENUM('Administrador', 'Usuário') NOT NULL,
     status ENUM('Ativo', 'Inativo') NOT NULL,
-    UNIQUE (email)
+    UNIQUE (email),
+    cep varchar(9) DEFAULT NULL,
+    logradouro varchar(150) DEFAULT NULL,
+    bairro varchar(100) DEFAULT NULL,
+    cidade varchar(100) DEFAULT NULL,
+    estado char(2) DEFAULT NULL,
+    numero varchar(6) DEFAULT NULL,
+    uf char(2) DEFAULT NULL
 );
 
 Insert into usuario

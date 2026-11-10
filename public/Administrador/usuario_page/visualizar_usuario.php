@@ -205,13 +205,69 @@ if (!$usuario) {
             <div class="col-md-6">
                 <div class="border rounded-3 p-3 h-100">
                     <small class="text-muted d-block mb-2">
-                        <i class="bi bi-geo-alt me-2"></i>Endereço
+                        <i class="bi bi-mailbox me-2"></i>CEP
                     </small>
                     <span class="fw-semibold">
-                        <?php echo htmlspecialchars($usuario["endereco"]); ?>
+                        <?= htmlspecialchars($usuario["cep"] ?? '') ?>
                     </span>
                 </div>
             </div>
+
+            <div class="col-md-6">
+                <div class="border rounded-3 p-3 h-100">
+                    <small class="text-muted d-block mb-2">
+                        <i class="bi bi-signpost-2 me-2"></i>Logradouro
+                    </small>
+                    <span class="fw-semibold">
+                        <?= htmlspecialchars($usuario["logradouro"] ?? '') ?>
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="border rounded-3 p-3 h-100">
+                    <small class="text-muted d-block mb-2">
+                        <i class="bi bi-house me-2"></i>Número
+                    </small>
+                    <span class="fw-semibold">
+                        <?= htmlspecialchars($usuario["numero"] ?? '') ?>
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="border rounded-3 p-3 h-100">
+                    <small class="text-muted d-block mb-2">
+                        <i class="bi bi-geo me-2"></i>Bairro
+                    </small>
+                    <span class="fw-semibold">
+                        <?= htmlspecialchars($usuario["bairro"] ?? '') ?>
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="border rounded-3 p-3 h-100">
+                    <small class="text-muted d-block mb-2">
+                        <i class="bi bi-buildings me-2"></i>Cidade
+                    </small>
+                    <span class="fw-semibold">
+                        <?= htmlspecialchars($usuario["cidade"] ?? '') ?>
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="border rounded-3 p-3 h-100">
+                    <small class="text-muted d-block mb-2">
+                        <i class="bi bi-map me-2"></i>Estado (UF)
+                    </small>
+                    <span class="fw-semibold">
+                        <?= htmlspecialchars($usuario["uf"] ?? '') ?>
+                    </span>
+                </div>
+            </div>
+
 
         </div>
 

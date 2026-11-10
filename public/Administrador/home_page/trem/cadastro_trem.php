@@ -102,14 +102,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="container-fluid">
 
-            <a href="../adm_home.php" class="btn btn-outline-secondary mb-3">
-                <i class="bi bi-arrow-left"></i> Voltar
-            </a>
+                <a href="../adm_home.php" class="btn btn-outline-secondary mb-3">
+                    <i class="bi bi-arrow-left"></i> Voltar
+                </a>
+                <br>
+                <br>
 
+            <h2 class="page-title">Cadastrar Trem</h2>
 
-            <div class="form-card" id="cadastrarTrem">
+            <div class="editar-rota-card">
 
-                    <div class="page-title">Cadastrar Trens</div>
+                <div class="editar-rota-header">
+                    <div class="editar-rota-icone">
+                        <i class="bi bi-train-freight-front"></i>
+                    </div>
+                    <h8>Novo trem</h8>
+                </div>
 
                     <form action="cadastro_trem.php" method="POST" class="row g-3">
                         

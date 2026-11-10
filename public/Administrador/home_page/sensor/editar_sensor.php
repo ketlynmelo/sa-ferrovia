@@ -169,14 +169,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
      <main class="main">
 
-        <div class="container-fluid">
+       <div class="container-fluid">
 
-          
+        <a href="../adm_home.php" class="btn btn-outline-secondary mb-3">
+            <i class="bi bi-arrow-left"></i> Voltar
+        </a>
+        <br>
+        <br>
 
-            <div class="form-card" id="cadastrarTrem">
+            <h2 class="page-title">Editar sensores</h2>
 
-                    <div class="page-title">Editar Sensor</div>
+            <div class="editar-rota-card">
 
+                <div class="editar-rota-header">
+                    <div class="editar-rota-icone">
+                        <i class="bi bi-cpu"></i>
+                    </div>
+                    <h8>Editando sensor</h8>
+                </div>
                 
                         <form class="row g-3 needs-validation"
                             action="editar_sensor.php?id_Sensor=<?= $id ?>"

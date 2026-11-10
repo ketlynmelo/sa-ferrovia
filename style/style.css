@@ -104,8 +104,12 @@
 
 .main {
     margin-left: 300px;
-    margin-right: 30px;
+    margin-right: 0px;
     padding: 30px;
+
+    min-height: 100vh;
+    background-color: #ffffff;
+    color: #212529;
 }
 
 .topbar {
@@ -1955,7 +1959,7 @@ html {
 }
 
 body {
-    background: #050505;
+    background: #ffffff;
     color: white;
     font-family: Arial, sans-serif;
 }

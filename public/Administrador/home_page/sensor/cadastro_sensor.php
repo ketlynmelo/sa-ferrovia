@@ -125,13 +125,22 @@ $temRotaLivre = $rotasLivres->num_rows > 0;
 
         <div class="container-fluid">
 
-        
+        <a href="../adm_home.php" class="btn btn-outline-secondary mb-3">
+            <i class="bi bi-arrow-left"></i> Voltar
+        </a>
+        <br>
+        <br>
 
-            <div class="form-card" id="cadastrarTrem">
+            <h2 class="page-title">Cadastrar sensores</h2>
 
+            <div class="editar-rota-card">
 
-
-                    <div class="page-title">Cadastrar Sensores</div>
+                <div class="editar-rota-header">
+                    <div class="editar-rota-icone">
+                        <i class="bi bi-cpu"></i>
+                    </div>
+                    <h8>Novo sensor</h8>
+                </div>
 
                     <form action="cadastro_sensor.php" method="POST" class="row g-3">
                         

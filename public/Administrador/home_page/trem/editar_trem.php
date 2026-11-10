@@ -170,13 +170,22 @@ $resultadoUsuarios = mysqli_query(
 
             <div class="container-fluid">
 
-            <a href="../adm_home.php" class="btn btn-outline-secondary mb-3">
-                <i class="bi bi-arrow-left"></i> Voltar
-            </a>
+                <a href="../adm_home.php" class="btn btn-outline-secondary mb-3">
+                    <i class="bi bi-arrow-left"></i> Voltar
+                </a>
+                <br>
+                <br>
 
-            <div class="form-card" id="cadastrarTrem">
+            <h2 class="page-title">Editar Trem</h2>
 
-                <h2>Editando o trem!</h2>
+            <div class="editar-rota-card">
+
+                <div class="editar-rota-header">
+                    <div class="editar-rota-icone">
+                        <i class="bi bi-train-freight-front"></i>
+                    </div>
+                    <h8>Editando trem</h8>
+                </div>
             
                     <form action="cadastro_trem.php" method="POST" class="row g-3">
 
@@ -235,8 +244,16 @@ $resultadoUsuarios = mysqli_query(
                         </select>
                     </div>
 
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-primary">Atualizar trem</button>
+                   <div class="col-12 d-flex gap-2 mt-3">
+
+                        <a href="../adm_home.php" class="btn btn-cancelar">
+                            Cancelar
+                        </a>
+
+                        <button type="submit" class="botao-rota-salvar">
+                            <i class="bi bi-check-lg"></i> Atualizar trem
+                        </button>
+
                     </div>
 
                 </form>
