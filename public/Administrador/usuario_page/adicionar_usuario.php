@@ -156,12 +156,46 @@ include ("../../../infra/consultar_cep.php");
                                 required>
                         </div>
 
+                       
                         <div class="campo-cadastro">
-                            <label for="uf">UF</label>
-                            <input type="text" name="uf" id="uf"
-                                class="form-control" placeholder="SC"
-                                maxlength="2" required>
+                            <label for="uf">Estado (UF)</label>
+
+                            <input type="text" name="uf" id="uf" class="form-control" placeholder="Digite ou selecione a UF"
+                                list="estados" maxlength="2" pattern="[A-Za-z]{2}" title="Digite uma sigla válida com duas letras"
+                                style="text-transform: uppercase;" required
+                            >
+
+                            <datalist id="estados">
+                                <option value="AC">
+                                <option value="AL">
+                                <option value="AP">
+                                <option value="AM">
+                                <option value="BA">
+                                <option value="CE">
+                                <option value="DF">
+                                <option value="ES">
+                                <option value="GO">
+                                <option value="MA">
+                                <option value="MT">
+                                <option value="MS">
+                                <option value="MG">
+                                <option value="PA">
+                                <option value="PB">
+                                <option value="PR">
+                                <option value="PE">
+                                <option value="PI">
+                                <option value="RJ">
+                                <option value="RN">
+                                <option value="RS">
+                                <option value="RO">
+                                <option value="RR">
+                                <option value="SC">
+                                <option value="SP">
+                                <option value="SE">
+                                <option value="TO">
+                            </datalist>
                         </div>
+
 
                         <div class="campo-cadastro">
                             <label for="senha">Senha inicial</label>
@@ -269,6 +303,13 @@ include ("../../../infra/consultar_cep.php");
         document.getElementById('endereco').value =
             `${logradouro}, ${bairro}, ${cidade} - ${uf}, CEP: ${cep}`;
     });
+
+        const campoUF = document.getElementById('uf');
+
+    campoUF.addEventListener('input', function () {
+        this.value = this.value.toUpperCase();
+    });
+
     </script>
 
 </body>

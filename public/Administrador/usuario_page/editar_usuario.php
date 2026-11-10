@@ -167,6 +167,19 @@ if (!$row) {
                                 value="<?= htmlspecialchars($row['logradouro'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
                         </div>
 
+                        <div class="campo-cadastro">
+                            <label for="numero">Número</label>
+                            <input
+                                type="text"
+                                name="numero"
+                                id="numero"
+                                class="form-control"
+                                placeholder="Digite o número"
+                                value="<?= htmlspecialchars($row['numero'] ?? '', ENT_QUOTES, 'UTF-8') ?>"
+                                required
+                            >
+                        </div>
+
                         <div class="editar-campo">
                             <label for="bairro">Bairro</label>
                             <input type="text" class="form-control"
@@ -182,15 +195,53 @@ if (!$row) {
                         </div>
 
                         <div class="editar-campo">
-                            <label for="uf">UF</label>
-                            <input type="text" class="form-control"
-                                name="uf" id="uf" maxlength="2" required
-                                value="<?= htmlspecialchars($row['uf'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
+                            <label for="uf">Estado (UF)</label>
+
+                            <input
+                                type="text"
+                                name="uf"
+                                id="uf"
+                                class="form-control"
+                                placeholder="Digite ou selecione a UF"
+                                list="estados"
+                                maxlength="2"
+                                pattern="[A-Za-z]{2}"
+                                title="Digite uma sigla válida com duas letras"
+                                style="text-transform: uppercase;"
+                                value="<?= htmlspecialchars($row['uf'] ?? '', ENT_QUOTES, 'UTF-8') ?>"
+                                required
+                            >
+
+                            <datalist id="estados">
+                                <option value="AC">
+                                <option value="AL">
+                                <option value="AP">
+                                <option value="AM">
+                                <option value="BA">
+                                <option value="CE">
+                                <option value="DF">
+                                <option value="ES">
+                                <option value="GO">
+                                <option value="MA">
+                                <option value="MT">
+                                <option value="MS">
+                                <option value="MG">
+                                <option value="PA">
+                                <option value="PB">
+                                <option value="PR">
+                                <option value="PE">
+                                <option value="PI">
+                                <option value="RJ">
+                                <option value="RN">
+                                <option value="RS">
+                                <option value="RO">
+                                <option value="RR">
+                                <option value="SC">
+                                <option value="SP">
+                                <option value="SE">
+                                <option value="TO">
+                            </datalist>
                         </div>
-
-                        <input type="hidden" name="endereco" id="endereco"
-                            value="<?= htmlspecialchars($row['endereco'], ENT_QUOTES, 'UTF-8') ?>">
-
 
                         <div class="editar-campo">
                             <label for="senha">Nova senha</label>
@@ -248,5 +299,76 @@ if (!$row) {
         </div>
     </main>
 
+    <script>
+    const campoCep = document.getElementById('cep');
+
+    campoCep.addEventListener('input', function () {
+        let valor = this.value.replace(/\D/g, '');
+        valor = valor.replace(/^(\d{5})(\d)/, '$1-$2');
+        this.value = valor;
+    });
+
+    campoCep.addEventListener('blur', consultarCep);
+
+    async function consultarCep() {
+        const cep = campoCep.value.replace(/\D/g, '');
+
+        if (cep.length !== 8) {
+            return;
+        }
+
+        try {
+            campoCep.disabled = true;
+
+            const resposta = await fetch(
+                'consultar_cep.php?cep=' + encodeURIComponent(cep)
+            );
+
+            const dados = await resposta.json();
+
+            if (!resposta.ok || dados.erro) {
+                alert(dados.mensagem || 'Erro ao consultar CEP.');
+                return;
+            }
+
+            document.getElementById('logradouro').value =
+                dados.logradouro || '';
+
+            document.getElementById('bairro').value =
+                dados.bairro || '';
+
+            document.getElementById('cidade').value =
+                dados.cidade || '';
+
+            document.getElementById('uf').value =
+                dados.uf || '';
+
+        } catch (erro) {
+            alert('Não foi possível consultar o CEP.');
+        } finally {
+            campoCep.disabled = false;
+        }
+    }
+
+    document.querySelector('form').addEventListener('submit', function () {
+        const logradouro = document.getElementById('logradouro').value;
+        const numero = document.getElementById('numero').value;
+        const bairro = document.getElementById('bairro').value;
+        const cidade = document.getElementById('cidade').value;
+        const uf = document.getElementById('uf').value;
+        const cep = campoCep.value;
+
+        document.getElementById('endereco').value =
+            `${logradouro}, ${numero}, ${bairro}, ${cidade} - ${uf}, CEP: ${cep}`;
+    });
+
+        const campoUF = document.getElementById('uf');
+
+    campoUF.addEventListener('input', function () {
+        this.value = this.value.toUpperCase();
+    });
+
+    </script>
 </body>
 </html>
+

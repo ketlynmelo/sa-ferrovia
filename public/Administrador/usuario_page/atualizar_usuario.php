@@ -17,6 +17,7 @@ $status = $_POST['status'] ?? '';
 
 $cep = trim($_POST['cep'] ?? '');
 $logradouro = trim($_POST['logradouro'] ?? '');
+$numero = trim($_POST['numero'] ?? '');
 $bairro = trim($_POST['bairro'] ?? '');
 $cidade = trim($_POST['cidade'] ?? '');
 $uf = strtoupper(trim($_POST['uf'] ?? ''));
@@ -52,6 +53,7 @@ if (!empty($senha)) {
         status = ?,
         cep = ?,
         logradouro = ?,
+        numero = ?,
         bairro = ?,
         cidade = ?,
         uf = ?
@@ -71,6 +73,7 @@ if (!empty($senha)) {
         $status,
         $cep,
         $logradouro,
+        $numero,
         $bairro,
         $cidade,
         $uf,
@@ -89,6 +92,7 @@ if (!empty($senha)) {
         status = ?,
         cep = ?,
         logradouro = ?,
+        numero = ?,
         bairro = ?,
         cidade = ?,
         uf = ?
@@ -107,6 +111,7 @@ if (!empty($senha)) {
         $status,
         $cep,
         $logradouro,
+        $numero,
         $bairro,
         $cidade,
         $uf,
