@@ -1,7 +1,7 @@
  <?php
     include "../../../infra/conexao.php";
  ?>
- 
+ <!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -101,9 +101,9 @@
                                         <td><?php echo $sensor['tipo_dado'] ?></td>
                                         <td class="text-center">
 
-                                            <a href="../monitoramento_page/usuario_monitoramento.php"class="btn btn-primary">
-                                                <i class="bi bi-eye"></i>
-                                            </a>
+                                            <a href="../monitoramento_page/usuario_visualizar_sensor.php?id_Sensor=<?= (int) $sensor['id_Sensor'] ?>" class="btn btn-primary">
+    <i class="bi bi-eye"></i>
+</a>
 
                                         </td>
 

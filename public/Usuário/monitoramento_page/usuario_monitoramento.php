@@ -2,7 +2,7 @@
 include_once "../../../infra/conexao.php";
 include_once "../../../infra/clima.php";
 ?>
-
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -71,12 +71,13 @@ include_once "../../../infra/clima.php";
 
     <div class="container-pesquisa" >
 
-<form  method="GET" action="monitoramento.php" class=" barra d-flex mb-4 " style="margin-top: 60px; margin-left: 20px; left: 570px; position: absolute;">
+<form method="GET" action="usuario_visualizar_sensor.php" class=" barra d-flex mb-4 " style="margin-top: 60px; margin-left: 20px; left: 570px; position: absolute;">
 <input
 type="number"
 name="id"
+min="1"
 class="form-control me-2"
-placeholder="Digite o ID do trem"
+placeholder="Digite o ID do sensor"
 required
 >
 
