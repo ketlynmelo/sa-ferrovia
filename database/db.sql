@@ -82,11 +82,8 @@ CREATE TABLE usuario (
 );
 
 Insert into usuario
-<<<<<<< HEAD
 VALUES (null, 'Adm', '12345678912', '2004-03-12', 'adm@gmail.com', '$2y$10$Mhr9MVrbBi0r8Gnp56BAsO9EdyOoLQLwu2gHyN5VLhITeIxWQxeKO', 'Administrador', 'Ativo', '89239-000', 'Rua Eugenio Ernesto Kunde', 'Pirabeiraba', 'Joinville', '348', 'SC' );
-=======
-VALUES (null, 'Adm', '12345678912', '2004-03-12','Rua Urussanga', 'adm@gmail.com', '$2y$10$Mhr9MVrbBi0r8Gnp56BAsO9EdyOoLQLwu2gHyN5VLhITeIxWQxeKO', 'Administrador', 'Ativo', '89237-672', 'Rua Darci Bublitz', '10', 'Vila Nova', 'Joinville', Null, 'SC')
->>>>>>> e41f6e90b2191330b2897dfd99fd52193fb5051d
+
 -- ALTER TABLE usuario
 -- ADD COLUMN cep VARCHAR(9) NULL,
 -- ADD COLUMN logradouro VARCHAR(150) NULL,
