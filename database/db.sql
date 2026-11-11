@@ -12,6 +12,14 @@ CREATE TABLE trem (
     Usuario_id_Usuario INT NULL;
     CONSTRAINT fk_trem_usuario
     FOREIGN KEY (Usuario_id_Usuario) REFERENCES usuario(id_Usuario);
+
+--  ALTER TABLE trem
+-- ADD COLUMN Usuario_id_Usuario INT NULL;
+
+-- ALTER TABLE trem
+-- ADD CONSTRAINT fk_trem_usuario
+-- FOREIGN KEY (Usuario_id_Usuario)
+-- REFERENCES usuario(id_Usuario);
 );
 
 CREATE TABLE sensor (
@@ -46,6 +54,14 @@ CREATE TABLE rota (
     FOREIGN KEY (sensor_id) REFERENCES sensor(id_Sensor)
     );
 
+--     ALTER TABLE rota
+-- ADD COLUMN trem_id INT NULL;
+
+-- ALTER TABLE rota
+-- ADD CONSTRAINT fk_rota_trem
+-- FOREIGN KEY (trem_id)
+-- REFERENCES trem(id_Trem);
+
 
 CREATE TABLE usuario (
     id_Usuario INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -69,3 +85,11 @@ CREATE TABLE usuario (
 
 Insert into usuario
 VALUES (null, 'Adm', '12345678912', '2004-03-12','Rua Urussanga', 'adm@gmail.com', '$2y$10$Mhr9MVrbBi0r8Gnp56BAsO9EdyOoLQLwu2gHyN5VLhITeIxWQxeKO', 'Administrador', 'Ativo' )
+-- ALTER TABLE usuario
+-- ADD COLUMN cep VARCHAR(9) NULL,
+-- ADD COLUMN logradouro VARCHAR(150) NULL,
+-- ADD COLUMN numero VARCHAR(10) NULL,
+-- ADD COLUMN bairro VARCHAR(100) NULL,
+-- ADD COLUMN cidade VARCHAR(100) NULL,
+-- ADD COLUMN estado VARCHAR(2) NULL,
+-- ADD COLUMN uf CHAR(2) NULL;

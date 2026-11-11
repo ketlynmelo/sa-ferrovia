@@ -1,4 +1,3 @@
-
 <?php
 include "../../../../infra/conexao.php";
 
@@ -23,6 +22,16 @@ if (!$rota) {
     header("Location: cadastro_rotas.php");
     exit;
 }
+
+// Buscar os trens cadastrados
+$sqlTrens = "SELECT * FROM trem
+             WHERE id_Trem NOT IN (
+                 SELECT trem_id FROM rota
+                 WHERE trem_id IS NOT NULL
+                 AND id_Rota <> $id
+             )";
+
+$resultadoTrens = mysqli_query($conn, $sqlTrens);
 ?>
 
 <!DOCTYPE html>
@@ -170,6 +179,39 @@ if (!$rota) {
                                 required
                             >
                         </div>
+
+                        <div class="campo-editar-rota">
+
+    
+                        <div class="campo-editar-rota">
+
+    <label for="trem_id">Trem responsável</label>
+
+    <select
+        name="trem_id"
+        id="trem_id"
+        class="form-select"
+        required
+    >
+
+        <option value="">Selecione um trem</option>
+
+        <?php while ($trem = mysqli_fetch_assoc($resultadoTrens)) { ?>
+
+            <option
+                value="<?= (int) $trem['id_Trem'] ?>"
+                <?= (int) $rota['trem_id'] === (int) $trem['id_Trem']
+                    ? 'selected' : '' ?>
+            >
+                <?= htmlspecialchars($trem['nome_trem']) ?>
+            </option>
+
+        <?php } ?>
+
+    </select>
+
+</div>
+</div>
 
                     </div>
 

@@ -2,7 +2,7 @@
 session_start();
 require_once "../../../../infra/conexao.php";
 
-$sql = "SELECT * FROM rota ORDER BY id_Rota DESC";
+$sql = "SELECT  rota.*, trem.nome_trem FROM rota LEFT JOIN trem ON rota.trem_id = trem.id_Trem ORDER BY id_Rota DESC";
 $resultado = mysqli_query($conn, $sql);
 ?>
 
@@ -137,7 +137,7 @@ $resultado = mysqli_query($conn, $sql);
                                 <th>Ponto Inicial</th>
                                 <th>Ponto Final</th>
                                 <th>Distância</th>
-                                <th>Sensor ID</th>
+                                <th>Trem Responsável</th>
                                 <th class="text-center">Ações</th>
                             </tr>
                         </thead>
@@ -162,9 +162,9 @@ $resultado = mysqli_query($conn, $sql);
                                         <td><?php echo $rota["distancia"]; ?></td>
 
                                                                 <td>
-                                    <?= $rota["sensor_id"] !== null
-                                        ? (int) $rota["sensor_id"]
-                                        : '<span class="text-muted">Sem sensor</span>' ?>
+                                    <?= !empty($rota["nome_trem"])
+                                        ? htmlspecialchars($rota["nome_trem"])
+                                        : '<span class="text-muted">Sem trem vinculado</span>' ?>
                                 </td>
 
                                         <td class="text-center text-nowrap">
@@ -190,7 +190,7 @@ $resultado = mysqli_query($conn, $sql);
                             <?php } else { ?>
 
                                 <tr>
-                                    <td colspan="8" class="text-center py-4 text-muted">
+                                    <td colspan="9" class="text-center py-4 text-muted">
                                         Nenhuma rota cadastrada.
                                     </td>
                                 </tr>

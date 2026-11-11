@@ -1,6 +1,11 @@
 <?php
     include "../../../../infra/conexao.php";
-    
+    $sqlTrens = "SELECT * FROM trem
+             WHERE id_Trem NOT IN (
+                 SELECT trem_id FROM rota WHERE trem_id IS NOT NULL
+             )";
+
+$resultadoTrens = mysqli_query($conn, $sqlTrens);
     ?>
 
 
@@ -105,6 +110,24 @@
                     <input type="number" name="distancia" id="distancia" class="form-control" required>
                 </div>
                 
+                <div class="col-12">
+            <label for="trem_id" class="form-label">Trem responsável</label>
+
+            <select class="form-select" id="trem_id" name="trem_id" required>
+            <option value="" selected disabled>
+            Selecione um trem
+            </option>
+
+        <?php while ($trem = mysqli_fetch_assoc($resultadoTrens)) { ?>
+
+            <option value="<?= (int) $trem['id_Trem'] ?>">
+                <?= htmlspecialchars($trem['nome_trem']) ?>
+            </option>
+
+        <?php } ?>
+
+    </select>
+</div>
             
 
                 
