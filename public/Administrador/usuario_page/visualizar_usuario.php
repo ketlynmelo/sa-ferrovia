@@ -94,9 +94,7 @@ if (!$usuario) {
             <p>Visualize as informações completas do funcionário cadastrado.</p>
         </div>
 
-        <a href="javascript:history.back()" class="btn btn-outline-secondary">
-            <i class="bi bi-arrow-left"></i> Voltar
-        </a>
+
     </div>
 
     <div class="card-dashboard bg-white mb-4">
@@ -275,10 +273,10 @@ if (!$usuario) {
 
     <div class="d-flex justify-content-end gap-2 mt-4 pt-3 border-top">
 
-            <a href="usuario.php" class="btn btn-outline-secondary mb-3">
-               <i class="bi bi-arrow-left"></i> Voltar
-            </a>
-
+            <a href="usuario.php" class="btn-editar-voltar">
+                            <i class="bi bi-arrow-left"></i>
+                            Voltar
+                        </a>
 
             <a href="editar_usuario.php? id=<?= urlencode($usuario["id_Usuario"]) ?>"
                class="btn-custom d-inline-flex align-items-center justify-content-center gap-2">

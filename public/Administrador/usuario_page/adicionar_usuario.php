@@ -1,7 +1,7 @@
 
 <?php
 require_once "../../../infra/conexao.php";
-include ("../../../infra/consultar_cep.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -224,9 +224,9 @@ include ("../../../infra/consultar_cep.php");
                     </div>
 
                     <div class="cadastro-usuario-acoes">
-                         <a href="usuario.php" class="btn btn-outline-secondary mb-3">
+                    <a href="usuario.php" class="btn-editar-voltar">
                 <i class="bi bi-arrow-left"></i> Voltar
-            </a>
+                        </a>
 
                         <button type="submit" class="botao-cadastro-salvar">
                             <i class="bi bi-person-check"></i>

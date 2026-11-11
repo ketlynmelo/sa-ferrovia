@@ -3,7 +3,7 @@
 session_start();
 
 require_once "../../../infra/conexao.php";
-include ("../../../infra/consultar_cep.php");
+
 
 if (
     !isset($_SESSION['id_Usuario']) ||
