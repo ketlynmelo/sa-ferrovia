@@ -339,7 +339,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#login">
+                                <a class="nav-link botao-login" href="#login">
                                     Entrar
                                 </a>
                             </li>

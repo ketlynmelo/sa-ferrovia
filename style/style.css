@@ -1982,7 +1982,8 @@ body {
 }
 
 .logo {
-    width: 100%;
+    width: 200px;
+    Height: 250px;
     display: flex;
     justify-content: center;
 }
@@ -2901,4 +2902,29 @@ body {
     .sv-card {
         padding: 22px;
     }
+}
+
+.navbar .botao-login {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 22px;
+    min-height: 38px;
+
+    background-color: #1769e8;
+    color: white !important;
+
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1;
+
+    text-decoration: none;
+    transition: .3s;
+}
+
+.navbar .botao-login:hover {
+    background-color: #3b80ee;
+    color: white !important;
 }
