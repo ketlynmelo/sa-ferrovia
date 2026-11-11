@@ -188,10 +188,11 @@ include "../../../infra/clima.php";
 
                 <?php
                     $mensagens = [
-                        'cadastrado' => ['success', 'Sensor cadastrado com sucesso!'],
-                        'excluido' => ['success', 'Sensor excluído com sucesso!'],
-                        'atualizado' => ['success', 'Sensor atualizado com sucesso!'],
-                    ];
+    'cadastrado' => ['success', 'Sensor cadastrado com sucesso!'],
+    'excluido'   => ['success', 'Sensor excluído com sucesso!'],
+    'atualizado' => ['success', 'Sensor atualizado com sucesso!'],
+    'erro'       => ['danger',  'Não foi possível concluir a operação. Verifique os dados e se a rota ainda está livre.'],
+];
 
                     $codigo = $_GET['mensagem'] ?? '';
 

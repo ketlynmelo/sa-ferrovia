@@ -4,20 +4,28 @@ require_once __DIR__ . '/../../../../infra/conexao.php';
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
+$rotasLivres = $conn->query(
+    "SELECT id_Rota, nome_rota, ponto_inicial, ponto_final
+     FROM rota
+     WHERE sensor_id IS NULL
+     ORDER BY nome_rota"
+)->fetch_all(MYSQLI_ASSOC);
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome        = trim($_POST["nome_sensor"] ?? '');
     $localizacao = trim($_POST["localizacao"] ?? '');
     $tipo        = $_POST["tipo_dado"] ?? '';
     $trem        = filter_input(INPUT_POST, "Trem_id_Trem", FILTER_VALIDATE_INT);
+    $rota        = filter_input(INPUT_POST, "Rota_id_Rota", FILTER_VALIDATE_INT);
 
-    if ($nome === '' || $localizacao === '' || $tipo === '' || !$trem) {
+    if ($nome === '' || $localizacao === '' || $tipo === '' || !$trem || !$rota) {
         header("Location: ../adm_home.php?mensagem=erro");
         exit;
     }
 
     $conn->begin_transaction();
 
-        /* 1. Cadastra o sensor */
+    try {
         $stmt = $conn->prepare(
             "INSERT INTO sensor (nome_sensor, localizacao, tipo_dado, Trem_id_Trem)
              VALUES (?, ?, ?, ?)"
@@ -27,8 +35,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $idSensor = $conn->insert_id;
         $stmt->close();
 
+        $stmt = $conn->prepare(
+            "UPDATE rota SET sensor_id = ? WHERE id_Rota = ? AND sensor_id IS NULL"
+        );
+        $stmt->bind_param("ii", $idSensor, $rota);
+        $stmt->execute();
+
+        if ($stmt->affected_rows !== 1) {
+            throw new Exception("Rota indisponível.");
+        }
+        $stmt->close();
+
+        $conn->commit();
+
         header("Location: ../adm_home.php?mensagem=cadastrado");
         exit;
+
+    } catch (Throwable $e) {
+        $conn->rollback();
+        header("Location: ../adm_home.php?mensagem=erro");
+        exit;
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -155,6 +182,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         </div>
 
+                        <div class="col-12">
+    <label for="ct_rota" class="form-label">Rota</label>
+
+    <?php if (count($rotasLivres) > 0): ?>
+
+        <select class="form-select" id="ct_rota" name="Rota_id_Rota" required>
+            <option value="" selected disabled>Selecione uma rota</option>
+
+            <?php foreach ($rotasLivres as $r): ?>
+                <option value="<?= (int) $r['id_Rota'] ?>">
+                    <?= htmlspecialchars($r['nome_rota']) ?>
+                    (<?= htmlspecialchars($r['ponto_inicial']) ?> → <?= htmlspecialchars($r['ponto_final']) ?>)
+                </option>
+            <?php endforeach; ?>
+        </select>
+
+    <?php else: ?>
+
+        <div class="alert alert-warning mb-0">
+            Não há rotas livres. Cadastre uma rota antes de criar o sensor.
+        </div>
+
+    <?php endif; ?>
+</div>
 
                         <div class="col-12 d-flex gap-2 mt-3">
                             <a href="../adm_home.php" class="btn btn-cancelar">
