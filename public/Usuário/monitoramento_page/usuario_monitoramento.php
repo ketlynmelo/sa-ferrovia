@@ -71,7 +71,9 @@ include_once "../../../infra/clima.php";
 
     <div class="container-pesquisa" >
 
-<form method="GET" action="usuario_visualizar_sensor.php" class=" barra d-flex mb-4 " style="margin-top: 60px; margin-left: 20px; left: 570px; position: absolute;">
+<h3>Procure o sensor pelo ID</h3>
+
+<form method="GET" action="usuario_visualizar_sensor.php">
 <input
 type="number"
 name="id"
@@ -80,6 +82,7 @@ class="form-control me-2"
 placeholder="Digite o ID do sensor"
 required
 >
+<br>
 
 <button type="submit" class="btn btn-primary">
     Pesquisar
