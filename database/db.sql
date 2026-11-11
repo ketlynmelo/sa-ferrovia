@@ -84,7 +84,7 @@ CREATE TABLE usuario (
 );
 
 Insert into usuario
-VALUES (null, 'Adm', '12345678912', '2004-03-12','Rua Urussanga', 'adm@gmail.com', '$2y$10$Mhr9MVrbBi0r8Gnp56BAsO9EdyOoLQLwu2gHyN5VLhITeIxWQxeKO', 'Administrador', 'Ativo' )
+VALUES (null, 'Adm', '12345678912', '2004-03-12','Rua Urussanga', 'adm@gmail.com', '$2y$10$Mhr9MVrbBi0r8Gnp56BAsO9EdyOoLQLwu2gHyN5VLhITeIxWQxeKO', 'Administrador', 'Ativo', '89237-672', 'Rua Darci Bublitz', '10', 'Vila Nova', 'Joinville', Null, 'SC')
 -- ALTER TABLE usuario
 -- ADD COLUMN cep VARCHAR(9) NULL,
 -- ADD COLUMN logradouro VARCHAR(150) NULL,

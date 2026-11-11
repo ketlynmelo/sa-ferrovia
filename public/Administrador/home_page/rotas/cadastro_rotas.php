@@ -49,11 +49,6 @@ $resultado = mysqli_query($conn, $sql);
                 <span>Monitoramento</span>
             </a>
 
-            <a href="../../relatorios_page/relatorios.php" class="menu-link">
-                <i class="bi bi-file-earmark-text"></i>
-                <span>Relatórios</span>
-            </a>
-
             <a href="../../usuario_page/usuario.php" class="menu-link">
                 <i class="bi bi-people"></i>
                 <span>Usuários</span>

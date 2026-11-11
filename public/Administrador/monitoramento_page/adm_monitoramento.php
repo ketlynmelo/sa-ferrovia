@@ -27,7 +27,7 @@ include_once "../../../infra/clima.php";
 
         <nav class="d-flex flex-column">
 
-            <a href="../home_page/adm_home.php" class="menu-link">
+            <a href="../../home_page/adm_home.php" class="menu-link">
                 <i class="bi bi-house-fill"></i>
                 <span>Início</span>
             </a>
@@ -44,15 +44,10 @@ include_once "../../../infra/clima.php";
             <span>Monitoramento</span>
         </a>
 
-            <a href="../relatorios_page/relatorios.php" class="menu-link">
-                <i class="bi bi-file-earmark-text"></i>
-                <span>Relatórios</span>
+        <a href="../usuario_page/usuario.php" class="menu-link">
+                <i class="bi bi-people"></i>
+                <span>Usuários</span>
             </a>
-
-            <a href="../usuario_page/usuario.php" class="menu-link">
-        <i class="bi bi-people"></i>
-        <span>Usuários</span>
-    </a>
 
 
             <a href="../../../logout.php" class="menu-link">
@@ -70,9 +65,9 @@ include_once "../../../infra/clima.php";
 
             <div class="header">
 
-                <h1 class="titulo">
-                    Bem vindo, Administrador!
-                </h1>
+                <h2 class="page-title">
+                Monitoramento
+            </h2>
 
                 <div class="user">
                     <span>
@@ -84,103 +79,15 @@ include_once "../../../infra/clima.php";
 
     <div class="container-pesquisa" >
 
-  <!-- <h2>Monitoramento </h2> -->
 
 
   
-                 <p class="clima-erro">
-    <?= htmlspecialchars($mensagemErroClima) ?>
-</p>
-
-
-            
-<div class="card-clima">
-    <div class="clima-topo">
-        <div>
-            <h3>Clima atual</h3>
-            <p class="clima-local">
-                <i class="bi bi-geo-alt"></i>
-                Joinville, Santa Catarina
-            </p>
-        </div>
-
-        <i class="bi bi-cloud-sun clima-icone"></i>
-    </div>
-
-    <?php if ($clima !== null): ?>
-
-        <div class="clima-temperatura">
-            <img
-                src="https://openweathermap.org/img/wn/<?= htmlspecialchars($clima['weather'][0]['icon']) ?>@2x.png"
-                alt="Condição climática"
-            >
-
-            <strong>
-                <?= number_format(
-                    $clima['main']['temp'],
-                    1,
-                    ',',
-                    '.'
-                ) ?>°C
-            </strong>
-        </div>
-
-        <p class="clima-condicao">
-            <?= htmlspecialchars(
-                ucfirst($clima['weather'][0]['description'])
-            ) ?>
-        </p>
-
-        <div class="clima-info">
-            <p>
-                <i class="bi bi-droplet"></i>
-                Umidade:
-                <strong><?= (int) $clima['main']['humidity'] ?>%</strong>
-            </p>
-
-            <p>
-                <i class="bi bi-cloud"></i>
-                Nebulosidade:
-                <strong><?= (int) $clima['clouds']['all'] ?>%</strong>
-            </p>
-        </div>
-
-        <p class="clima-horario">
-            <i class="bi bi-clock"></i>
-            Última medição:
-            <?= date('d/m/Y H:i', (int) $clima['dt']) ?>
-        </p>
-
-    <?php else: ?>
-
-        <p class="clima-erro">
-            Não foi possível carregar o clima.
-            Tente novamente mais tarde.
-        </p>
-
-    <?php endif; ?>
-
-    <small>
-        Fonte:
-        <a href="https://openweathermap.org/"
-           target="_blank"
-           rel="noopener noreferrer">OpenWeatherMap</a>
-    </small>
-
-<br>
 <br>
 </div>
 
-<h3>Procure o sensor pelo ID</h3>
-<form method="GET" action="adm_visualizar_sensor.php">
-<input
-type="number"
-name="id"
-min="1"
-class="form-control me-2"
-placeholder="Digite o ID do sensor"
-required
->
+    <h3>Procure o sensor pelo ID</h3>
+    <form method="GET" action="adm_visualizar_sensor.php">
+    <input type="number" name="id" min="1" class="form-control me-2" placeholder="Digite o ID do sensor" required>
 <br>
 <button type="submit" class="btn btn-primary">
     Pesquisar
