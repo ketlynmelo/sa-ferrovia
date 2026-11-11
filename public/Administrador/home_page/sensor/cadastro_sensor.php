@@ -9,9 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $localizacao = trim($_POST["localizacao"] ?? '');
     $tipo        = $_POST["tipo_dado"] ?? '';
     $trem        = filter_input(INPUT_POST, "Trem_id_Trem", FILTER_VALIDATE_INT);
-    $rota        = filter_input(INPUT_POST, "Rota_id_Rota", FILTER_VALIDATE_INT);
 
-    if ($nome === '' || $localizacao === '' || $tipo === '' || !$trem || !$rota) {
+    if ($nome === '' || $localizacao === '' || $tipo === '' || !$trem) {
         header("Location: ../adm_home.php?mensagem=erro");
         exit;
     }
@@ -27,20 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute();
         $idSensor = $conn->insert_id;
         $stmt->close();
-
-        /* 2. Liga a rota escolhida ao novo sensor (só se a rota ainda estiver livre) */
-        $stmt = $conn->prepare(
-            "UPDATE rota SET sensor_id = ? WHERE id_Rota = ? AND sensor_id IS NULL"
-        );
-        $stmt->bind_param("ii", $idSensor, $rota);
-        $stmt->execute();
-
-        if ($stmt->affected_rows !== 1) {
-            throw new Exception("Rota indisponível.");
-        }
-
-        $stmt->close();
-        $conn->commit();
 
         header("Location: ../adm_home.php?mensagem=cadastrado");
         exit;
