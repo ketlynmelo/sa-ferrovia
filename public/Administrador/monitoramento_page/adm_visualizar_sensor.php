@@ -17,7 +17,7 @@ if ($idBusca) {
                    r.ponto_final, r.distancia
             FROM sensor s
             INNER JOIN trem t ON t.id_Trem = s.Trem_id_Trem
-            LEFT JOIN rota r ON r.sensor_id = s.id_Sensor
+            LEFT JOIN rota r ON r.trem_id = s.id_Sensor
             WHERE s.id_Sensor = ?
             ORDER BY r.id_Rota
             LIMIT 1";

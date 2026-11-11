@@ -53,18 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 }
-
-/* Rotas que ainda não têm sensor (cada rota recebe um único sensor) */
-$rotasLivres = $conn->query(
-    "SELECT id_Rota, nome_rota, ponto_inicial, ponto_final
-     FROM rota
-     WHERE sensor_id IS NULL
-     ORDER BY nome_rota"
-);
-$temRotaLivre = $rotasLivres->num_rows > 0;
-
 ?>
-
 <html lang="pt-BR">
 
 <head>
@@ -194,44 +183,13 @@ $temRotaLivre = $rotasLivres->num_rows > 0;
 
                         </div>
 
-                                                <div class="col-12">
-                            <label for="ct_rota" class="form-label">Rota</label>
-
-                            <?php if ($temRotaLivre): ?>
-
-                                <select class="form-select" id="ct_rota" name="Rota_id_Rota" required>
-
-                                    <option value="" selected disabled>
-                                        Selecione uma rota
-                                    </option>
-
-                                    <?php while ($rotaLivre = $rotasLivres->fetch_assoc()): ?>
-                                        <option value="<?= (int) $rotaLivre['id_Rota'] ?>">
-                                            <?= htmlspecialchars($rotaLivre['nome_rota']) ?>
-                                            (<?= htmlspecialchars($rotaLivre['ponto_inicial']) ?>
-                                            → <?= htmlspecialchars($rotaLivre['ponto_final']) ?>)
-                                        </option>
-                                    <?php endwhile; ?>
-
-                                </select>
-
-                            <?php else: ?>
-
-                                <div class="alert alert-warning mb-0">
-                                    Não há rotas disponíveis.
-                                    <a href="../rotas/adicionar_rota.php">Cadastre uma rota</a>
-                                    antes de cadastrar o sensor.
-                                </div>
-
-                            <?php endif; ?>
-                        </div>
 
                         <div class="col-12 d-flex gap-2 mt-3">
                             <a href="../adm_home.php" class="btn btn-cancelar">
                                 Cancelar
                             </a>
 
-                                                        <button type="submit" class="btn btn-salvar" <?= $temRotaLivre ? '' : 'disabled' ?>>
+                                  <button type="submit" class="btn btn-salvar">
                                 Salvar Sensor
                             </button>
                         </div>
