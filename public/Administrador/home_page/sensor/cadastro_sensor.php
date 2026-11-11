@@ -18,7 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $conn->begin_transaction();
 
-    try {
         /* 1. Cadastra o sensor */
         $stmt = $conn->prepare(
             "INSERT INTO sensor (nome_sensor, localizacao, tipo_dado, Trem_id_Trem)
@@ -45,13 +44,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         header("Location: ../adm_home.php?mensagem=cadastrado");
         exit;
-
-    } catch (Throwable $e) {
-        $conn->rollback();
-
-        header("Location: ../adm_home.php?mensagem=erro");
-        exit;
-    }
 }
 ?>
 <html lang="pt-BR">
