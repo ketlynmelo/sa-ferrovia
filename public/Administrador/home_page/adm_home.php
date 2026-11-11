@@ -52,10 +52,6 @@ include "../../../infra/clima.php";
                 <span>Monitoramento</span>
             </a>
 
-            <a href="../relatorios_page/relatorios.php" class="menu-link">
-                <i class="bi bi-file-earmark-text"></i>
-                <span>Relatórios</span>
-            </a>
 
 
             <a href="../usuario_page/usuario.php" class="menu-link">

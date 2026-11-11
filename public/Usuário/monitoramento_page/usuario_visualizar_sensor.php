@@ -78,6 +78,13 @@ function sv_esc($valor)
                 <span>Início</span>
             </a>
 
+
+            <a href="../home_page/rotas/cadastro_rotas.php" class="menu-link">
+                <i class="bi bi-train-freight-front"></i>
+                <span>Rotas</span>
+            </a>
+
+            </a>
             <a href="usuario_monitoramento.php" class="menu-link active">
                 <i class="bi bi-graph-up"></i>
                 <span>Monitoramento</span>
