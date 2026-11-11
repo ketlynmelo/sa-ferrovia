@@ -4,38 +4,67 @@
 require_once __DIR__ . '/../../../../infra/conexao.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
     $nome = trim($_POST['nome_trem'] ?? '');
     $modelo = trim($_POST['modelo'] ?? '');
     $carga = trim($_POST['carga'] ?? '');
-    $velocidade = trim($_POST['velocidade'] ?? '');
+    $velocidade = filter_input(INPUT_POST, 'velocidade', FILTER_VALIDATE_INT);
 
-    if ($nome === '' || $modelo === '' || $carga === '' || $velocidade === '') {
-        die('Preencha todos os campos.');
+    $usuario = filter_input(
+        INPUT_POST,
+        'Usuario_id_Usuario',
+        FILTER_VALIDATE_INT
+    );
+
+    if (
+        $nome === '' ||
+        $modelo === '' ||
+        $carga === '' ||
+        $velocidade === false ||
+        $velocidade === null ||
+        $velocidade < 0 ||
+        !$usuario
+    ) {
+        die('Preencha todos os campos corretamente.');
     }
 
-    $sql = "INSERT INTO trem (nome_trem, modelo, carga, velocidade)
-            VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO trem
+            (nome_trem, modelo, carga, velocidade, Usuario_id_Usuario)
+            VALUES (?, ?, ?, ?, ?)";
 
     $stmt = mysqli_prepare($conn, $sql);
 
     if (!$stmt) {
-        die('Erro ao preparar o cadastro: ' . htmlspecialchars(mysqli_error($conn)));
+        die('Erro ao preparar o cadastro: ' .
+            htmlspecialchars(mysqli_error($conn)));
     }
 
-    mysqli_stmt_bind_param($stmt, "ssss", $nome, $modelo, $carga, $velocidade);
+    mysqli_stmt_bind_param(
+        $stmt,
+        "sssii",
+        $nome,
+        $modelo,
+        $carga,
+        $velocidade,
+        $usuario
+    );
 
     if (mysqli_stmt_execute($stmt)) {
+
         mysqli_stmt_close($stmt);
+
         header("Location: visualizar_trem.php?mensagem=cadastrado");
         exit;
     }
 
     $erro = mysqli_stmt_error($stmt);
+
     mysqli_stmt_close($stmt);
 
     die('Erro ao cadastrar o trem: ' . htmlspecialchars($erro));
 }
 ?>
+
 
 <html lang="pt-BR">
 
@@ -157,15 +186,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         </div>
 
                         <div class="col-12">
-                            <label for="ct_carga" class="form-label">Usuário</label>
-                            <select class="form-select" id="ct_trem" name="id_Usuario" required>
+                            <label for="Usuario_id_Usuario" class="form-label">Usuário</label>
+                            <select class="form-select" id="Usuario_id_Usuario" name="Usuario_id_Usuario" required>
 
                                 <option value="" selected disabled>
                                     Selecione um usuário
                                 </option>
 
                                 <?php
-                                    $sqlUsuarios = "SELECT id_Usuario, nome FROM usuario";
+                                    $sqlUsuarios = "SELECT id_Usuario, nome FROM usuario ORDER BY nome";
                                     $resultadoUsuarios = mysqli_query($conn, $sqlUsuarios);
 
                                     while ($usuario = mysqli_fetch_assoc($resultadoUsuarios)) {

@@ -187,7 +187,7 @@ $resultadoUsuarios = mysqli_query(
                     <h8>Editando trem</h8>
                 </div>
             
-                    <form action="cadastro_trem.php" method="POST" class="row g-3">
+                    <form action="editar_trem.php" method="POST" class="row g-3">
 
                     <div class="col-12"> 
                         <input type="hidden" name="id_Trem" class="form-control" id="id_Trem"
