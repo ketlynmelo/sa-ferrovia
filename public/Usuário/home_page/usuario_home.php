@@ -31,6 +31,11 @@
             </a>
 
             
+            <a href="../rotas_usuario/rotas_usuario.php" class="menu-link">
+                <i class="bi bi-train-freight-front"></i>
+                <span>Rotas</span>
+            </a>
+            
 
             <a href="../monitoramento_page/usuario_monitoramento.php" class="menu-link">
                 <i class="bi bi-graph-up"></i>
@@ -38,11 +43,13 @@
             </a>
 
             </a>
-
-            <a href="../../../index.php" class="menu-link">
+        
+            <a href="../../../logout.php" class="menu-link">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sair</span>
             </a>
+
+        </nav>
 
         </nav>
 

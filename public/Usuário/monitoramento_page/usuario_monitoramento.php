@@ -31,6 +31,11 @@ include_once "../../../infra/clima.php";
                 <span>Início</span>
             </a>
 
+            <a href="../rotas_usuario/rotas_usuario.php" class="menu-link ">
+                <i class="bi bi-train-freight-front"></i>
+                <span>Rotas</span>
+            </a>
+
             
 
            <a href="../monitoramento_page/usuario_monitoramento.php" class="menu-link active">
