@@ -25,7 +25,7 @@ if (!$usuario) {
     exit;
 }
 ?>
-
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>

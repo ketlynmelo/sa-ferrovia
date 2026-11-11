@@ -54,6 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -94,13 +95,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <i class="bi bi-people"></i>
                 <span>Usuários</span>
             </a>
-
-
-            <a href="../../relatorios_page/relatorios.php" class="menu-link">
-                <i class="bi bi-file-earmark-text"></i>
-                <span>Relatórios</span>
-            </a>
-
+    
             <a href="../../../logout.php" class="menu-link">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sair</span>

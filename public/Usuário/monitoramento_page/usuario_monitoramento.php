@@ -51,7 +51,7 @@ function sv_esc($valor)
     return htmlspecialchars((string) $valor, ENT_QUOTES, 'UTF-8');
 }
 ?>
-
+<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
