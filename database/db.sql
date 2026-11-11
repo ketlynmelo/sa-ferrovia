@@ -68,7 +68,6 @@ CREATE TABLE usuario (
     nome VARCHAR(100) NOT NULL,
     cpf VARCHAR(14) NOT NULL,
     data_nascimento DATE NOT NULL,
-    endereco VARCHAR(255) NOT NULL,
     email VARCHAR(100) NOT NULL,
     senha VARCHAR(255) NOT NULL,
     tipo_conta ENUM('Administrador', 'Usuário') NOT NULL,
@@ -78,13 +77,12 @@ CREATE TABLE usuario (
     logradouro varchar(150) DEFAULT NULL,
     bairro varchar(100) DEFAULT NULL,
     cidade varchar(100) DEFAULT NULL,
-    estado char(2) DEFAULT NULL,
     numero varchar(6) DEFAULT NULL,
     uf char(2) DEFAULT NULL
 );
 
 Insert into usuario
-VALUES (null, 'Adm', '12345678912', '2004-03-12','Rua Urussanga', 'adm@gmail.com', '$2y$10$Mhr9MVrbBi0r8Gnp56BAsO9EdyOoLQLwu2gHyN5VLhITeIxWQxeKO', 'Administrador', 'Ativo' )
+VALUES (null, 'Adm', '12345678912', '2004-03-12', 'adm@gmail.com', '$2y$10$Mhr9MVrbBi0r8Gnp56BAsO9EdyOoLQLwu2gHyN5VLhITeIxWQxeKO', 'Administrador', 'Ativo', '89239-000', 'Rua Eugenio Ernesto Kunde', 'Pirabeiraba', 'Joinville', '348', 'SC' );
 -- ALTER TABLE usuario
 -- ADD COLUMN cep VARCHAR(9) NULL,
 -- ADD COLUMN logradouro VARCHAR(150) NULL,
