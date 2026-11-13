@@ -259,21 +259,19 @@ unset($_SESSION['erro_permissao']);
 
             </div>
 
-
-
-
             <div class="d-flex flex-wrap gap-3 mb-3 align-items-center"> 
                
-
+            <div class="d-flex align-items-center gap-2">
                 <i class="bi bi-search"></i>
 
-                <input type="text" id="busca" placeholder="Buscar por nome ou e-mail">
+                <input type="text" class="form-control" id="busca" placeholder="Buscar por nome ou e-mail" style="width: 250px;">
 
+            </div>
            
-    
-            <label>Tipo de conta</label>
+            <div class="d-flex align-items-center gap-2">
+                <label for="tipo" class="mb-0 text-nowrap">Tipo de conta</label>
            
-                <select id="tipo" onchange="filtrarUsuarios()">
+                <select id="tipo" class="form-select" onchange="filtrarUsuarios()" style="width: 150px;">
 
                     <option value="">Todos</option>
 
@@ -282,11 +280,12 @@ unset($_SESSION['erro_permissao']);
                     <option value="Usuário"> Usuário </option>
 
                 </select>
+            </div>
+            
+            <div class="d-flex align-items-center gap-2">
+                <label for="status" class="mb-0 text-nowrap">  Status </label>
 
-                
-                <label>  Status </label>
-
-                <select id="status" onchange="filtrarUsuarios()">
+                <select id="status" class="form-select" onchange="filtrarUsuarios()" style="width: 150px;">
 
                     <option value=""> Todos </option>
 
@@ -295,9 +294,7 @@ unset($_SESSION['erro_permissao']);
                     <option value="Inativo"> Inativo </option>
 
                 </select>
-
-
-
+            </div>
 
 
                 <a href="adicionar_usuario.php"
