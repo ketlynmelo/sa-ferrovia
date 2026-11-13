@@ -2928,3 +2928,224 @@ body {
     background-color: #3b80ee;
     color: white !important;
 }
+
+.container-pesquisa {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    max-width: 760px;
+    margin-bottom: 26px;
+    padding: 26px 30px;
+ 
+    background: linear-gradient(135deg, #2d3d7a 0%, #44539c 100%);
+    border-radius: 15px;
+    box-shadow: 0 8px 24px -10px rgba(45, 61, 122, .55);
+    color: #fff;
+}
+ 
+.container-pesquisa br {
+    display: none;
+}
+ 
+/* ícone redondo à esquerda */
+.container-pesquisa::before {
+    content: "\f52a"; /* bi-search */
+    font-family: "bootstrap-icons";
+    flex: 0 0 64px;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+    font-size: 1.7rem;
+    background: rgba(255, 255, 255, .16);
+    border: 1px solid rgba(255, 255, 255, .28);
+    border-radius: 50%;
+}
+ 
+/* texto de apoio */
+.container-pesquisa::after {
+    content: "Consulte rapidamente os dados do sensor, do trem e da rota vinculados.";
+    font-size: .98rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, .92);
+}
+ 
+/* ── Card de pesquisa: título (h3) + formulário ── */
+.container-pesquisa + h3 {
+    max-width: 760px;
+    margin: 0;
+    padding: 26px 30px 0;
+ 
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #17243a;
+ 
+    background: #fff;
+    border: 1px solid #e3e7f1;
+    border-bottom: none;
+    border-radius: 15px 15px 0 0;
+}
+ 
+.container-pesquisa + h3 + form {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+    max-width: 760px;
+    padding: 16px 30px 30px;
+ 
+    background: #fff;
+    border: 1px solid #e3e7f1;
+    border-top: none;
+    border-radius: 0 0 15px 15px;
+    box-shadow: 0 10px 24px -14px rgba(23, 36, 58, .25);
+}
+ 
+.container-pesquisa + h3 + form br {
+    display: none;
+}
+ 
+/* campo de pesquisa */
+.container-pesquisa + h3 + form .form-control {
+    flex: 1;
+    min-width: 0;
+    height: 54px;
+    margin: 0 !important; /* anula o me-2 do Bootstrap; o espaço vem do gap */
+    padding: 0 16px 0 50px;
+ 
+    font-size: 1rem;
+    color: #17243a;
+    background-color: #f7f8fc;
+    background-repeat: no-repeat;
+    background-position: 18px center;
+    background-size: 18px 18px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%2344539c' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0'/%3E%3C/svg%3E");
+ 
+    border: 1.5px solid #d5dae8;
+    border-radius: 12px;
+    transition: border-color .2s, box-shadow .2s, background-color .2s;
+}
+ 
+.container-pesquisa + h3 + form .form-control::placeholder {
+    color: #9aa3b8;
+}
+ 
+.container-pesquisa + h3 + form .form-control:hover {
+    border-color: #b4bde0;
+}
+ 
+.container-pesquisa + h3 + form .form-control:focus {
+    background-color: #fff;
+    border-color: #44539c;
+    box-shadow: 0 0 0 4px rgba(68, 83, 156, .16);
+    outline: none;
+}
+ 
+/* remove as setinhas do campo numérico (digitar e ↑/↓ continuam funcionando) */
+.container-pesquisa + h3 + form .form-control::-webkit-outer-spin-button,
+.container-pesquisa + h3 + form .form-control::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+ 
+.container-pesquisa + h3 + form .form-control[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+ 
+/* botão pesquisar */
+.container-pesquisa + h3 + form .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 54px;
+    padding: 0 30px;
+ 
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    background: #44539c;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 6px 14px -6px rgba(68, 83, 156, .7);
+    transition: background .2s, transform .15s, box-shadow .2s;
+}
+ 
+.container-pesquisa + h3 + form .btn-primary::before {
+    content: "\f52a"; /* bi-search */
+    font-family: "bootstrap-icons";
+    font-weight: 400;
+}
+ 
+.container-pesquisa + h3 + form .btn-primary:hover {
+    background: #2d3d7a;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 18px -8px rgba(45, 61, 122, .8);
+}
+ 
+.container-pesquisa + h3 + form .btn-primary:active {
+    background: #2d3d7a;
+    transform: translateY(0);
+}
+ 
+.container-pesquisa + h3 + form .btn-primary:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(68, 83, 156, .3);
+}
+ 
+/* ── Responsivo ── */
+@media (max-width: 576px) {
+    .container-pesquisa {
+        flex-direction: column;
+        text-align: center;
+        padding: 22px;
+    }
+ 
+    .container-pesquisa + h3 {
+        padding: 22px 20px 0;
+    }
+ 
+    .container-pesquisa + h3 + form {
+        flex-direction: column;
+        padding: 14px 20px 24px;
+    }
+}
+
+/* Ajuste: mais para baixo e ocupando toda a largura da tela */
+.container-pesquisa {
+    max-width: none;
+    margin-top: 60px;
+}
+
+.container-pesquisa + h3,
+.container-pesquisa + h3 + form {
+    max-width: none;
+}
+
+.trem-monitoramento {
+    position: fixed;
+    left: 15%;                  
+    bottom: 0;
+    width: 85%;                  
+    height: auto;
+    min-height: 140px;
+    max-height: calc(100vh - 430px); 
+ 
+    object-fit: contain;
+    object-position: left bottom;
+ 
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+}
+ 
+
+@media (max-width: 991px) {
+    .trem-monitoramento {
+        left: 85px;
+        width: calc(100% - 85px);
+    }
+}
+ 

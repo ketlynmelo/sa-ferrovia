@@ -27,7 +27,7 @@ include_once "../../../infra/clima.php";
 
         <nav class="d-flex flex-column">
 
-            <a href="../../home_page/adm_home.php" class="menu-link">
+            <a href="../home_page/adm_home.php" class="menu-link">
                 <i class="bi bi-house-fill"></i>
                 <span>Início</span>
             </a>
@@ -100,6 +100,7 @@ include_once "../../../infra/clima.php";
 
 </main>
 
+<img src="../../../assets/images/trem1.png" alt="Trem X-Rail" class="trem-monitoramento">
 
     </body>
 

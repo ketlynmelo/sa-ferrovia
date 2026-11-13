@@ -135,7 +135,7 @@ $resultadoUsuarios = mysqli_query(
 
         <nav class="d-flex flex-column">
 
-            <a href="../../home_page/adm_home.php/sensor/cadastro_sensor.php" class="menu-link active">
+           <a href="../adm_home.php" class="menu-link">
                 <i class="bi bi-house-fill"></i>
                 <span>Início</span>
             </a>
@@ -146,12 +146,23 @@ $resultadoUsuarios = mysqli_query(
                 <span>Rotas</span>
             </a>
 
-            <a href="../../home_page/usuarios/usuario.php" class="menu-link ">
+            <a href="../../monitoramento_page/adm_monitoramento.php" class="menu-link">
+    <i class="bi bi-graph-up"></i>
+    <span>Monitoramento</span>
+</a>
+        
+
+            <a href="../../usuario_page/usuario.php" class="menu-link">
                 <i class="bi bi-people"></i>
                 <span>Usuários</span>
             </a>
 
+<<<<<<< HEAD
             <a href="../../logout.php" class="menu-link">
+=======
+
+            <a href="../../../../logout.php" class="menu-link">
+>>>>>>> be601434faf074e3d8ed484de3d49a6603c792cb
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sair</span>
             </a>
