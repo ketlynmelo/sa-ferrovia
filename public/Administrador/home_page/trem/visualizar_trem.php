@@ -56,11 +56,6 @@ if (!$resultado) {
                 <span>Monitoramento</span>
             </a>
 
-            <a href="../../relatorios_page/relatorios.php" class="menu-link">
-                <i class="bi bi-file-earmark-text"></i>
-                <span>Relatórios</span>
-            </a>
-
              <a href="../../usuario_page/usuario.php" class="menu-link ">
                 <i class="bi bi-people"></i>
                 <span>Usuários</span>
@@ -106,15 +101,31 @@ if (!$resultado) {
                 <?php } ?>
 
 
-                <div class="header">
-                </div>
-
-                <hr>
-
-                <a href="../adm_home.php" class="btn btn-outline-secondary mb-3">
+                <a href="../../home_page/adm_home.php" class="btn btn-outline-secondary">
                         <i class="bi bi-arrow-left"></i> Voltar
                     </a>
 
+                <br><br><br>
+
+                    <div class="rotas-header">
+                        <div>
+                            <h1>Visualizar Trens</h1>
+                            <p>Visualize, edite e exclua informações dos trens cadastrados.</p>
+                        </div>
+
+                        <div class="user">
+                        <span>
+                            <img src="../../../../assets/images/usuário.png" class="img-fluid"> <?= htmlspecialchars($_SESSION['nome'] ?? 'Usuário') ?>
+                        </span>
+                        </div>
+                        
+                    </div>
+                    <hr>
+                
+
+                <br>
+                <br>
+                <br>
 
                 <div class="sensor-container">
 

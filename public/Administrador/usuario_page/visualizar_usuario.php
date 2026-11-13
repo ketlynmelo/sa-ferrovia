@@ -84,14 +84,29 @@ if (!$usuario) {
 
 <main class="main">
 
-    <div class="rotas-header">
-        <div>
-            <h1>Detalhes do Funcionário</h1>
-            <p>Visualize as informações completas do funcionário cadastrado.</p>
-        </div>
+    <div class="container-fluid">
 
+         <a href="usuario.php" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Voltar
+            </a>
 
-    </div>
+            <br><br><br>
+
+           <div class="rotas-header">
+                    <div>
+                        <h1> Detalhes do Funcionário</h1>
+                        <p>Visualize as informações completas do usuário cadastrado.</p>
+                    </div>
+
+                    <div class="user">
+                    <span>
+                        <img src="../../../assets/images/usuário.png" class="img-fluid"> <?= htmlspecialchars($_SESSION['nome'] ?? 'Usuário') ?>
+                    </span>
+                </div>
+
+            </div>
+               
+            <hr>
 
     <div class="card-dashboard bg-white mb-4">
 

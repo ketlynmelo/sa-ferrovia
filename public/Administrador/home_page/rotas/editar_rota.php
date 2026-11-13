@@ -86,11 +86,27 @@ $resultadoTrens = mysqli_query($conn, $sqlTrens);
     <main class="main">
         <div class="container-fluid">
 
-            <h2 class="page-title">Editar Rota</h2>
+             <a href="cadastro_rotas.php" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Voltar
+            </a>
 
-            <p class="subtitulo-editar-rota">
-                Atualize as informações da rota ferroviária.
-            </p>
+            <br><br><br>
+
+           <div class="rotas-header">
+                    <div>
+                        <h1>Editar Rota</h1>
+                        <p>Edite as informações das rotas do sistema.</p>
+                    </div>
+
+                    <div class="user">
+                        <span>
+                            <img src="../../../../assets/images/usuário.png" class="img-fluid"> <?= htmlspecialchars($_SESSION['nome'] ?? 'Usuário') ?>
+                        </span>
+                    </div>
+
+            </div>
+               
+            <hr>
 
             <div class="editar-rota-card">
 

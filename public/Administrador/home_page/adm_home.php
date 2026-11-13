@@ -79,12 +79,12 @@ include "../../../infra/clima.php";
 
 
                 <h1 class="titulo">
-                    Bem vindo, Administrador!
+                    Bem vindo, <?= htmlspecialchars($_SESSION['nome'] ?? 'Usuário') ?>!
                 </h1>
 
                 <div class="user">
                     <span>
-                        <img src="../../../assets/images/usuário.png" class="img-fluid"> Administrador
+                        <img src="../../../assets/images/usuário.png" class="img-fluid"> <?= htmlspecialchars($_SESSION['nome'] ?? 'Usuário') ?>
                     </span>
                 </div>
 
@@ -94,7 +94,7 @@ include "../../../infra/clima.php";
 
             <div class="painel-superior">
 
-                <div class="card-clima">
+                <div class="card-clima"  >
                     <div class="clima-topo">
                         <div>
                             <h3>Clima atual</h3>
@@ -273,6 +273,8 @@ include "../../../infra/clima.php";
                 </div>
 
             </div>
+
+            <br><br>
 
             <div class="actions" style="display: absolute; justify-content: left;">
 

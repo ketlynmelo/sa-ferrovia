@@ -151,12 +151,6 @@ $resultadoUsuarios = mysqli_query(
                 <span>Usuários</span>
             </a>
 
-
-            <a href="../../home_page/relatorios/relatorios.php" class="menu-link">
-                <i class="bi bi-file-earmark-text"></i>
-                <span>Relatórios</span>
-            </a>
-
             <a href="../../logout.php" class="menu-link">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sair</span>
@@ -168,15 +162,26 @@ $resultadoUsuarios = mysqli_query(
 
         <main class="main">
 
-            <div class="container-fluid">
+            <a href="../../home_page/adm_home.php" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Voltar
+            </a>
 
-                <a href="../adm_home.php" class="btn btn-outline-secondary mb-3">
-                    <i class="bi bi-arrow-left"></i> Voltar
-                </a>
-                <br>
-                <br>
+            <br><br><br>
+            
+           <div class="rotas-header">
+                    <div>
+                        <h1>Editar Trens</h1>
+                        <p>Edite informações do trem cadastrado.</p>
+                    </div>
 
-            <h2 class="page-title">Editar Trem</h2>
+                    <div class="user">
+                    <span>
+                        <img src="../../../../assets/images/usuário.png" class="img-fluid"> <?= htmlspecialchars($_SESSION['nome'] ?? 'Usuário') ?>
+                    </span>
+
+            </div>
+               
+            <hr>
 
             <div class="editar-rota-card">
 

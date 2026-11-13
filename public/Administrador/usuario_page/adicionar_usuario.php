@@ -56,22 +56,27 @@ require_once "../../../infra/conexao.php";
     <main class="main">
         <div class="container-fluid">
 
-            <div class="header">
-                <div></div>
+             <a href="usuario.php" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Voltar
+            </a>
 
-                <div class="user">
-                    <span>
-                        <img src="../../../assets/images/usuário.png" class="img-fluid" alt="">
-                        Administrador
-                    </span>
-                </div>
+            <br><br><br>
+
+           <div class="rotas-header">
+                    <div>
+                        <h1>Cadastrar Usuários</h1>
+                        <p>Cadastre novos usuários no sistema.</p>
+                    </div>
+
+                    <div class="user">
+                        <span>
+                            <img src="../../../assets/images/usuário.png" class="img-fluid"> <?= htmlspecialchars($_SESSION['nome'] ?? 'Usuário') ?>
+                        </span>
+                    </div>
+
             </div>
-
-            <h2 class="page-title">Cadastrar Usuário</h2>
-
-            <p class="subtitulo-cadastro">
-                Cadastre um novo usuário ou administrador no sistema XRail.
-            </p>
+               
+            <hr>
 
             <div class="cadastro-usuario-card">
 

@@ -143,30 +143,23 @@ unset($_SESSION['erro_permissao']);
 
         <div class="container-fluid">
 
+    
+        <br>
+           <div class="rotas-header">
+                    <div>
+                        <h1>Gerenciamento de Usuários</h1>
+                        <p>Visualize, edite e exclua os usuários do sistema.</p>
+                    </div>
 
-            <div class="header">
-
-                <div></div>
-
-                <div class="user">
-
+                    <div class="user">
                     <span>
-                        <img src="../../../assets/images/usuário.png"
-                            class="img-fluid">
-
-                        Administrador
+                        <img src="../../../assets/images/usuário.png" class="img-fluid"> <?= htmlspecialchars($_SESSION['nome'] ?? 'Usuário') ?>
                     </span>
-
                 </div>
 
             </div>
-
-
-            <h2 class="page-title">
-                Adicionar Usuário / Administrador
-            </h2>
-
-
+               
+            <hr>
 
             <div class="d-flex flex-wrap gap-3 mb-4">
 

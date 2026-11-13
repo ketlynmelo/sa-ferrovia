@@ -107,16 +107,22 @@ function sv_esc($valor)
 
     <main class="main">
 
+        
+         <a href="adm_monitoramento.php" class="btn btn-outline-secondary">
+            <i class="bi bi-arrow-left"></i> Voltar
+        </a>
+
+        <br><br><br>
+
         <div class="rotas-header">
             <div>
                 <h1>Detalhes do Sensor</h1>
                 <p>Visualize as informações do sensor, do trem e da rota vinculados.</p>
             </div>
 
-            <a href="adm_monitoramento.php" class="btn btn-outline-secondary">
-                <i class="bi bi-arrow-left"></i> Voltar
-            </a>
         </div>
+
+        <hr>
 
         <?php if ($dados): ?>
 

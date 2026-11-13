@@ -95,6 +95,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <span>Rotas</span>
             </a>
 
+            <a href="../../../monitoramento_page/adm_monitoramento.php" class="menu-link ">
+                <i class="bi bi-graph-up"></i>
+                <span>Monitoramento</span>
+            </a>
+
             <a href="../../home_page/adm_home.php" class="menu-link ">
                 <i class="bi bi-people"></i>
                 <span>Usuários</span>
@@ -113,14 +118,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         <div class="container-fluid">
 
-        <a href="../adm_home.php" class="btn btn-outline-secondary mb-3">
+        <a href="../../home_page/adm_home.php" class="btn btn-outline-secondary">
             <i class="bi bi-arrow-left"></i> Voltar
         </a>
-        <br>
-        <br>
 
-            <h2 class="page-title">Cadastrar sensores</h2>
+        <br><br><br>
+            
+           <div class="rotas-header">
+                    <div>
+                        <h1>Cadastrar Sensores</h1>
+                        <p>Cadastre novos sensores no sistema.</p>
+                    </div>
 
+                    <div class="user">
+                        <span>
+                            <img src="../../../../assets/images/usuário.png" class="img-fluid"> <?= htmlspecialchars($_SESSION['nome'] ?? 'Usuário') ?>
+                        </span>
+                    </div>
+
+            </div>
+               
+            <hr>
+            
             <div class="editar-rota-card">
 
                 <div class="editar-rota-header">

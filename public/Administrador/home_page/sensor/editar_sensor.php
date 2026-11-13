@@ -166,13 +166,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
        <div class="container-fluid">
 
-        <a href="../adm_home.php" class="btn btn-outline-secondary mb-3">
-            <i class="bi bi-arrow-left"></i> Voltar
-        </a>
-        <br>
-        <br>
+            <a href="../../home_page/adm_home.php" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Voltar
+            </a>
 
-            <h2 class="page-title">Editar sensores</h2>
+            <br><br><br>
+                
+            <div class="rotas-header">
+                        <div>
+                            <h1>Editar Sensores</h1>
+                            <p>Atualize as informações dos sensores.</p>
+                        </div>
+
+                        <div class="user">
+                            <span>
+                                <img src="../../../../assets/images/usuário.png" class="img-fluid"> <?= htmlspecialchars($_SESSION['nome'] ?? 'Usuário') ?>
+                            </span>
+                        </div>
+            </div>
+                
+            <hr>
+
 
             <div class="editar-rota-card">
 

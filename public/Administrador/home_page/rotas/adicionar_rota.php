@@ -71,13 +71,36 @@ $resultadoTrens = mysqli_query($conn, $sqlTrens);
 
         <div class="container-fluid">
 
-            <a href="cadastro_rotas.php" class="btn btn-outline-secondary mb-3">
+            <a href="cadastro_rotas.php" class="btn btn-outline-secondary">
                 <i class="bi bi-arrow-left"></i> Voltar
             </a>
 
-            <div class="form-card" id="cadastrarTrem">
+            <br><br><br>
 
-                <h1 class="form-title">Cadastro de Rotas</h1>
+           <div class="rotas-header">
+                    <div>
+                        <h1>Adicionar Rota</h1>
+                        <p>Adicione novas rotas ao sistema.</p>
+                    </div>
+
+                    <div class="user">
+                    <span>
+                        <img src="../../../../assets/images/usuário.png" class="img-fluid"> <?= htmlspecialchars($_SESSION['nome'] ?? 'Usuário') ?>
+                    </span>
+                </div>
+
+            </div>
+               
+            <hr>
+
+             <div class="editar-rota-card">
+
+                <div class="editar-rota-header">
+                    <div class="editar-rota-icone">
+                        <i class="bi bi-train-freight-front"></i>
+                    </div>
+                    <h8>Nova Rota</h8>
+                </div>
 
                 <form action="rotas.php" method="POST" class="row g-3">
 

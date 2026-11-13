@@ -89,18 +89,29 @@ if (!$row) {
     <main class="main">
         <div class="container-fluid">
 
-            <div class="header">
-                <div></div>
+           
+            <a href="usuario.php" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Voltar
+            </a>
 
-                <div class="user">
-                    <span>
-                        <img src="../../../assets/images/usuário.png" class="img-fluid" alt="">
-                        Administrador
-                    </span>
-                </div>
+            <br><br><br>
+
+           <div class="rotas-header">
+                    <div>
+                        <h1>Editar Usuários</h1>
+                        <p>Edite as informações dos usuários do sistema.</p>
+                    </div>
+
+                    <div class="user">
+                        <span>
+                            <img src="../../../../assets/images/usuário.png" class="img-fluid"> <?= htmlspecialchars($_SESSION['nome'] ?? 'Usuário') ?>
+                        </span>
+                    </div>
+
             </div>
+               
+            <hr>
 
-            <h2 class="page-title">Editar Usuário</h2>
 
             <div class="editar-usuario-card">
 

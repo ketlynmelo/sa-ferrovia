@@ -66,21 +66,25 @@ $resultado = mysqli_query($conn, $sql);
     <main class="main">
 
         <div class="container-fluid">
+            
+        <br>
 
-            <div class="header">
+           <div class="rotas-header">
+                    <div>
+                        <h1>Gerenciar Rotas</h1>
+                        <p>Visualize, edite e exclua as informações das rotas do sistema.</p>
+                    </div>
 
-                <div></div>
-
-                <div class="user">
+                    <div class="user">
                     <span>
-                        <img src="../../../../assets/images/usuário.png"
-                            class="img-fluid"
-                            alt="Perfil do usuário">
-                        Administrador
+                        <img src="../../../../assets/images/usuário.png" class="img-fluid"> <?= htmlspecialchars($_SESSION['nome'] ?? 'Usuário') ?>
                     </span>
                 </div>
 
             </div>
+               
+            <hr>
+
 
                         <?php
                 $mensagens = [
@@ -103,7 +107,6 @@ $resultado = mysqli_query($conn, $sql);
 
             <?php } ?>
 
-            <h2 class="page-title">Gerenciamento de Rotas</h2>
 
             <div class="d-flex justify-content-end mb-4">
 
