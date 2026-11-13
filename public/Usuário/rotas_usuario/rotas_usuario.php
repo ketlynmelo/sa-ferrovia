@@ -62,15 +62,20 @@ $resultado = mysqli_query($conn, $sql);
 
         <div class="container-fluid">
 
+        <div class="rotas-header">
+            <div>
+                <h1>Gerenciamento de Rotas</h1>
+                <p>visualize as rotas programadas</p>
+            </div>
+
+            <a href="../home_page/usuario_home.php" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Voltar
+            </a>
+        </div>
+
             <div class="header">
 
                 <div></div>
-
-                <div class="user">
-                    <span>
-                        <img src="../../../assets/images/usuário.png" class="img-fluid"> Usuário
-                    </span>
-                </div>
 
             </div>
 
@@ -95,7 +100,7 @@ $resultado = mysqli_query($conn, $sql);
 
             <?php } ?>
 
-            <h2 class="page-title">Gerenciamento de Rotas</h2>
+            <h2 class="page-title"></h2>
 
             <div class="d-flex justify-content-end mb-4">
 

@@ -80,7 +80,7 @@ function sv_esc($valor)
                 <span>Início</span>
             </a>
 
-            <a href="../home_page/rotas/cadastro_rotas.php" class="menu-link">
+            <a href="../rotas_usuario/rotas_usuario.php" class="menu-link">
                 <i class="bi bi-train-freight-front"></i>
                 <span>Rotas</span>
             </a>
@@ -107,7 +107,7 @@ function sv_esc($valor)
                 <p>Visualize as informações do sensor, do trem e da rota vinculados.</p>
             </div>
 
-            <a href="adm_monitoramento.php" class="btn btn-outline-secondary">
+            <a href="../home_page/usuario_home.php" class="btn btn-outline-secondary">
                 <i class="bi bi-arrow-left"></i> Voltar
             </a>
         </div>
@@ -372,19 +372,6 @@ function sv_esc($valor)
 
             </div>
 
-            <div class="d-flex justify-content-end gap-2 mt-4 pt-3 border-top">
-
-                <a href="adm_monitoramento.php" class="btn btn-outline-secondary mb-3">
-                    <i class="bi bi-arrow-left"></i> Voltar
-                </a>
-
-                <a href="../home_page/sensor/editar_sensor.php?id_Sensor=<?= (int) $dados['id_Sensor'] ?>"
-                    class="btn-custom d-inline-flex align-items-center justify-content-center gap-2">
-                    <i class="bi bi-pencil-square"></i>
-                    Editar sensor
-                </a>
-
-            </div>
 
         <?php else: ?>
 
