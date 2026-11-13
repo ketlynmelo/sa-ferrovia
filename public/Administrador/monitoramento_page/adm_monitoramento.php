@@ -100,6 +100,7 @@ include_once "../../../infra/clima.php";
 
 </main>
 
+<img src="../../../assets/images/trem1.png" alt="Trem X-Rail" class="trem-monitoramento">
 
     </body>
 
