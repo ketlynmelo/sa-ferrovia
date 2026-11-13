@@ -46,7 +46,6 @@ if (!empty($senha)) {
         nome = ?,
         cpf = ?,
         data_nascimento = ?,
-        endereco = ?,
         email = ?,
         senha = ?,
         tipo_conta = ?,
@@ -61,12 +60,15 @@ if (!empty($senha)) {
 
     $stmt = $conn->prepare($sql);
 
+    if (!$stmt) {
+    die("Erro na preparação SQL: " . $conn->error);
+    }
+
     $stmt->bind_param(
-        "ssssssssssssssi",
+        "ssssssssssssi",
         $nome,
         $cpf,
         $data_nascimento,
-        $endereco,
         $email,
         $senhaHash,
         $tipo_conta,
@@ -86,7 +88,6 @@ if (!empty($senha)) {
         nome = ?,
         cpf = ?,
         data_nascimento = ?,
-        endereco = ?,
         email = ?,
         tipo_conta = ?,
         status = ?,
@@ -100,12 +101,15 @@ if (!empty($senha)) {
 
     $stmt = $conn->prepare($sql);
 
+    if (!$stmt) {
+    die("Erro na preparação SQL: " . $conn->error);
+    }
+
     $stmt->bind_param(
-        "sssssssssssssi",
+        "ssssssssssssi",
         $nome,
         $cpf,
         $data_nascimento,
-        $endereco,
         $email,
         $tipo_conta,
         $status,
