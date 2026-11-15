@@ -62,16 +62,26 @@ $resultado = mysqli_query($conn, $sql);
 
         <div class="container-fluid">
 
-        <div class="rotas-header">
-            <div>
-                <h1>Gerenciamento de Rotas</h1>
-                <p>visualize as rotas programadas</p>
-            </div>
-
-            <a href="../home_page/usuario_home.php" class="btn btn-outline-secondary">
+           <a href="usuario_monitoramento.php" class="btn btn-outline-secondary">
                 <i class="bi bi-arrow-left"></i> Voltar
             </a>
-        </div>
+
+            <br><br>
+            
+            <div class="rotas-header">
+
+                <div>
+                    <h1>Gerenciamento de Rotas</h1>
+                    <p>Visualize as rotas programadas</p>
+                </div>
+
+                <div class="user">
+                    <span>
+                        <img src="../../../assets/images/usuário.png" class="img-fluid"> <?= htmlspecialchars($_SESSION['nome'] ?? 'Usuário') ?>
+                    </span>
+                </div>
+
+            </div>  
 
             <div class="header">
 

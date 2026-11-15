@@ -59,17 +59,22 @@
 
         <div class="container-fluid">
 
+           
             <div class="header">
 
+
                 <h1 class="titulo">
-                    Bem vindo, Usuário!
+                    Bem vindo, <?= htmlspecialchars($_SESSION['nome'] ?? 'Usuário') ?>!
                 </h1>
 
                 <div class="user">
                     <span>
-                        <img src="../../../assets/images/usuário.png" class="img-fluid"> Usuário
+                        <img src="../../../assets/images/usuário.png" class="img-fluid"> <?= htmlspecialchars($_SESSION['nome'] ?? 'Usuário') ?>
                     </span>
                 </div>
+
+            </div>
+
 
             </div>
 

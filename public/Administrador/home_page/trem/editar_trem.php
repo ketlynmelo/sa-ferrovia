@@ -108,7 +108,6 @@ $resultadoUsuarios = mysqli_query(
 
 ?>
 
-<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
@@ -135,34 +134,28 @@ $resultadoUsuarios = mysqli_query(
 
         <nav class="d-flex flex-column">
 
-           <a href="../adm_home.php" class="menu-link">
+            <a href="../adm_home.php" class="menu-link active">
                 <i class="bi bi-house-fill"></i>
                 <span>Início</span>
             </a>
-
-
+            
             <a href="../../home_page/rotas/cadastro_rotas.php" class="menu-link">
                 <i class="bi bi-train-freight-front"></i>
                 <span>Rotas</span>
             </a>
 
+
             <a href="../../monitoramento_page/adm_monitoramento.php" class="menu-link">
-    <i class="bi bi-graph-up"></i>
-    <span>Monitoramento</span>
-</a>
-        
+                <i class="bi bi-graph-up"></i>
+                <span>Monitoramento</span>
+            </a>
 
             <a href="../../usuario_page/usuario.php" class="menu-link">
                 <i class="bi bi-people"></i>
                 <span>Usuários</span>
             </a>
 
-<<<<<<< HEAD
-            <a href="../../logout.php" class="menu-link">
-=======
-
             <a href="../../../../logout.php" class="menu-link">
->>>>>>> be601434faf074e3d8ed484de3d49a6603c792cb
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sair</span>
             </a>
@@ -173,6 +166,8 @@ $resultadoUsuarios = mysqli_query(
 
         <main class="main">
 
+        <div class="container-fluid">
+            
             <a href="../../home_page/adm_home.php" class="btn btn-outline-secondary">
                 <i class="bi bi-arrow-left"></i> Voltar
             </a>
@@ -189,7 +184,7 @@ $resultadoUsuarios = mysqli_query(
                     <span>
                         <img src="../../../../assets/images/usuário.png" class="img-fluid"> <?= htmlspecialchars($_SESSION['nome'] ?? 'Usuário') ?>
                     </span>
-
+                    </div>
             </div>
                
             <hr>

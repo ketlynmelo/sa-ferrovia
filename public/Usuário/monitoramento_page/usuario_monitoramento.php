@@ -62,7 +62,7 @@ include_once "../../../infra/conexao.php";
 
                 <div class="user">
                     <span>
-                        <img src="../../../assets/images/usuário.png" class="img-fluid"> Usuário
+                        <img src="../../../assets/images/usuário.png" class="img-fluid"> <?= htmlspecialchars($_SESSION['nome'] ?? 'Usuário') ?>
                     </span>
                 </div>
 
