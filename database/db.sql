@@ -35,13 +35,6 @@ ADD CONSTRAINT fk_sensor_trem
 FOREIGN KEY (Trem_id_Trem)
 REFERENCES trem(id_Trem);
 
-CREATE TABLE relatorio (
-    id_Relatorio INT PRIMARY KEY  AUTO_INCREMENT NOT NULL,
-    titulo VARCHAR(100) NOT NULL,
-    descricao TEXT NOT NULL,
-    data_geracao DATETIME NOT NULL
-);
-
 
 CREATE TABLE rota (
     id_Rota INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -83,12 +76,3 @@ CREATE TABLE usuario (
 
 Insert into usuario
 VALUES (null, 'Adm', '12345678912', '2004-03-12', 'adm@gmail.com', '$2y$10$Mhr9MVrbBi0r8Gnp56BAsO9EdyOoLQLwu2gHyN5VLhITeIxWQxeKO', 'Administrador', 'Ativo', '89239-000', 'Rua Eugenio Ernesto Kunde', 'Pirabeiraba', 'Joinville', '348', 'SC' );
-
--- ALTER TABLE usuario
--- ADD COLUMN cep VARCHAR(9) NULL,
--- ADD COLUMN logradouro VARCHAR(150) NULL,
--- ADD COLUMN numero VARCHAR(10) NULL,
--- ADD COLUMN bairro VARCHAR(100) NULL,
--- ADD COLUMN cidade VARCHAR(100) NULL,
--- ADD COLUMN estado VARCHAR(2) NULL,
--- ADD COLUMN uf CHAR(2) NULL;
