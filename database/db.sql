@@ -12,14 +12,6 @@ CREATE TABLE trem (
     Usuario_id_Usuario INT NULL;
     CONSTRAINT fk_trem_usuario
     FOREIGN KEY (Usuario_id_Usuario) REFERENCES usuario(id_Usuario);
-
---  ALTER TABLE trem
--- ADD COLUMN Usuario_id_Usuario INT NULL;
-
--- ALTER TABLE trem
--- ADD CONSTRAINT fk_trem_usuario
--- FOREIGN KEY (Usuario_id_Usuario)
--- REFERENCES usuario(id_Usuario);
 );
 
 CREATE TABLE sensor (
