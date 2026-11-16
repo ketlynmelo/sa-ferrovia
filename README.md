@@ -686,24 +686,33 @@ A documentação da metodologia está disponível em documentos/pesquisa_scrum.m
 
 ## Versão Final do Sistema
 
-Algumas imagens da versão final do sistema XRAIL:
+Algumas imagens das telas principais da versão final do sistema XRAIL:
 
-![Sistema XRAIL](README_assets/sistema-000.png)
+<img width="1855" height="867" alt="image" src="https://github.com/user-attachments/assets/776d57e5-aae8-4943-adcd-b8a86f659d2d" />
 
-![Sistema XRAIL](README_assets/sistema-001.png)
+<img width="1882" height="892" alt="image" src="https://github.com/user-attachments/assets/17740798-578b-4680-9065-17726522238c" />
 
-![Sistema XRAIL](README_assets/sistema-002.png)
+<img width="1862" height="857" alt="image" src="https://github.com/user-attachments/assets/1e5bcf40-9dfc-441b-b12b-f69e6aca41f8" />
 
-![Sistema XRAIL](README_assets/sistema-003.png)
+<img width="1901" height="872" alt="image" src="https://github.com/user-attachments/assets/dbba4f67-8647-4ac1-952d-ae6d9bdc8e90" />
 
-![Sistema XRAIL](README_assets/sistema-004.png)
+<img width="1903" height="862" alt="image" src="https://github.com/user-attachments/assets/93ef6594-9983-4149-80b3-c4b89064be43" />
 
-![Sistema XRAIL](README_assets/sistema-005.png)
+<img width="1911" height="848" alt="image" src="https://github.com/user-attachments/assets/15b91402-9156-40eb-aa98-1ab37d4e8d30" />
 
-![Sistema XRAIL](README_assets/sistema-006.png)
+<img width="1908" height="868" alt="image" src="https://github.com/user-attachments/assets/42503ed1-da28-4b69-ac93-5e77956d693f" />
 
-![Sistema XRAIL](README_assets/sistema-007.png)
+<img width="1880" height="757" alt="image" src="https://github.com/user-attachments/assets/c9432866-45c2-4269-978b-81cabb8692d6" />
 
-![Sistema XRAIL](README_assets/sistema-008.png)
+<img width="1877" height="865" alt="image" src="https://github.com/user-attachments/assets/397bb36d-3960-4f13-8d09-f94e684760a2" />
+
+<img width="1912" height="875" alt="image" src="https://github.com/user-attachments/assets/7cb9bfe8-fe12-4e8e-9002-523055acb9aa" />
+
+<img width="1892" height="841" alt="image" src="https://github.com/user-attachments/assets/885fd111-05a4-4f5b-9815-3d6a5f9ef803" />
+
+<img width="1857" height="856" alt="image" src="https://github.com/user-attachments/assets/c4b180bd-f3d3-42a0-a15d-0ed2d55bc147" />
+
+
+
 
 XRAIL — Tecnologia, organização e monitoramento ferroviário.
