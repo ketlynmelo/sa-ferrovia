@@ -9,9 +9,9 @@ CREATE TABLE trem (
     modelo VARCHAR(50) NOT NULL,
     carga VARCHAR(50) NOT NULL,
     velocidade VARCHAR(45) NOT NULL,
-    Usuario_id_Usuario INT NULL;
+    Usuario_id_Usuario INT NULL,
     CONSTRAINT fk_trem_usuario
-    FOREIGN KEY (Usuario_id_Usuario) REFERENCES usuario(id_Usuario);
+    FOREIGN KEY (Usuario_id_Usuario) REFERENCES usuario(id_Usuario)
 );
 
 CREATE TABLE sensor (
@@ -39,13 +39,13 @@ CREATE TABLE rota (
     FOREIGN KEY (sensor_id) REFERENCES sensor(id_Sensor)
     );
 
---     ALTER TABLE rota
--- ADD COLUMN trem_id INT NULL;
+ALTER TABLE rota
+ADD COLUMN trem_id INT NULL;
 
--- ALTER TABLE rota
--- ADD CONSTRAINT fk_rota_trem
--- FOREIGN KEY (trem_id)
--- REFERENCES trem(id_Trem);
+ALTER TABLE rota
+ADD CONSTRAINT fk_rota_trem
+FOREIGN KEY (trem_id)
+REFERENCES trem(id_Trem);
 
 
 CREATE TABLE usuario (
