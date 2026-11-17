@@ -20,7 +20,7 @@ A aplicação também conta com diferentes níveis de acesso. O administrador po
 * Cadastro de sensores
 * Edição de sensores
 * Exclusão de sensores
-* Associação entre sensores e trens
+* Associação entre sensores e rotas
 * Monitoramento dos trens
 * Visualização dos dados dos sensores
 * Alertas de situações anormais

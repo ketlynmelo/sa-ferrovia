@@ -11,11 +11,9 @@ $dados = null;
 if ($idBusca) {
 
     $sql = "SELECT s.id_Sensor, s.nome_sensor, s.localizacao, s.tipo_dado,
-                   t.id_Trem, t.nome_trem, t.modelo, t.carga, t.velocidade,
                    r.id_Rota, r.nome_rota, r.horario_rota, r.ponto_inicial,
                    r.ponto_final, r.distancia
             FROM sensor s
-            INNER JOIN trem t ON t.id_Trem = s.Trem_id_Trem
             LEFT JOIN rota r ON r.sensor_id = s.id_Sensor
             WHERE s.id_Sensor = ?
             ORDER BY r.id_Rota
@@ -114,7 +112,7 @@ function sv_esc($valor)
 
                 <div>
                     <h1>Detalhes do Sensor</h1>
-                    <p>Visualize as informações do sensor, do trem e da rota vinculados.</p>
+                    <p>Visualize as informações do sensor e da rota vinculada.</p>
                 </div>
 
                 <div class="user">
@@ -225,17 +223,6 @@ function sv_esc($valor)
                         <div class="col-md-6">
                             <div class="border rounded-3 p-3 h-100">
                                 <small class="text-muted d-block mb-2">
-                                    <i class="bi bi-train-freight-front me-2"></i>Trem vinculado
-                                </small>
-                                <span class="fw-semibold">
-                                    <?= sv_esc($dados['nome_trem']) ?> (ID <?= (int) $dados['id_Trem'] ?>)
-                                </span>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="border rounded-3 p-3 h-100">
-                                <small class="text-muted d-block mb-2">
                                     <i class="bi bi-signpost-split me-2"></i>Rota vinculada
                                 </small>
                                 <span class="fw-semibold">
@@ -243,64 +230,6 @@ function sv_esc($valor)
                                         ? sv_esc($dados['nome_rota']) . ' (ID ' . (int) $dados['id_Rota'] . ')'
                                         : 'Nenhuma rota vinculada' ?>
                                 </span>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Trem vinculado -->
-                <div class="card-dashboard bg-white mb-4">
-
-                    <h5 class="fw-bold mb-4">
-                        <i class="bi bi-train-freight-front me-2" style="color: #44539c;"></i>
-                        Trem vinculado
-                    </h5>
-
-                    <div class="row g-4">
-
-                        <div class="col-md-6">
-                            <div class="border rounded-3 p-3 h-100">
-                                <small class="text-muted d-block mb-2">
-                                    <i class="bi bi-hash me-2"></i>ID do trem
-                                </small>
-                                <span class="fw-semibold"><?= (int) $dados['id_Trem'] ?></span>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="border rounded-3 p-3 h-100">
-                                <small class="text-muted d-block mb-2">
-                                    <i class="bi bi-train-freight-front me-2"></i>Nome do trem
-                                </small>
-                                <span class="fw-semibold"><?= sv_esc($dados['nome_trem']) ?></span>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="border rounded-3 p-3 h-100">
-                                <small class="text-muted d-block mb-2">
-                                    <i class="bi bi-tag me-2"></i>Modelo
-                                </small>
-                                <span class="fw-semibold"><?= sv_esc($dados['modelo']) ?></span>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="border rounded-3 p-3 h-100">
-                                <small class="text-muted d-block mb-2">
-                                    <i class="bi bi-box-seam me-2"></i>Carga
-                                </small>
-                                <span class="fw-semibold"><?= sv_esc($dados['carga']) ?></span>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="border rounded-3 p-3 h-100">
-                                <small class="text-muted d-block mb-2">
-                                    <i class="bi bi-speedometer2 me-2"></i>Velocidade
-                                </small>
-                                <span class="fw-semibold"><?= sv_esc($dados['velocidade']) ?></span>
                             </div>
                         </div>
 

@@ -221,7 +221,7 @@ include "../../../infra/clima.php";
                             <tr>
                                 <th>ID do sensor</th>
                                 <th>Nome</th>
-                                <th>Trem vinculado</th>
+                                <th>Rota vinculada</th>
                                 <th>Localização</th>
                                 <th>Tipo de Dado</th>
                                 <th class="text-center">Ações</th>
@@ -230,7 +230,11 @@ include "../../../infra/clima.php";
                         <tbody id="corpoTabela">
 
                             <?php
-                                $sql = "SELECT * FROM sensor";
+                                $sql = "SELECT s.*, (
+                                    SELECT r.nome_rota FROM rota r
+                                    WHERE r.sensor_id = s.id_Sensor
+                                    ORDER BY r.id_Rota LIMIT 1
+                                ) AS nome_rota FROM sensor s";
                                 $resultado = mysqli_query($conn, $sql);
 
                                 while ($sensor = mysqli_fetch_assoc($resultado)) {
@@ -240,7 +244,7 @@ include "../../../infra/clima.php";
                                 <tr>
                                     <td><?php echo $sensor['id_Sensor'] ?></td>
                                     <td><?php echo $sensor['nome_sensor'] ?></td>
-                                    <td><?php echo $sensor['Trem_id_Trem'] ?></td>
+                                    <td><?php echo htmlspecialchars($sensor['nome_rota'] ?? 'Sem rota') ?></td>
                                     <td><?php echo $sensor['localizacao'] ?></td>
                                     <td><?php echo $sensor['tipo_dado'] ?></td>
 

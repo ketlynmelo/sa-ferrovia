@@ -24,10 +24,6 @@ if (!$sensor) {
     die("Sensor não encontrado.");
 }
 
-$trens = $conn->query(
-    "SELECT id_Trem, nome_trem FROM trem ORDER BY nome_trem"
-);
-
 /* Rotas livres + a rota que já pertence a este sensor */
 $stmtRotas = $conn->prepare(
     "SELECT id_Rota, nome_rota, ponto_inicial, ponto_final, sensor_id
@@ -51,10 +47,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome = trim($_POST['nome_sensor'] ?? '');
     $localizacao = trim($_POST['localizacao'] ?? '');
     $tipo = trim($_POST['tipo_dado'] ?? '');
-    $trem = filter_input(INPUT_POST, 'Trem_id_Trem', FILTER_VALIDATE_INT);
     $rota = filter_input(INPUT_POST, 'Rota_id_Rota', FILTER_VALIDATE_INT);
 
-    if ($nome === '' || $localizacao === '' || $tipo === '' || !$trem || !$rota) {
+    if ($nome === '' || $localizacao === '' || $tipo === '' || !$rota) {
         die("Preencha todos os campos corretamente.");
     }
 
@@ -64,10 +59,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         /* 1. Atualiza os dados do sensor */
         $stmt = $conn->prepare(
             "UPDATE sensor
-             SET nome_sensor = ?, localizacao = ?, tipo_dado = ?, Trem_id_Trem = ?
+             SET nome_sensor = ?, localizacao = ?, tipo_dado = ?
              WHERE id_Sensor = ?"
         );
-        $stmt->bind_param("sssii", $nome, $localizacao, $tipo, $trem, $id);
+        $stmt->bind_param("sssi", $nome, $localizacao, $tipo, $id);
         $stmt->execute();
         $stmt->close();
 
@@ -241,22 +236,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                     id="es_localizacao" name="localizacao"
                                     value="<?= htmlspecialchars($sensor['localizacao']) ?>"
                                     required>
-                            </div>
-
-                            <div class="col-12">
-                                <label for="es_trem" class="form-label">Trem vinculado</label>
-                                <select class="form-select" id="es_trem"
-                                        name="Trem_id_Trem" required>
-
-                                    <?php while ($trem = $trens->fetch_assoc()) { ?>
-                                        <option value="<?= $trem['id_Trem'] ?>"
-                                            <?= $trem['id_Trem'] == $sensor['Trem_id_Trem']
-                                                ? 'selected' : '' ?>>
-                                            <?= htmlspecialchars($trem['nome_trem']) ?>
-                                        </option>
-                                    <?php } ?>
-
-                                </select>
                             </div>
 
                             <div class="col-12">

@@ -15,10 +15,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nome        = trim($_POST["nome_sensor"] ?? '');
     $localizacao = trim($_POST["localizacao"] ?? '');
     $tipo        = $_POST["tipo_dado"] ?? '';
-    $trem        = filter_input(INPUT_POST, "Trem_id_Trem", FILTER_VALIDATE_INT);
     $rota        = filter_input(INPUT_POST, "Rota_id_Rota", FILTER_VALIDATE_INT);
 
-    if ($nome === '' || $localizacao === '' || $tipo === '' || !$trem || !$rota) {
+    if ($nome === '' || $localizacao === '' || $tipo === '' || !$rota) {
         header("Location: ../adm_home.php?mensagem=erro");
         exit;
     }
@@ -27,10 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     try {
         $stmt = $conn->prepare(
-            "INSERT INTO sensor (nome_sensor, localizacao, tipo_dado, Trem_id_Trem)
-             VALUES (?, ?, ?, ?)"
+            "INSERT INTO sensor (nome_sensor, localizacao, tipo_dado)
+             VALUES (?, ?, ?)"
         );
-        $stmt->bind_param("sssi", $nome, $localizacao, $tipo, $trem);
+        $stmt->bind_param("sss", $nome, $localizacao, $tipo);
         $stmt->execute();
         $idSensor = $conn->insert_id;
         $stmt->close();
@@ -177,28 +176,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <option value="Localização">Localização</option>
                                 <option value="Vibração">Vibração</option>
                             </select>
-                        </div>
-
-                        <div class="col-12">
-                            
-                            <label for="ct_carga" class="form-label">Trem</label>
-                            <select class="form-select" id="ct_trem" name="Trem_id_Trem" required>
-
-                                <option value="" selected disabled>
-                                    Selecione um trem
-                                </option>
-
-                                <?php
-                                    $sqlTrem = "SELECT id_Trem, nome_trem FROM trem";
-                                    $resultadoTrem = mysqli_query($conn, $sqlTrem);
-
-                                    while ($trem = mysqli_fetch_assoc($resultadoTrem)) {
-                                        echo '<option value="' . $trem['id_Trem'] . '">' . htmlspecialchars($trem['nome_trem']) . '</option>';
-                                    }
-                                ?>
-
-                            </select>
-
                         </div>
 
                         <div class="col-12">
