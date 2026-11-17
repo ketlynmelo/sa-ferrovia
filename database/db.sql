@@ -3,6 +3,54 @@ CREATE DATABASE situação_aprendizagem;
 USE situação_aprendizagem;
 
 
+<<<<<<< HEAD
+=======
+CREATE TABLE trem (
+    id_Trem INT PRIMARY KEY  AUTO_INCREMENT NOT NULL,
+    nome_trem VARCHAR(50) NOT NULL,
+    modelo VARCHAR(50) NOT NULL,
+    carga VARCHAR(50) NOT NULL,
+    velocidade VARCHAR(45) NOT NULL,
+    Usuario_id_Usuario INT NULL,
+    CONSTRAINT fk_trem_usuario
+    FOREIGN KEY (Usuario_id_Usuario) REFERENCES usuario(id_Usuario)
+);
+
+CREATE TABLE sensor (
+    id_Sensor INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    nome_sensor VARCHAR(45) NOT NULL,
+    localizacao VARCHAR(45) NOT NULL,
+    tipo_dado ENUM('Velocidade', 'Temperatura', 'Falha', 'Vibração', 'Localização', 'Proximidade') NOT NULL   
+);
+
+ALTER TABLE sensor
+ADD COLUMN Trem_id_Trem INT NOT NULL,
+ADD CONSTRAINT fk_sensor_trem
+FOREIGN KEY (Trem_id_Trem)
+REFERENCES trem(id_Trem);
+
+
+CREATE TABLE rota (
+    id_Rota INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    nome_rota VARCHAR(45) NOT NULL,
+    horario_rota VARCHAR(45) NOT NULL,
+    ponto_inicial VARCHAR(45) NOT NULL,
+    ponto_final VARCHAR(45) NOT NULL,
+    distancia VARCHAR(45) NOT NULL,
+    sensor_id INT,
+    FOREIGN KEY (sensor_id) REFERENCES sensor(id_Sensor)
+    );
+
+ALTER TABLE rota
+ADD COLUMN trem_id INT NULL;
+
+ALTER TABLE rota
+ADD CONSTRAINT fk_rota_trem
+FOREIGN KEY (trem_id)
+REFERENCES trem(id_Trem);
+
+
+>>>>>>> 4a04409e2a65e079b6baeff1128ecd880720cd33
 CREATE TABLE usuario (
     id_Usuario INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
     nome VARCHAR(100) NOT NULL,
