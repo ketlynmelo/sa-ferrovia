@@ -303,7 +303,7 @@ function sv_esc($valor)
                         <div class="col-md-6">
                             <div class="border rounded-3 p-3 h-100">
                                 <small class="text-muted d-block mb-2">
-                                    <i class="bi bi-train"></i>Trem vinculado
+                                    <i class="bi bi-train-freight-front"></i>  Trem vinculado
                                 </small>
                                 <span class="fw-semibold"><?= sv_esc($dados['nome_trem']) ?></span>
                             </div>
