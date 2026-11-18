@@ -13,9 +13,10 @@ if ($idBusca) {
 
     $sql = "SELECT s.id_Sensor, s.nome_sensor, s.localizacao, s.tipo_dado,
                    r.id_Rota, r.nome_rota, r.horario_rota, r.ponto_inicial,
-                   r.ponto_final, r.distancia
+                   r.ponto_final, r.distancia, t.id_Trem, t.nome_trem
             FROM sensor s
             LEFT JOIN rota r ON r.sensor_id = s.id_Sensor
+            LEFT JOIN trem t ON t.id_Trem = r.trem_id
             WHERE s.id_Sensor = ?
             ORDER BY r.id_Rota
             LIMIT 1";
@@ -296,6 +297,15 @@ function sv_esc($valor)
                                     <i class="bi bi-flag me-2"></i>Ponto final
                                 </small>
                                 <span class="fw-semibold"><?= sv_esc($dados['ponto_final']) ?></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="border rounded-3 p-3 h-100">
+                                <small class="text-muted d-block mb-2">
+                                    <i class="bi bi-train"></i>Trem vinculado
+                                </small>
+                                <span class="fw-semibold"><?= sv_esc($dados['nome_trem']) ?></span>
                             </div>
                         </div>
 
